@@ -1,0 +1,5 @@
+<map id="BaseMobility::getCurrentPosition" name="BaseMobility::getCurrentPosition">
+<area shape="rect" id="node2" href="$class_tra_c_i_demo11p.html#a173cade98af1b12755ee6dbac4e7584e" title="TraCIDemo11p::handleParking\lUpdate" alt="" coords="222,5,423,46"/>
+<area shape="rect" id="node4" href="$class_tra_c_i_demo_r_s_u11p.html#ac9d01a67de93ec7f9e64ce7c664c370f" title="TraCIDemoRSU11p::onData" alt="" coords="227,71,418,97"/>
+<area shape="rect" id="node3" href="$class_tra_c_i_demo11p.html#a63c38f89463a42420b046dd8170117b6" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="472,12,669,39"/>
+</map>

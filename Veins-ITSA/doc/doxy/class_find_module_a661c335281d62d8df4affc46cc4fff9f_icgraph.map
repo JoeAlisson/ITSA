@@ -1,0 +1,51 @@
+<map id="FindModule::findSubModule" name="FindModule::findSubModule">
+<area shape="rect" id="node2" href="$class_find_module.html#a36e4632a6c8c7dbdc177639957a8e62a" title="Returns a pointer to the module with the type of this template. " alt="" coords="244,292,441,319"/>
+<area shape="rect" id="node20" href="$class_veins_1_1_tra_c_i_test_app.html#a634a6ed505d6ff32b4b035c14e6a4e4b" title="Veins::TraCITestApp\l::handlePositionUpdate" alt="" coords="1488,697,1645,738"/>
+<area shape="rect" id="node39" href="$class_access_module_wrap.html#aabe6dcb792c40ce4c77b2f194aadbe5f" title="AccessModuleWrap::get" alt="" coords="260,915,425,941"/>
+<area shape="rect" id="node45" href="$class_veins_1_1_tra_c_i_mobility_access.html#aa2788845910c6afc0b6068d9bf71bdd3" title="Veins::TraCIMobilityAccess::get" alt="" coords="237,813,448,840"/>
+<area shape="rect" id="node47" href="$class_base_wave_appl_layer.html#aa6a5eb1c331615fa7d87bcec1d816f8c" title="Initialization of the module and some variables. " alt="" coords="521,682,673,723"/>
+<area shape="rect" id="node48" href="$class_base_mac_layer.html#a61c82dc3b225eac37f7fa9936c28c2c3" title="Initialization of the module and some variables. " alt="" coords="261,1016,425,1043"/>
+<area shape="rect" id="node49" href="$class_mac1609__4.html#a898fd0c2fee5cc98d17cac36368133a6" title="States of the channel selecting operation. " alt="" coords="525,999,669,1025"/>
+<area shape="rect" id="node50" href="$class_veins_1_1_battery_access.html#a2286e83003b2919cbb496260a5b0d009" title="Registers this module as a device with the battery module. " alt="" coords="268,1067,417,1109"/>
+<area shape="rect" id="node3" href="$class_veins_1_1_tra_c_i_scenario_manager_launchd_access.html#a0d630ea2a92db7e07d4bfe0d5a55ca10" title="Veins::TraCIScenarioManager\lLaunchdAccess::get" alt="" coords="499,434,696,475"/>
+<area shape="rect" id="node4" href="$class_veins_1_1_tra_c_i_scenario_manager_access.html#af6404515b1b992848f352b03d325b10d" title="Veins::TraCIScenarioManager\lAccess::get" alt="" coords="499,369,696,410"/>
+<area shape="rect" id="node24" href="$class_veins_1_1_channel_access.html#a0dc69d65185a429fcd739d4eadedb504" title="Returns a pointer to the ConnectionManager responsible for the passed NIC module. ..." alt="" coords="515,5,679,46"/>
+<area shape="rect" id="node26" href="$class_veins_1_1_annotation_manager_access.html#a2c602699c6a6878cfaccfc2553ff839f" title="Veins::AnnotationManager\lAccess::getIfExists" alt="" coords="510,617,685,658"/>
+<area shape="rect" id="node30" href="$class_tra_c_i_demo11p.html#a173cade98af1b12755ee6dbac4e7584e" title="TraCIDemo11p::handleParking\lUpdate" alt="" coords="497,135,698,177"/>
+<area shape="rect" id="node32" href="$class_veins_1_1_tra_c_i_scenario_manager.html#aad635968bbaf0a2b9ed0cade319a8830" title="Veins::TraCIScenarioManager\l::initialize" alt="" coords="499,201,696,242"/>
+<area shape="rect" id="node34" href="$class_base_mobility.html#aa89e41596faff0067340643acbab27d0" title="Initializes mobility model parameters. " alt="" coords="521,267,673,293"/>
+<area shape="rect" id="node36" href="$class_base_phy_layer.html#a08704deaf03b73c8eda67cc60e670853" title="OMNeT++ initialization function. " alt="" coords="516,317,679,344"/>
+<area shape="rect" id="node38" href="$class_base_connection_manager.html#a0d39342f1e732ad44ef7e4e2dccac24f" title="Reads init parameters and calculates a maximal interference distance. " alt="" coords="513,70,681,111"/>
+<area shape="rect" id="node5" href="$class_veins_1_1_annotation_manager.html#a87ffa1c7edbccb8372a4551b73c73def" title="Veins::AnnotationManager\l::show" alt="" coords="758,369,933,410"/>
+<area shape="rect" id="node14" href="$class_veins_1_1_annotation_manager.html#ae7cd5fba58d72f4351963b9a6c95e669" title="Veins::AnnotationManager\l::hide" alt="" coords="758,434,933,475"/>
+<area shape="rect" id="node17" href="$class_veins_1_1_tra_c_i_mobility.html#a9112501e8dffb3ef22fc5c571a016ed1" title="Veins::TraCIMobility\l::getManager" alt="" coords="775,558,916,599"/>
+<area shape="rect" id="node6" href="$class_veins_1_1_annotation_manager.html#ae661e9164bc6810b5296e330a6923cc5" title="Veins::AnnotationManager\l::drawPoint" alt="" coords="1009,238,1183,279"/>
+<area shape="rect" id="node8" href="$class_veins_1_1_annotation_manager.html#a4e92e8dd00db918dda24085571ef234e" title="Veins::AnnotationManager\l::drawLine" alt="" coords="1009,173,1183,214"/>
+<area shape="rect" id="node11" href="$class_veins_1_1_annotation_manager.html#a250a47fb5e1390f8b4de2128a4aed175" title="Veins::AnnotationManager\l::drawPolygon" alt="" coords="1009,303,1183,345"/>
+<area shape="rect" id="node13" href="$class_veins_1_1_annotation_manager.html#a5aeb55b31919c887fce7332cd8d98152" title="Veins::AnnotationManager\l::showAll" alt="" coords="1009,369,1183,410"/>
+<area shape="rect" id="node7" href="$class_veins_1_1_annotation_manager.html#a946e1967906528815fbe61cb8cfb2986" title="adds Annotations from an XML document; example below. " alt="" coords="1257,238,1431,279"/>
+<area shape="rect" id="node9" href="$class_tra_c_i_demo11p.html#a73a6ca11b60eeb8ca9a523e382787a72" title="TraCIDemo11p::onData" alt="" coords="1263,133,1425,160"/>
+<area shape="rect" id="node10" href="$class_tra_c_i_demo_r_s_u11p.html#ac9d01a67de93ec7f9e64ce7c664c370f" title="TraCIDemoRSU11p::onData" alt="" coords="1249,184,1439,211"/>
+<area shape="rect" id="node12" href="$class_veins_1_1_annotation_manager.html#a09a32830153c4132dc54290197b94dba" title="Veins::AnnotationManager\l::drawPolygon" alt="" coords="1257,303,1431,345"/>
+<area shape="rect" id="node15" href="$class_veins_1_1_annotation_manager.html#a990948888917eff8840f899714d4e754" title="Veins::AnnotationManager\l::erase" alt="" coords="1009,434,1183,475"/>
+<area shape="rect" id="node16" href="$class_veins_1_1_annotation_manager.html#a00d8af6a3eb73ccacec8bb3083bf0fd8" title="Veins::AnnotationManager\l::hideAll" alt="" coords="1009,499,1183,541"/>
+<area shape="rect" id="node18" href="$class_veins_1_1_tra_c_i_mobility.html#a180ae1e009f8c81f66a167e21b7b5b89" title="Veins::TraCIMobility\l::getCommandInterface" alt="" coords="1017,667,1175,709"/>
+<area shape="rect" id="node19" href="$class_veins_1_1_tra_c_i_mobility.html#ad12b4eeeda71908c5ef92e2c898bb223" title="Veins::TraCIMobility\l::commandDistanceRequest" alt="" coords="1250,609,1438,650"/>
+<area shape="rect" id="node22" href="$class_veins_1_1_tra_c_i_mobility.html#a668e0a54db3c6cea0f10b9f503c5c098" title="Veins::TraCIMobility\l::commandGetPolygonShape" alt="" coords="1248,726,1440,767"/>
+<area shape="rect" id="node23" href="$class_veins_1_1_tra_c_i_mobility.html#ab7240e81be9c67822c1dc7786939fb00" title="Veins::TraCIMobility\l::commandSetPolygonShape" alt="" coords="1249,543,1439,585"/>
+<area shape="rect" id="node21" href="$class_veins_1_1_tra_c_i_test_app.html#a6c6b28964a05c10b4c0c8d956bf48292" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="1694,697,1839,738"/>
+<area shape="rect" id="node25" href="$class_veins_1_1_channel_access.html#af4c4d6652f6e3d4846cb3d2e826f4bed" title="Register with ConnectionManager. " alt="" coords="768,5,923,46"/>
+<area shape="rect" id="node27" href="$class_veins_1_1_obstacle_control.html#a199ba1a4bd7eb58b6365fcaa5c0b1a90" title="Veins::ObstacleControl\l::initialize" alt="" coords="767,623,924,665"/>
+<area shape="rect" id="node28" href="$class_tra_c_i_demo11p.html#a0f070d06bf6eafef5bf85063f963a13d" title="Initialization of the module and some variables. " alt="" coords="762,740,929,767"/>
+<area shape="rect" id="node29" href="$class_tra_c_i_demo_r_s_u11p.html#a94a8c38a2685c7dd941c79e96d507cbe" title="Initialization of the module and some variables. " alt="" coords="748,689,943,716"/>
+<area shape="rect" id="node31" href="$class_tra_c_i_demo11p.html#a63c38f89463a42420b046dd8170117b6" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="747,135,944,161"/>
+<area shape="rect" id="node33" href="$class_veins_1_1_tra_c_i_scenario_manager_launchd.html#a80960dd89b68e6c6efbd2a06b16a91cc" title="Veins::TraCIScenarioManager\lLaunchd::initialize" alt="" coords="747,186,944,227"/>
+<area shape="rect" id="node35" href="$class_veins_1_1_tra_c_i_mobility.html#a508c83b198cc326da67bd8ed1decfb75" title="Initializes mobility model parameters. " alt="" coords="775,251,916,293"/>
+<area shape="rect" id="node37" href="$class_phy_layer80211p.html#aa3a10ad37436ef978aa9a0874b0da561" title="This is needed to circumvent a bug in MiXiM that allows different header length interpretations for r..." alt="" coords="758,317,933,344"/>
+<area shape="rect" id="node40" href="$class_veins_1_1_channel_access.html#a130bfd04f4e40b490929f99d96cc1aef" title="Returns the host&#39;s mobility module. " alt="" coords="520,915,675,957"/>
+<area shape="rect" id="node41" href="$class_base_phy_layer.html#adb6dcf56295ceb53b34e83eb409a40a2" title="Filters the passed AirFrame&#39;s Signal by every registered AnalogueModel. " alt="" coords="757,923,933,949"/>
+<area shape="rect" id="node43" href="$class_veins_1_1_channel_access.html#a01c12c70034ec0583ee5f4e1ac0f683b" title="Calculates the propagation delay to the passed receiving nic. " alt="" coords="753,977,938,1018"/>
+<area shape="rect" id="node42" href="$class_base_phy_layer.html#a671f083680882230b754b7e9578e6274" title="Handles incoming AirFrames with the state START_RECEIVE. " alt="" coords="993,915,1199,957"/>
+<area shape="rect" id="node44" href="$class_veins_1_1_channel_access.html#ae370934ad7b1feacc1cb6bd6ad437198" title="Sends a message to all nics connected to this one. " alt="" coords="1019,981,1173,1022"/>
+<area shape="rect" id="node46" href="$class_veins_1_1_tra_c_i_test_app.html#a581c6c99b8dcbbdadadc4e69a3febde7" title="Initialization of the module and some variables. " alt="" coords="525,747,670,789"/>
+</map>

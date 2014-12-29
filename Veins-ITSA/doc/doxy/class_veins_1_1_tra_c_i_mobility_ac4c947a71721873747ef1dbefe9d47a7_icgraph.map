@@ -1,0 +1,4 @@
+<map id="Veins::TraCIMobility::commandStopNode" name="Veins::TraCIMobility::commandStopNode">
+<area shape="rect" id="node2" href="$class_veins_1_1_tra_c_i_test_app.html#a634a6ed505d6ff32b4b035c14e6a4e4b" title="Veins::TraCITestApp\l::handlePositionUpdate" alt="" coords="200,5,357,46"/>
+<area shape="rect" id="node3" href="$class_veins_1_1_tra_c_i_test_app.html#a6c6b28964a05c10b4c0c8d956bf48292" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="406,5,551,46"/>
+</map>

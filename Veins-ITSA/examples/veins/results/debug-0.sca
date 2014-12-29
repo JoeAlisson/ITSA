@@ -1,0 +1,70 @@
+version 2
+run debug-0-20141114-10:47:31-4867
+attr configname debug
+attr datetime 20141114-10:47:31
+attr experiment debug
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network RSUExampleScenario
+attr processid 4867
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+scalar RSUExampleScenario.node[0].nic.phy80211p 	busyTime 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	ReceivedUnicastPackets 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	ReceivedBroadcasts 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	SentPackets 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	SNIRLostPackets 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	RXTXLostPackets 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	TotalLostPackets 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	DroppedPacketsInMac 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	TooLittleTime 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	TimesIntoBackoff 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	SlotsBackoff 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	NumInternalContention 	0
+scalar RSUExampleScenario.node[0].nic.mac1609_4 	totalBusyTime 	0
+scalar RSUExampleScenario.node[0].veinsmobility 	startTime 	0.1
+scalar RSUExampleScenario.node[0].veinsmobility 	totalTime 	5.8
+scalar RSUExampleScenario.node[0].veinsmobility 	stopTime 	5.9
+scalar RSUExampleScenario.node[0].veinsmobility 	minSpeed 	0.25286542447004
+scalar RSUExampleScenario.node[0].veinsmobility 	maxSpeed 	11.281332776976
+scalar RSUExampleScenario.node[0].veinsmobility 	totalDistance 	34.119214248437
+scalar RSUExampleScenario.node[0].veinsmobility 	totalCO2Emission 	23.771555032909
+scalar RSUExampleScenario.node[1].nic.phy80211p 	busyTime 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	ReceivedUnicastPackets 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	ReceivedBroadcasts 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	SentPackets 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	SNIRLostPackets 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	RXTXLostPackets 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	TotalLostPackets 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	DroppedPacketsInMac 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	TooLittleTime 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	TimesIntoBackoff 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	SlotsBackoff 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	NumInternalContention 	0
+scalar RSUExampleScenario.node[1].nic.mac1609_4 	totalBusyTime 	0
+scalar RSUExampleScenario.node[1].veinsmobility 	startTime 	3.1
+scalar RSUExampleScenario.node[1].veinsmobility 	totalTime 	2.8
+scalar RSUExampleScenario.node[1].veinsmobility 	stopTime 	5.9
+scalar RSUExampleScenario.node[1].veinsmobility 	minSpeed 	0.25157376560476
+scalar RSUExampleScenario.node[1].veinsmobility 	maxSpeed 	5.8560549530815
+scalar RSUExampleScenario.node[1].veinsmobility 	totalDistance 	8.7004077415755
+scalar RSUExampleScenario.node[1].veinsmobility 	totalCO2Emission 	7.698155330778
+scalar RSUExampleScenario.rsu[0].nic.phy80211p 	busyTime 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	ReceivedUnicastPackets 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	ReceivedBroadcasts 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	SentPackets 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	SNIRLostPackets 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	RXTXLostPackets 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	TotalLostPackets 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	DroppedPacketsInMac 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	TooLittleTime 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	TimesIntoBackoff 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	SlotsBackoff 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	NumInternalContention 	0
+scalar RSUExampleScenario.rsu[0].nic.mac1609_4 	totalBusyTime 	0

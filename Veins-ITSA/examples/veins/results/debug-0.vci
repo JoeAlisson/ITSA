@@ -1,0 +1,38 @@
+file 11762 1415972901                                           
+version 2
+run debug-0-20141114-10:47:31-4867
+attr configname debug
+attr datetime 20141114-10:47:31
+attr experiment debug
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network RSUExampleScenario
+attr processid 4867
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 4  RSUExampleScenario.node[0].veinsmobility  posx  ETV
+vector 5  RSUExampleScenario.node[0].veinsmobility  posy  ETV
+vector 6  RSUExampleScenario.node[0].veinsmobility  speed  ETV
+vector 7  RSUExampleScenario.node[0].veinsmobility  acceleration  ETV
+vector 8  RSUExampleScenario.node[0].veinsmobility  co2emission  ETV
+vector 11  RSUExampleScenario.node[1].veinsmobility  posx  ETV
+vector 12  RSUExampleScenario.node[1].veinsmobility  posy  ETV
+vector 13  RSUExampleScenario.node[1].veinsmobility  speed  ETV
+vector 14  RSUExampleScenario.node[1].veinsmobility  acceleration  ETV
+vector 15  RSUExampleScenario.node[1].veinsmobility  co2emission  ETV
+8	1025 1401 4 60 0.3 5.9 57 1.4276208928798 7.7853608744789 237.71555032909 1152.6924259374
+7	2426 1403 4 60 0.3 5.9 57 1.3277961542364 2.5755732625723 110.28467352506 220.307846815
+6	3829 1431 3 60 0.2 5.9 58 0.25286542447004 11.281332776976 341.33849125243 2602.3157185809
+5	5260 1452 2 60 0.1 5.9 59 1578.0861504339 1598.3319865121 93452.459805734 148025308.55363
+4	6712 1445 2 60 0.1 5.9 59 2390.5964597668 2415.8694684898 141990.01641675 341718185.59881
+15	8157 696 34 60 3.3 5.9 27 1.4374867592412 4.8983021517334 76.98155330778 241.31475049299
+14	8853 694 34 60 3.3 5.9 27 1.426621987205 2.5308295496282 56.044811874767 119.06118163036
+13	9547 722 33 60 3.2 5.9 28 0.25157376560476 5.8560549530815 87.008713383132 348.06822637112
+12	10269 746 32 60 3.1 5.9 29 1578.0861504339 1580.8832654338 45792.003082352 72307178.517146
+11	11015 747 32 60 3.1 5.9 29 2408.251944642 2415.8694684898 69985.309600613 168894766.81344

@@ -1,0 +1,5 @@
+<map id="ByteBuffer::putBytes" name="ByteBuffer::putBytes">
+<area shape="rect" id="node2" href="$class_byte_buffer.html#a717b350bcf14517b4ef13f8ce69af926" title="ByteBuffer constructor Consume an entire uint8_t array of length len in the ByteBuffer. " alt="" coords="197,5,352,32"/>
+<area shape="rect" id="node3" href="$class_bluetooth_connection.html#a2b847d74136abe9a8d7ad6ae31496b36" title="BluetoothConnection\l::read" alt="" coords="203,57,346,98"/>
+<area shape="rect" id="node4" href="$class_packet_reader.html#add2816fd196773a2ee22891139ca0355" title="PacketReader::handlerWrapped" alt="" coords="401,64,607,91"/>
+</map>

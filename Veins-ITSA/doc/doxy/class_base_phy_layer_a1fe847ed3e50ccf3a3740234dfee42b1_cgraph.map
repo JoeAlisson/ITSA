@@ -1,0 +1,10 @@
+<map id="BasePhyLayer::sendMessageDown" name="BasePhyLayer::sendMessageDown">
+<area shape="rect" id="node2" href="$class_veins_1_1_channel_access.html#ae370934ad7b1feacc1cb6bd6ad437198" title="Sends a message to all nics connected to this one. " alt="" coords="285,38,440,79"/>
+<area shape="rect" id="node3" href="$class_base_connection_manager.html#ae71cb544584cb71f96e7de50896577f8" title="Returns the ingates of all nics in range. " alt="" coords="497,5,665,46"/>
+<area shape="rect" id="node4" href="$class_veins_1_1_channel_access.html#a01c12c70034ec0583ee5f4e1ac0f683b" title="Calculates the propagation delay to the passed receiving nic. " alt="" coords="489,70,674,111"/>
+<area shape="rect" id="node5" href="$class_veins_1_1_channel_access.html#a130bfd04f4e40b490929f99d96cc1aef" title="Returns the host&#39;s mobility module. " alt="" coords="723,41,877,82"/>
+<area shape="rect" id="node8" href="$class_coord.html#ab6a7bfcc5c55e5d8edbc7c0cb5a11626" title="Returns the distance to Coord &#39;a&#39;. " alt="" coords="743,107,857,133"/>
+<area shape="rect" id="node6" href="$class_access_module_wrap.html#aabe6dcb792c40ce4c77b2f194aadbe5f" title="AccessModuleWrap::get" alt="" coords="925,48,1091,75"/>
+<area shape="rect" id="node7" href="$class_find_module.html#a661c335281d62d8df4affc46cc4fff9f" title="Returns a pointer to a sub module of the passed module with the type of this template. " alt="" coords="1139,48,1322,75"/>
+<area shape="rect" id="node9" href="$class_coord.html#acc536671c07e1af44e6ad9676a6c39ad" title="Returns the length of this Coords position vector. " alt="" coords="958,107,1058,133"/>
+</map>

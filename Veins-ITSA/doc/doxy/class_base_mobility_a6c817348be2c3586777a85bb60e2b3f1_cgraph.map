@@ -1,0 +1,5 @@
+<map id="BaseMobility::reflectCoordinate" name="BaseMobility::reflectCoordinate">
+<area shape="rect" id="node2" href="$class_base_mobility.html#afd83457f242d92ccdc2e2b5a3b2c4dd8" title="Returns the width of the playground. " alt="" coords="259,5,427,46"/>
+<area shape="rect" id="node3" href="$class_base_mobility.html#a09941dabdb81e67c77fc4794167c9351" title="Returns the height of the playground. " alt="" coords="259,70,427,111"/>
+<area shape="rect" id="node4" href="$class_base_mobility.html#a1245dec457a2d33c8dd1a70ccd74ea33" title="Returns the height of the playground. " alt="" coords="259,135,427,177"/>
+</map>

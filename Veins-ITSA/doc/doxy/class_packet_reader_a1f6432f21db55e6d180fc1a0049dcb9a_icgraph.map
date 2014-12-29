@@ -1,0 +1,5 @@
+<map id="PacketReader::handlerPackets" name="PacketReader::handlerPackets">
+<area shape="rect" id="node2" href="$class_packet_reader.html#add2816fd196773a2ee22891139ca0355" title="PacketReader::handlerWrapped" alt="" coords="262,5,469,32"/>
+<area shape="rect" id="node3" href="$class_packet_reader.html#aa551723ec406796081d909f47384ca53" title="PacketReader::setPacketListener" alt="" coords="256,56,475,83"/>
+<area shape="rect" id="node4" href="$class_packet_handler.html#a86eb597261343d1ad547ee2867f51774" title="PacketHandler::PacketHandler" alt="" coords="523,56,725,83"/>
+</map>

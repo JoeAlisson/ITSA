@@ -1,0 +1,43 @@
+<map id="DimensionSet::hasDimension" name="DimensionSet::hasDimension">
+<area shape="rect" id="node2" href="$class_const_mapping.html#a4e057daa0a3726cafa70bac0e5393b26" title="Initializes the ConstMapping with the passed DimensionSet as Domain. " alt="" coords="249,340,447,367"/>
+<area shape="rect" id="node3" href="$class_mapping_utils.html#a0c61c76ba04339162563339b23bf42e9" title="Returns an appropriate changeable Mapping with the specified domain and the specified interpolation m..." alt="" coords="253,391,443,417"/>
+<area shape="rect" id="node40" href="$class_two_ray_interference_model.html#a4488ba8c6127ff2e016edaa6bbd6a4c0" title="Has to be overriden by every implementation. " alt="" coords="261,442,435,483"/>
+<area shape="rect" id="node41" href="$class_simple_obstacle_shadowing.html#ab8f4e9c3b104f4b7fe18e4f275af79ac" title="Filters a specified Signal by adding an attenuation over time to the Signal. " alt="" coords="259,507,437,549"/>
+<area shape="rect" id="node42" href="$class_simple_pathloss_model.html#a632b408d1c0ecac4fd90da5d48d73c5e" title="Filters a specified AirFrame&#39;s Signal by adding an attenuation over time to the Signal. " alt="" coords="274,573,422,614"/>
+<area shape="rect" id="node4" href="$class_base_decider.html#a8ca42b7d77c0a1510255ec2a451d06d0" title="Calculates a RSSI&#45;Mapping (or Noise&#45;Strength&#45;Mapping) for a Signal. " alt="" coords="497,176,735,203"/>
+<area shape="rect" id="node29" href="$class_base_mac_layer.html#a1c05648ce7d11bc767f9acd3d64ee067" title="Creates a simple Mapping with a constant curve progression at the passed value. " alt="" coords="513,318,719,359"/>
+<area shape="rect" id="node31" href="$class_base_mac_layer.html#a23ed373dcfd98255df5f5ffa7e30eec6" title="Creates a simple Mapping with a constant curve progression at the passed value and discontinuities at..." alt="" coords="510,383,722,425"/>
+<area shape="rect" id="node32" href="$class_base_mac_layer.html#a3da0a0f34a80528e6efcb5593a073c55" title="Creates a Mapping defined over time and frequency with constant power in a certain frequency band..." alt="" coords="521,501,711,542"/>
+<area shape="rect" id="node33" href="$class_mac1609__4.html#a595e16f42f8bcaca1d4dc0a366ac9208" title="Mac1609_4::createSignal" alt="" coords="794,508,963,535"/>
+<area shape="rect" id="node36" href="$class_decider80211p.html#af3174316d16de21ba92ee86ec5cb50cb" title="Calculates a RSSI&#45;Mapping (or Noise&#45;Strength&#45;Mapping) for a Signal. " alt="" coords="531,42,701,83"/>
+<area shape="rect" id="node37" href="$class_decider80211p.html#aeba984a7f23ef26ce8b22b0bfef88947" title="Decider80211p::cca" alt="" coords="1565,267,1704,293"/>
+<area shape="rect" id="node38" href="$class_log_normal_shadowing.html#abecf1f338dc41facc038dbcd8a863ccd" title="Calculates shadowing loss based on a normal gaussian function. " alt="" coords="541,566,691,607"/>
+<area shape="rect" id="node39" href="$class_mapping_utils.html#a2864c33a93f9ce23403d0c84ca9a19e2" title="MappingUtils::applyElement\lWiseOperator" alt="" coords="523,631,709,673"/>
+<area shape="rect" id="node5" href="$class_decider80211p.html#a09e54d78f37b5e61aa100ea5b9f3083f" title="Calculates the RSSI value for the passed ChannelSenseRequest. " alt="" coords="784,135,973,177"/>
+<area shape="rect" id="node6" href="$class_base_decider.html#a12dd419a9e88e0b28f8d4e530e058802" title="Calculates the RSSI value for the passed interval. " alt="" coords="790,321,967,362"/>
+<area shape="rect" id="node24" href="$class_decider80211p.html#aed94d240800692fe3a7c604a6d11e54e" title="Calculates a SNR&#45;Mapping for a Signal. " alt="" coords="794,5,963,46"/>
+<area shape="rect" id="node26" href="$class_base_decider.html#abac709d59f48d292f147919854c002e2" title="Calculates a SNR&#45;Mapping for a Signal. " alt="" coords="790,70,967,111"/>
+<area shape="rect" id="node28" href="$class_s_n_r_threshold_decider.html#a0946c7a3e2ee04e2bb1c2dce4b7be7ec" title="Returns point in time when the ChannelSenseRequest of the passed CSRInfo can be answered (e..." alt="" coords="802,201,955,242"/>
+<area shape="rect" id="node7" href="$class_base_decider.html#ab8e925001d1f8630338c50f8ec10bb0d" title="Answers the ChannelSenseRequest (CSR) from the passed CSRInfo. " alt="" coords="1040,445,1216,472"/>
+<area shape="rect" id="node21" href="$class_s_n_r_threshold_decider.html#a1e6266fe8a4d10ce5443e37321d3bcaa" title="A function that returns information about the channel state. " alt="" coords="1051,318,1205,359"/>
+<area shape="rect" id="node23" href="$class_base_decider.html#af471a55749109aacb99429b409ccb9c1" title="A function that returns information about the channel state. " alt="" coords="1027,384,1229,411"/>
+<area shape="rect" id="node8" href="$class_base_decider.html#add7242168c4bb521c6335f3de590e4b0" title="Checks if the changed channel state enables us to answer any ongoing ChannelSenseRequests. " alt="" coords="1296,383,1477,425"/>
+<area shape="rect" id="node18" href="$class_base_decider.html#a1dba383c238fba606279ef483b435f78" title="Handles a new incoming ChannelSenseRequest and returns the next (or latest) time to handle the reques..." alt="" coords="1283,449,1490,490"/>
+<area shape="rect" id="node20" href="$class_base_decider.html#a2f175306cc0ae9d2805bc050315a47d8" title="Handles the timeout or end of a ChannelSenseRequest by calculating the ChannelState and returning the..." alt="" coords="1297,514,1477,555"/>
+<area shape="rect" id="node9" href="$class_s_n_r_threshold_decider.html#ace13845f43c5328cea40eb00c59af2b3" title="Processes a new Signal. " alt="" coords="1558,383,1711,425"/>
+<area shape="rect" id="node10" href="$class_decider80211p.html#af06ba4862697730ee05b65f6bf90279b" title="Changes the &quot;isIdle&quot;&#45;status to the passed value. " alt="" coords="1543,318,1726,359"/>
+<area shape="rect" id="node14" href="$class_base_decider.html#ae535b44e34061014fe282c36c27b0193" title="Changes the &quot;isIdle&quot;&#45;status to the passed value. " alt="" coords="1539,449,1731,490"/>
+<area shape="rect" id="node11" href="$class_phy_layer80211p.html#a6ab453897d17cd1dab056d03594dbb72" title="Handles self scheduled messages. " alt="" coords="1797,259,1985,301"/>
+<area shape="rect" id="node12" href="$class_decider80211p.html#a2a8f4a380e5a2ba44c36e43cc2033270" title="Processes a new Signal. " alt="" coords="1795,325,1986,366"/>
+<area shape="rect" id="node13" href="$class_decider80211p.html#ac39637b3c4cfad57ba0b4518fea264d9" title="Processes a received AirFrame. " alt="" coords="1779,208,2002,235"/>
+<area shape="rect" id="node15" href="$class_base_decider.html#a6a480f87157d0509c0c1fccf94ea9fef" title="Processes a new Signal. " alt="" coords="1783,431,1998,457"/>
+<area shape="rect" id="node17" href="$class_base_decider.html#ab9cfef6c04e12d2524d45e881f341300" title="Processes the end of a received Signal. " alt="" coords="1785,481,1996,508"/>
+<area shape="rect" id="node16" href="$class_base_decider.html#a273892d7b0c9874e4efe3c7755aa7a17" title="Processes an AirFrame given by the PhyLayer. " alt="" coords="2051,456,2237,483"/>
+<area shape="rect" id="node19" href="$class_base_decider.html#afd31e5a65d1798d329ace9bdbec25d64" title="This function is called by the PhyLayer to hand over a ChannelSenseRequest. " alt="" coords="1539,514,1730,555"/>
+<area shape="rect" id="node22" href="$class_s_n_r_threshold_decider.html#aa7e33361b328274b04ff7bd2d6206e6d" title="Answers the ChannelSenseRequest (CSR) from the passed CSRInfo. " alt="" coords="1310,318,1463,359"/>
+<area shape="rect" id="node25" href="$class_decider80211p.html#a01349c12df6c01678d1e25553b754819" title="Checks a mapping against a specific threshold (element&#45;wise). " alt="" coords="1021,48,1235,75"/>
+<area shape="rect" id="node27" href="$class_s_n_r_threshold_decider.html#a6002f2ee8ffa35ded0162c72f93c9fba" title="Processes a received AirFrame. " alt="" coords="1051,99,1205,141"/>
+<area shape="rect" id="node30" href="$class_base_mac_layer.html#a28ca155ff241c3e202a94724cc87b232" title="Creates a simple Signal defined over time with the passed parameters. " alt="" coords="784,389,973,416"/>
+<area shape="rect" id="node34" href="$class_mac1609__4.html#a4b45a21c4ab3abe61001009363d0fba0" title="Mac1609_4::attachSignal" alt="" coords="1043,544,1213,571"/>
+<area shape="rect" id="node35" href="$class_mac1609__4.html#a551d295ebf0b23896f4d272e3db3961d" title="Handle self messages such as timers. " alt="" coords="1295,580,1478,607"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="Mac1609_4" name="Mac1609_4">
+<area shape="rect" id="node2" href="$class_base_mac_layer.html" title="A very simple MAC module template which provides de&#45; and encapsulation of messages using the standard..." alt="" coords="64,304,173,331"/>
+<area shape="rect" id="node3" href="$class_base_layer.html" title="A very simple layer template. " alt="" coords="77,229,160,256"/>
+<area shape="rect" id="node4" href="$class_veins_1_1_battery_access.html" title="Veins::BatteryAccess" alt="" coords="44,155,192,181"/>
+<area shape="rect" id="node5" href="$class_base_module.html" title="Base class for all simple modules of a host. " alt="" coords="71,80,165,107"/>
+<area shape="rect" id="node8" href="$class_wave_app_to_mac1609__4_interface.html" title="Interface between WaveApplication Layer and Mac1609_4. " alt="" coords="198,304,409,331"/>
+</map>

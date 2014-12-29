@@ -1,0 +1,16 @@
+<map id="TraCIDemoRSU11p" name="TraCIDemoRSU11p">
+<area shape="rect" id="node2" href="$class_base_wave_appl_layer.html" title="WAVE application layer base class. " alt="" coords="1661,339,1805,365"/>
+<area shape="rect" id="node3" href="$class_base_appl_layer.html" title="Base class for the application layer. " alt="" coords="1403,272,1514,299"/>
+<area shape="rect" id="node4" href="$class_base_layer.html" title="A very simple layer template. " alt="" coords="1210,260,1294,287"/>
+<area shape="rect" id="node5" href="$class_veins_1_1_battery_access.html" title="Veins::BatteryAccess" alt="" coords="957,201,1107,228"/>
+<area shape="rect" id="node15" href="$class_base_mobility.html" title="Base module for all mobility modules. " alt="" coords="1203,364,1301,391"/>
+<area shape="rect" id="node6" href="$class_base_module.html" title="Base class for all simple modules of a host. " alt="" coords="289,200,383,227"/>
+<area shape="rect" id="node10" href="$class_base_battery.html" title="Base class for any power source. " alt="" coords="646,200,741,227"/>
+<area shape="rect" id="node17" href="$class_base_world_utility.html" title="Provides information and utility methods for the whole simulation. " alt="" coords="972,365,1092,392"/>
+<area shape="rect" id="node18" href="$class_veins_1_1_annotation_manager.html" title="Veins::AnnotationManager" alt="" coords="409,567,583,593"/>
+<area shape="rect" id="node9" href="$classsimsignalwrap__t.html" title="Helper function to initialize signal change identifier on use and not on initializing static sections..." alt="" coords="6,123,122,149"/>
+<area shape="rect" id="node11" href="$class_passed_message.html" title="PassedMessage" alt="" coords="803,301,922,328"/>
+<area shape="rect" id="node13" href="$class_coord.html" title="Class for storing 3D coordinates. " alt="" coords="665,475,722,501"/>
+<area shape="rect" id="node16" href="$class_move.html" title="Class to store object position and movement. " alt="" coords="1005,480,1059,507"/>
+<area shape="rect" id="node14" href="$class_wave_app_to_mac1609__4_interface.html" title="Interface between WaveApplication Layer and Mac1609_4. " alt="" coords="1353,339,1565,365"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="SimplePathlossConstMapping" name="SimplePathlossConstMapping">
+<area shape="rect" id="node2" href="$class_simple_const_mapping.html" title="Abstract subclass of ConstMapping which can be used as base for any ConstMapping implementation with ..." alt="" coords="8,267,155,293"/>
+<area shape="rect" id="node3" href="$class_const_mapping.html" title="Represents a not changeable mapping (mathematical function) from domain with at least the time to a A..." alt="" coords="28,176,135,203"/>
+<area shape="rect" id="node4" href="$class_dimension_set.html" title="Represents a set of dimensions which is used to define over which dimensions a mapping is defined (th..." alt="" coords="29,84,133,111"/>
+<area shape="rect" id="node6" href="$class_simple_pathloss_model.html" title="Basic implementation of a SimplePathlossModel that uses SimplePathlossConstMapping (that is subclasse..." alt="" coords="179,267,327,293"/>
+<area shape="rect" id="node7" href="$class_analogue_model.html" title="Interface for the analogue models of the physical layer. " alt="" coords="178,176,288,203"/>
+<area shape="rect" id="node8" href="$class_coord.html" title="Class for storing 3D coordinates. " alt="" coords="313,176,369,203"/>
+</map>

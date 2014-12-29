@@ -1,0 +1,8 @@
+<map id="JakesFadingMapping" name="JakesFadingMapping">
+<area shape="rect" id="node2" href="$class_simple_const_mapping.html" title="Abstract subclass of ConstMapping which can be used as base for any ConstMapping implementation with ..." alt="" coords="84,267,231,293"/>
+<area shape="rect" id="node3" href="$class_const_mapping.html" title="Represents a not changeable mapping (mathematical function) from domain with at least the time to a A..." alt="" coords="88,176,195,203"/>
+<area shape="rect" id="node4" href="$class_dimension_set.html" title="Represents a set of dimensions which is used to define over which dimensions a mapping is defined (th..." alt="" coords="29,84,133,111"/>
+<area shape="rect" id="node6" href="$class_jakes_fading.html" title="Implements Rayleigh fading after Jakes&#39; model. " alt="" coords="255,267,351,293"/>
+<area shape="rect" id="node7" href="$class_analogue_model.html" title="Interface for the analogue models of the physical layer. " alt="" coords="233,176,343,203"/>
+<area shape="rect" id="node8" href="$class_argument.html" title="Defines an argument for a mapping. " alt="" coords="367,176,445,203"/>
+</map>

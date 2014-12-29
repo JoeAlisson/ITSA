@@ -1,0 +1,35 @@
+<map id="Veins::AirFrame::getId" name="Veins::AirFrame::getId">
+<area shape="rect" id="node2" href="$class_base_decider.html#a8ca42b7d77c0a1510255ec2a451d06d0" title="Calculates a RSSI&#45;Mapping (or Noise&#45;Strength&#45;Mapping) for a Signal. " alt="" coords="209,299,447,325"/>
+<area shape="rect" id="node10" href="$class_decider80211p.html#a2a8f4a380e5a2ba44c36e43cc2033270" title="Processes a new Signal. " alt="" coords="1526,210,1717,251"/>
+<area shape="rect" id="node27" href="$class_base_phy_layer.html#a4f8fde562c0004b498fc3294c3f54c2f" title="Handles incoming AirFrames with the state END_RECEIVE. " alt="" coords="225,58,431,99"/>
+<area shape="rect" id="node31" href="$class_base_phy_layer.html#a9dbbcf0004b22c622ec4b06a19b4f564" title="Handles incoming AirFrames with the state RECEIVING. " alt="" coords="497,83,703,125"/>
+<area shape="rect" id="node33" href="$class_base_decider.html#ac054bb9bbda73689caf6c7cd7e55c8de" title="Processes any Signal for which no state could be found. " alt="" coords="225,350,431,391"/>
+<area shape="rect" id="node34" href="$class_base_phy_layer.html#a0e9f0ccf4ed1d8377aa3f00b931a3e71" title="Called to send an AirFrame with DeciderResult to the MACLayer. " alt="" coords="248,416,408,443"/>
+<area shape="rect" id="node3" href="$class_decider80211p.html#a09e54d78f37b5e61aa100ea5b9f3083f" title="Calculates the RSSI value for the passed ChannelSenseRequest. " alt="" coords="505,357,695,398"/>
+<area shape="rect" id="node4" href="$class_base_decider.html#a12dd419a9e88e0b28f8d4e530e058802" title="Calculates the RSSI value for the passed interval. " alt="" coords="511,487,689,529"/>
+<area shape="rect" id="node22" href="$class_decider80211p.html#aed94d240800692fe3a7c604a6d11e54e" title="Calculates a SNR&#45;Mapping for a Signal. " alt="" coords="515,422,685,463"/>
+<area shape="rect" id="node24" href="$class_base_decider.html#abac709d59f48d292f147919854c002e2" title="Calculates a SNR&#45;Mapping for a Signal. " alt="" coords="511,226,689,267"/>
+<area shape="rect" id="node26" href="$class_s_n_r_threshold_decider.html#a0946c7a3e2ee04e2bb1c2dce4b7be7ec" title="Returns point in time when the ChannelSenseRequest of the passed CSRInfo can be answered (e..." alt="" coords="523,291,677,333"/>
+<area shape="rect" id="node5" href="$class_base_decider.html#ab8e925001d1f8630338c50f8ec10bb0d" title="Answers the ChannelSenseRequest (CSR) from the passed CSRInfo. " alt="" coords="771,481,947,508"/>
+<area shape="rect" id="node19" href="$class_s_n_r_threshold_decider.html#a1e6266fe8a4d10ce5443e37321d3bcaa" title="A function that returns information about the channel state. " alt="" coords="782,535,935,577"/>
+<area shape="rect" id="node21" href="$class_base_decider.html#af471a55749109aacb99429b409ccb9c1" title="A function that returns information about the channel state. " alt="" coords="757,431,960,457"/>
+<area shape="rect" id="node6" href="$class_base_decider.html#add7242168c4bb521c6335f3de590e4b0" title="Checks if the changed channel state enables us to answer any ongoing ChannelSenseRequests. " alt="" coords="1027,343,1208,385"/>
+<area shape="rect" id="node16" href="$class_base_decider.html#a1dba383c238fba606279ef483b435f78" title="Handles a new incoming ChannelSenseRequest and returns the next (or latest) time to handle the reques..." alt="" coords="1014,409,1221,450"/>
+<area shape="rect" id="node18" href="$class_base_decider.html#a2f175306cc0ae9d2805bc050315a47d8" title="Handles the timeout or end of a ChannelSenseRequest by calculating the ChannelState and returning the..." alt="" coords="1027,474,1207,515"/>
+<area shape="rect" id="node7" href="$class_s_n_r_threshold_decider.html#ace13845f43c5328cea40eb00c59af2b3" title="Processes a new Signal. " alt="" coords="1289,343,1442,385"/>
+<area shape="rect" id="node8" href="$class_decider80211p.html#af06ba4862697730ee05b65f6bf90279b" title="Changes the &quot;isIdle&quot;&#45;status to the passed value. " alt="" coords="1274,226,1457,267"/>
+<area shape="rect" id="node12" href="$class_base_decider.html#ae535b44e34061014fe282c36c27b0193" title="Changes the &quot;isIdle&quot;&#45;status to the passed value. " alt="" coords="1269,409,1461,450"/>
+<area shape="rect" id="node9" href="$class_phy_layer80211p.html#a6ab453897d17cd1dab056d03594dbb72" title="Handles self scheduled messages. " alt="" coords="1527,129,1715,170"/>
+<area shape="rect" id="node11" href="$class_decider80211p.html#ac39637b3c4cfad57ba0b4518fea264d9" title="Processes a received AirFrame. " alt="" coords="1510,284,1733,311"/>
+<area shape="rect" id="node13" href="$class_base_decider.html#a6a480f87157d0509c0c1fccf94ea9fef" title="Processes a new Signal. " alt="" coords="1514,467,1729,493"/>
+<area shape="rect" id="node15" href="$class_base_decider.html#ab9cfef6c04e12d2524d45e881f341300" title="Processes the end of a received Signal. " alt="" coords="1516,416,1727,443"/>
+<area shape="rect" id="node14" href="$class_base_decider.html#a273892d7b0c9874e4efe3c7755aa7a17" title="Processes an AirFrame given by the PhyLayer. " alt="" coords="1781,467,1968,493"/>
+<area shape="rect" id="node17" href="$class_base_decider.html#afd31e5a65d1798d329ace9bdbec25d64" title="This function is called by the PhyLayer to hand over a ChannelSenseRequest. " alt="" coords="1270,474,1461,515"/>
+<area shape="rect" id="node20" href="$class_s_n_r_threshold_decider.html#aa7e33361b328274b04ff7bd2d6206e6d" title="Answers the ChannelSenseRequest (CSR) from the passed CSRInfo. " alt="" coords="1041,539,1194,581"/>
+<area shape="rect" id="node23" href="$class_decider80211p.html#a01349c12df6c01678d1e25553b754819" title="Checks a mapping against a specific threshold (element&#45;wise). " alt="" coords="752,292,965,319"/>
+<area shape="rect" id="node25" href="$class_s_n_r_threshold_decider.html#a6002f2ee8ffa35ded0162c72f93c9fba" title="Processes a received AirFrame. " alt="" coords="782,226,935,267"/>
+<area shape="rect" id="node28" href="$class_base_phy_layer.html#a8d6f371fa6ea6ca89cb78764a05f31dd" title="Handles messages received from the channel (probably AirFrames). " alt="" coords="1014,67,1221,93"/>
+<area shape="rect" id="node29" href="$class_base_phy_layer.html#a3880154c8db8b8efb5315cb6ef8f6c41" title="OMNeT++ handle message function. " alt="" coords="1518,59,1725,85"/>
+<area shape="rect" id="node30" href="$class_base_phy_layer.html#a17088ad93f59e143ff6c7ba866a31982" title="Handles self scheduled messages. " alt="" coords="1277,5,1453,46"/>
+<area shape="rect" id="node32" href="$class_base_phy_layer.html#a671f083680882230b754b7e9578e6274" title="Handles incoming AirFrames with the state START_RECEIVE. " alt="" coords="755,58,962,99"/>
+</map>

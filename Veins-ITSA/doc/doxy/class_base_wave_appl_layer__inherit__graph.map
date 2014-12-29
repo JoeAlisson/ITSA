@@ -1,0 +1,8 @@
+<map id="BaseWaveApplLayer" name="BaseWaveApplLayer">
+<area shape="rect" id="node8" href="$class_tra_c_i_demo11p.html" title="Small IVC Demo using 11p. " alt="" coords="5,453,115,480"/>
+<area shape="rect" id="node9" href="$class_tra_c_i_demo_r_s_u11p.html" title="Small RSU Demo using 11p. " alt="" coords="139,453,279,480"/>
+<area shape="rect" id="node2" href="$class_base_appl_layer.html" title="Base class for the application layer. " alt="" coords="79,304,189,331"/>
+<area shape="rect" id="node3" href="$class_base_layer.html" title="A very simple layer template. " alt="" coords="93,229,176,256"/>
+<area shape="rect" id="node4" href="$class_veins_1_1_battery_access.html" title="Veins::BatteryAccess" alt="" coords="60,155,208,181"/>
+<area shape="rect" id="node5" href="$class_base_module.html" title="Base class for all simple modules of a host. " alt="" coords="87,80,181,107"/>
+</map>

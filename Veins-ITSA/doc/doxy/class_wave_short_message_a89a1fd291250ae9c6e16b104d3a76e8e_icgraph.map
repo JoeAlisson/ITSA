@@ -1,0 +1,10 @@
+<map id="WaveShortMessage::setSerial" name="WaveShortMessage::setSerial">
+<area shape="rect" id="node2" href="$class_base_wave_appl_layer.html#aaa76362a567f160e008bf8a1dbde15d0" title="BaseWaveApplLayer::\lprepareWSM" alt="" coords="253,63,405,105"/>
+<area shape="rect" id="node3" href="$class_base_wave_appl_layer.html#a830e58e379655c6d24319c16f8db5e3d" title="handle self messages " alt="" coords="492,5,644,46"/>
+<area shape="rect" id="node4" href="$class_tra_c_i_demo_r_s_u11p.html#a8ec20e405841c5724bfe8a29b352d580" title="TraCIDemoRSU11p::sendMessage" alt="" coords="453,71,683,97"/>
+<area shape="rect" id="node6" href="$class_tra_c_i_demo11p.html#ab41ac005b7c30f7217ba3a26c23a645d" title="TraCIDemo11p::sendMessage" alt="" coords="468,125,668,152"/>
+<area shape="rect" id="node5" href="$class_tra_c_i_demo_r_s_u11p.html#ac9d01a67de93ec7f9e64ce7c664c370f" title="TraCIDemoRSU11p::onData" alt="" coords="738,67,929,93"/>
+<area shape="rect" id="node7" href="$class_tra_c_i_demo11p.html#ad9a9d4f6da6e486797c930f6f6df5ab1" title="TraCIDemo11p::handlePosition\lUpdate" alt="" coords="731,118,935,159"/>
+<area shape="rect" id="node9" href="$class_tra_c_i_demo11p.html#a73a6ca11b60eeb8ca9a523e382787a72" title="TraCIDemo11p::onData" alt="" coords="753,184,914,211"/>
+<area shape="rect" id="node8" href="$class_tra_c_i_demo11p.html#a63c38f89463a42420b046dd8170117b6" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="984,125,1181,152"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="TraCIDemo11p::initialize" name="TraCIDemo11p::initialize">
+<area shape="rect" id="node2" href="$class_base_wave_appl_layer.html#aa6a5eb1c331615fa7d87bcec1d816f8c" title="Initialization of the module and some variables. " alt="" coords="251,137,403,178"/>
+<area shape="rect" id="node6" href="$class_base_module.html#a1d2d2af49918dfb9ae036b1d086b123a" title="Function to get a pointer to the host module. " alt="" coords="503,203,654,229"/>
+<area shape="rect" id="node8" href="$_tra_c_i_demo11p_8cc.html#afd816191e7de5b607f7b7063202fb031" title="getBluetoothConnection" alt="" coords="246,293,407,320"/>
+<area shape="rect" id="node13" href="$class_veins_1_1_tra_c_i_mobility_access.html#aa2788845910c6afc0b6068d9bf71bdd3" title="Veins::TraCIMobilityAccess::get" alt="" coords="221,5,432,32"/>
+<area shape="rect" id="node14" href="$class_veins_1_1_annotation_manager_access.html#a2c602699c6a6878cfaccfc2553ff839f" title="Veins::AnnotationManager\lAccess::getIfExists" alt="" coords="239,62,414,103"/>
+<area shape="rect" id="node3" href="$class_base_appl_layer.html#aa3ebaf5d1d1bdbec4648b07f65eb4145" title="Initialization of the module and some variables. " alt="" coords="496,152,661,179"/>
+<area shape="rect" id="node5" href="$class_find_module.html#a661c335281d62d8df4affc46cc4fff9f" title="Returns a pointer to a sub module of the passed module with the type of this template. " alt="" coords="726,51,909,77"/>
+<area shape="rect" id="node4" href="$class_base_layer.html#a70f5ea30a9980d57b8384faed29ec3eb" title="Initialization of the module and some variables. " alt="" coords="748,152,887,179"/>
+<area shape="rect" id="node7" href="$class_find_module.html#ad213402248cfa94efe6513d4944a44b3" title="Returns a pointer to the host module of the passed module. " alt="" coords="744,203,891,229"/>
+<area shape="rect" id="node9" href="$class_bluetooth_connection.html#aa3ddc3e3d2dc7718bc2888be3ec0cb5e" title="BluetoothConnection\l::setPacketReader" alt="" coords="507,385,650,426"/>
+<area shape="rect" id="node10" href="$class_bluetooth_connection.html#ad6c4a5a2a51172ba2841f68e236b1c25" title="BluetoothConnection\l::isConnected" alt="" coords="507,254,650,295"/>
+<area shape="rect" id="node11" href="$class_bluetooth_connection.html#a3cdc3cbd68723aec36098c21675b9798" title="BluetoothConnection\l::accept" alt="" coords="507,319,650,361"/>
+<area shape="rect" id="node12" href="$class_packet_reader.html#a512bb345b47c581674dd44ca6cbb18aa" title="PacketReader::handler" alt="" coords="740,327,895,353"/>
+<area shape="rect" id="node15" href="$class_find_module.html#a36e4632a6c8c7dbdc177639957a8e62a" title="Returns a pointer to the module with the type of this template. " alt="" coords="480,51,677,77"/>
+</map>

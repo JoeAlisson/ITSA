@@ -1,0 +1,4 @@
+<map id="ByteBuffer::ByteBuffer" name="ByteBuffer::ByteBuffer">
+<area shape="rect" id="node2" href="$class_byte_buffer.html#ab9fbbcf0abe4049e2016c1262795c97e" title="Clear Clears out all data from the internal vector (original preallocated size remains), resets the positions to 0. " alt="" coords="220,5,340,32"/>
+<area shape="rect" id="node3" href="$class_byte_buffer.html#a1d69ed652bc9d9452abc6f619a3d6e50" title="ByteBuffer::putBytes" alt="" coords="208,56,352,83"/>
+</map>

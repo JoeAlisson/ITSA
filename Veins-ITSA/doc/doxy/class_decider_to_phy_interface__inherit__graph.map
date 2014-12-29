@@ -1,0 +1,4 @@
+<map id="DeciderToPhyInterface" name="DeciderToPhyInterface">
+<area shape="rect" id="node2" href="$class_base_phy_layer.html" title="The BasePhyLayer represents the physical layer of a nic. " alt="" coords="29,80,136,107"/>
+<area shape="rect" id="node3" href="$class_phy_layer80211p.html" title="Adaptation of the PhyLayer class for 802.11p. " alt="" coords="23,155,141,181"/>
+</map>

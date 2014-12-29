@@ -1,0 +1,4 @@
+<map id="R_MessagePacket::read" name="R_MessagePacket::read">
+<area shape="rect" id="node2" href="$class_readable_packet.html#a43d4ac6ba23ac0e341b1c122db457432" title="ReadablePacket::readString" alt="" coords="222,5,407,32"/>
+<area shape="rect" id="node3" href="$class_byte_buffer.html#ac8a373a31878f761220c317697475638" title="ByteBuffer::getChar" alt="" coords="456,5,595,32"/>
+</map>

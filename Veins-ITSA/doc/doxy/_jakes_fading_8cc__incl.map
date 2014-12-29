@@ -1,0 +1,23 @@
+<map id="JakesFading.cc" name="JakesFading.cc">
+<area shape="rect" id="node2" href="$_jakes_fading_8h.html" title="JakesFading.h" alt="" coords="1512,245,1619,272"/>
+<area shape="rect" id="node23" href="$_base_world_utility_8h.html" title="BaseWorldUtility.h" alt="" coords="1303,245,1432,272"/>
+<area shape="rect" id="node24" href="$_air_frame__m_8h.html" title="base/messages/AirFrame_m.h" alt="" coords="5,171,204,197"/>
+<area shape="rect" id="node27" href="$_channel_access_8h.html" title="base/connectionManager\l/ChannelAccess.h" alt="" coords="874,81,1040,122"/>
+<area shape="rect" id="node3" href="$_mi_xi_m_defs_8h.html" title="MiXiMDefs.h" alt="" coords="1369,544,1468,571"/>
+<area shape="rect" id="node6" href="$_analogue_model_8h.html" title="AnalogueModel.h" alt="" coords="1508,320,1631,347"/>
+<area shape="rect" id="node10" href="$_mapping_8h.html" title="Mapping.h" alt="" coords="1153,320,1235,347"/>
+<area shape="rect" id="node5" href="$miximkerneldefs_8h.html" title="miximkerneldefs.h" alt="" coords="1355,619,1483,645"/>
+<area shape="rect" id="node7" href="$_coord_8h.html" title="Coord.h" alt="" coords="978,395,1045,421"/>
+<area shape="rect" id="node8" href="$_f_w_math_8h.html" title="FWMath.h" alt="" coords="1047,469,1128,496"/>
+<area shape="rect" id="node11" href="$_mapping_base_8h.html" title="MappingBase.h" alt="" coords="809,469,920,496"/>
+<area shape="rect" id="node22" href="$_mapping_utils_8h.html" title="MappingUtils.h" alt="" coords="1172,395,1281,421"/>
+<area shape="rect" id="node19" href="$_interpolation_8h.html" title="Interpolation.h" alt="" coords="1103,544,1207,571"/>
+<area shape="rect" id="node25" href="$_signal___8h.html" title="Signal_.h" alt="" coords="129,245,204,272"/>
+<area shape="rect" id="node29" href="$_battery_access_8h.html" title="BatteryAccess.h" alt="" coords="775,245,893,272"/>
+<area shape="rect" id="node33" href="$_find_module_8h.html" title="FindModule.h" alt="" coords="466,245,565,272"/>
+<area shape="rect" id="node34" href="$_base_mobility_8h.html" title="BaseMobility.h" alt="" coords="903,171,1011,197"/>
+<area shape="rect" id="node30" href="$_base_module_8h.html" title="BaseModule.h" alt="" coords="445,395,549,421"/>
+<area shape="rect" id="node32" href="$_base_battery_8h.html" title="BaseBattery.h" alt="" coords="535,320,640,347"/>
+<area shape="rect" id="node31" href="$_host_state_8h.html" title="HostState.h" alt="" coords="541,469,632,496"/>
+<area shape="rect" id="node35" href="$_move_8h.html" title="Move.h" alt="" coords="794,320,859,347"/>
+</map>

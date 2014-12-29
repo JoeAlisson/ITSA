@@ -1,0 +1,8 @@
+<map id="BaseApplLayer" name="BaseApplLayer">
+<area shape="rect" id="node2" href="$class_base_layer.html" title="A very simple layer template. " alt="" coords="317,373,400,400"/>
+<area shape="rect" id="node3" href="$class_veins_1_1_battery_access.html" title="Veins::BatteryAccess" alt="" coords="172,283,320,309"/>
+<area shape="rect" id="node4" href="$class_base_module.html" title="Base class for all simple modules of a host. " alt="" coords="130,96,224,123"/>
+<area shape="rect" id="node8" href="$class_base_battery.html" title="Base class for any power source. " alt="" coords="211,183,305,209"/>
+<area shape="rect" id="node7" href="$classsimsignalwrap__t.html" title="Helper function to initialize signal change identifier on use and not on initializing static sections..." alt="" coords="270,5,385,32"/>
+<area shape="rect" id="node9" href="$class_passed_message.html" title="PassedMessage" alt="" coords="466,283,584,309"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="BaseWaveApplLayer::handlePositionUpdate" name="BaseWaveApplLayer::handlePositionUpdate">
+<area shape="rect" id="node2" href="$class_tra_c_i_demo11p.html#ad9a9d4f6da6e486797c930f6f6df5ab1" title="TraCIDemo11p::handlePosition\lUpdate" alt="" coords="206,5,410,46"/>
+<area shape="rect" id="node4" href="$class_base_wave_appl_layer.html#ab403cdb2a546bada74a3df37b477f72c" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="232,70,384,111"/>
+<area shape="rect" id="node3" href="$class_tra_c_i_demo11p.html#a63c38f89463a42420b046dd8170117b6" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="459,12,656,39"/>
+</map>

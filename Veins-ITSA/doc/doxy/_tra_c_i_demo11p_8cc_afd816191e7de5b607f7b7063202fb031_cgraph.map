@@ -1,0 +1,6 @@
+<map id="getBluetoothConnection" name="getBluetoothConnection">
+<area shape="rect" id="node2" href="$class_bluetooth_connection.html#aa3ddc3e3d2dc7718bc2888be3ec0cb5e" title="BluetoothConnection\l::setPacketReader" alt="" coords="217,5,359,46"/>
+<area shape="rect" id="node3" href="$class_bluetooth_connection.html#ad6c4a5a2a51172ba2841f68e236b1c25" title="BluetoothConnection\l::isConnected" alt="" coords="217,70,359,111"/>
+<area shape="rect" id="node4" href="$class_bluetooth_connection.html#a3cdc3cbd68723aec36098c21675b9798" title="BluetoothConnection\l::accept" alt="" coords="217,135,359,177"/>
+<area shape="rect" id="node5" href="$class_packet_reader.html#a512bb345b47c581674dd44ca6cbb18aa" title="PacketReader::handler" alt="" coords="408,143,563,169"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$class_border_msg.html" title="Class generated from base/messages/BorderMsg.msg by opp_msgc. " alt="" coords="161,5,247,32"/>
+<area shape="rect" id="node3" href="$class_channel_sense_request.html" title="Class generated from base/messages/ChannelSenseRequest.msg by opp_msgc. " alt="" coords="126,56,282,83"/>
+<area shape="rect" id="node4" href="$class_mac_pkt.html" title="Class generated from base/messages/MacPkt.msg by opp_msgc. " alt="" coords="171,107,237,133"/>
+<area shape="rect" id="node6" href="$class_veins_1_1_air_frame.html" title="Class generated from base/messages/AirFrame.msg by opp_msgc. " alt="" coords="146,157,262,184"/>
+<area shape="rect" id="node8" href="$class_wave_short_message.html" title="Class generated from modules/messages/WaveShortMessage.msg by opp_msgc. " alt="" coords="134,208,274,235"/>
+<area shape="rect" id="node5" href="$class_mac80211_pkt.html" title="Class generated from modules/messages/Mac80211Pkt.msg by opp_msgc. " alt="" coords="331,107,434,133"/>
+<area shape="rect" id="node7" href="$class_air_frame11p.html" title="Class generated from modules/messages/AirFrame11p.msg by opp_msgc. " alt="" coords="335,157,431,184"/>
+</map>

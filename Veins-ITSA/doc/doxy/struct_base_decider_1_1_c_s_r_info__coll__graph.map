@@ -1,0 +1,4 @@
+<map id="BaseDecider::CSRInfo" name="BaseDecider::CSRInfo">
+<area shape="rect" id="node2" href="$class_channel_sense_request.html" title="Class generated from base/messages/ChannelSenseRequest.msg by opp_msgc. " alt="" coords="17,96,172,123"/>
+<area shape="rect" id="node4" href="$class_channel_state.html" title="Provides information about the current state of the channel: " alt="" coords="100,5,201,32"/>
+</map>

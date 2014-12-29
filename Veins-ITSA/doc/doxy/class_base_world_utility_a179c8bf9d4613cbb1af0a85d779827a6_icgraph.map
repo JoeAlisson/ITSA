@@ -1,0 +1,13 @@
+<map id="BaseWorldUtility::getPgs" name="BaseWorldUtility::getPgs">
+<area shape="rect" id="node2" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a5389f3fc889b1fe3fd126c33a7d9ae36" title="Veins::TraCIScenarioManager\l::init_traci" alt="" coords="224,70,421,111"/>
+<area shape="rect" id="node6" href="$class_base_mobility.html#aa89e41596faff0067340643acbab27d0" title="Initializes mobility model parameters. " alt="" coords="247,139,399,165"/>
+<area shape="rect" id="node8" href="$class_base_connection_manager.html#a0d39342f1e732ad44ef7e4e2dccac24f" title="Reads init parameters and calculates a maximal interference distance. " alt="" coords="239,190,407,231"/>
+<area shape="rect" id="node9" href="$class_phy_layer80211p.html#a87d6370515d5d7867abb5105c2095a76" title="Creates and initializes a BreakpointPathlossModel with the passed parameter values. " alt="" coords="235,255,410,297"/>
+<area shape="rect" id="node11" href="$class_phy_layer80211p.html#adfe098a981b32aa82c0cf369bdca29b3" title="Creates and initializes a SimpleObstacleShadowing with the passed parameter values. " alt="" coords="233,321,412,362"/>
+<area shape="rect" id="node12" href="$class_phy_layer80211p.html#a1694c2434fb374bcbbe3ea7b6aea68e8" title="Creates and initializes a SimplePathlossModel with the passed parameter values. " alt="" coords="235,386,410,427"/>
+<area shape="rect" id="node3" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a86a0b91aab8823c087c33b99f3a06b1f" title="Veins::TraCIScenarioManager\l::handleSelfMsg" alt="" coords="471,5,668,46"/>
+<area shape="rect" id="node5" href="$class_veins_1_1_tra_c_i_scenario_manager_launchd.html#a4c5b4cac20e03a2e333fd3e49a6a7e0e" title="Veins::TraCIScenarioManager\lLaunchd::init_traci" alt="" coords="471,70,668,111"/>
+<area shape="rect" id="node4" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a7ca227c28f036e04e42ef08d1639dbf1" title="Veins::TraCIScenarioManager\l::handleMessage" alt="" coords="717,5,915,46"/>
+<area shape="rect" id="node7" href="$class_veins_1_1_tra_c_i_mobility.html#a508c83b198cc326da67bd8ed1decfb75" title="Initializes mobility model parameters. " alt="" coords="499,135,640,177"/>
+<area shape="rect" id="node10" href="$class_phy_layer80211p.html#aa9c19a4e9aec074db1585455a7474a6a" title="Creates and returns an instance of the AnalogueModel with the specified name. " alt="" coords="470,321,669,362"/>
+</map>

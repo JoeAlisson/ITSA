@@ -1,0 +1,51 @@
+<map id="Veins::socket" name="Veins::socket">
+<area shape="rect" id="node2" href="$class_bluetooth_connection.html#aaa891910c22744c23968ad56e565111b" title="BluetoothConnection\l::BluetoothConnection" alt="" coords="163,940,314,982"/>
+<area shape="rect" id="node3" href="$class_veins_1_1_tra_c_i_connection.html#a0b03b7d7e0f3955936ee7a2c17039bd5" title="Veins::TraCIConnection\l::connect" alt="" coords="368,6,531,47"/>
+<area shape="rect" id="node6" href="$class_veins_1_1_tra_c_i_connection.html#a634ce6c27d5e98f7d96f65706f3460df" title="receives a message via TraCI (and strips the header) " alt="" coords="157,1058,320,1099"/>
+<area shape="rect" id="node49" href="$class_veins_1_1_tra_c_i_connection.html#aaf6acde79a0ba73113c46ea92bd567d2" title="sends a message via TraCI (after adding the header) " alt="" coords="157,1123,320,1164"/>
+<area shape="rect" id="node50" href="$class_veins_1_1_tra_c_i_connection.html#a58abd901783fb79c052a7a93387da0a7" title="Veins::TraCIConnection\l::~TraCIConnection" alt="" coords="157,1188,320,1230"/>
+<area shape="rect" id="node4" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a86a0b91aab8823c087c33b99f3a06b1f" title="Veins::TraCIScenarioManager\l::handleSelfMsg" alt="" coords="1099,182,1296,223"/>
+<area shape="rect" id="node5" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a7ca227c28f036e04e42ef08d1639dbf1" title="Veins::TraCIScenarioManager\l::handleMessage" alt="" coords="1344,182,1541,223"/>
+<area shape="rect" id="node7" href="$class_veins_1_1_tra_c_i_connection.html#ac0f5129ad1e50365588ec39112432c7d" title="sends a single command via TraCI, checks status response, returns additional responses ..." alt="" coords="368,1058,531,1099"/>
+<area shape="rect" id="node41" href="$class_veins_1_1_tra_c_i_scenario_manager_launchd.html#a4c5b4cac20e03a2e333fd3e49a6a7e0e" title="Veins::TraCIScenarioManager\lLaunchd::init_traci" alt="" coords="1099,1962,1296,2003"/>
+<area shape="rect" id="node46" href="$class_veins_1_1_tra_c_i_connection.html#a9c6888b53a5f172a43361f3fee995a85" title="sends a single command via TraCI, expects no reply, returns true if successful " alt="" coords="368,1558,531,1599"/>
+<area shape="rect" id="node8" href="$class_veins_1_1_tra_c_i_command_interface.html#afc80a994bf28aed81292800c59ea8766" title="Veins::TraCICommandInterface\l::setSpeedMode" alt="" coords="589,371,795,412"/>
+<area shape="rect" id="node10" href="$class_veins_1_1_tra_c_i_command_interface.html#a2217dba9af605fa6c8a4ed3cad2ef8c8" title="Veins::TraCICommandInterface\l::setSpeed" alt="" coords="589,436,795,478"/>
+<area shape="rect" id="node12" href="$class_veins_1_1_tra_c_i_command_interface.html#a9a8c9a38fe1d0e175c3ebd37361dfd77" title="Veins::TraCICommandInterface\l::setColor" alt="" coords="589,502,795,543"/>
+<area shape="rect" id="node14" href="$class_veins_1_1_tra_c_i_command_interface.html#a09e1fc2850dc6eaebc14b12afee971e8" title="Veins::TraCICommandInterface\l::slowDown" alt="" coords="589,567,795,608"/>
+<area shape="rect" id="node16" href="$class_veins_1_1_tra_c_i_command_interface.html#a7f572d175dbee1fa443577a0dbbde9ea" title="Veins::TraCICommandInterface\l::newRoute" alt="" coords="589,632,795,674"/>
+<area shape="rect" id="node18" href="$class_veins_1_1_tra_c_i_command_interface.html#a0e7ff21d0f70a5e9bcf19c1cb2911bbb" title="Veins::TraCICommandInterface\l::setVehicleParking" alt="" coords="589,698,795,739"/>
+<area shape="rect" id="node20" href="$class_veins_1_1_tra_c_i_command_interface.html#afbf9fb50998c427ef9a788e9c8ade7ff" title="Veins::TraCICommandInterface\l::changeRoute" alt="" coords="589,763,795,804"/>
+<area shape="rect" id="node22" href="$class_veins_1_1_tra_c_i_command_interface.html#a78362723702727e640628bef4d5b13ef" title="Veins::TraCICommandInterface\l::distanceRequest" alt="" coords="589,828,795,870"/>
+<area shape="rect" id="node24" href="$class_veins_1_1_tra_c_i_command_interface.html#a186cc95b6542656bf0be285ee754b875" title="Veins::TraCICommandInterface\l::stopNode" alt="" coords="589,894,795,935"/>
+<area shape="rect" id="node25" href="$class_veins_1_1_tra_c_i_command_interface.html#ab1e0798bb31be6991c3e75cc33f68c2d" title="Veins::TraCICommandInterface\l::setTrafficLightProgram" alt="" coords="589,959,795,1000"/>
+<area shape="rect" id="node26" href="$class_veins_1_1_tra_c_i_command_interface.html#a684c3cb6e0735b42af742d5967943177" title="Veins::TraCICommandInterface\l::setTrafficLightPhaseIndex" alt="" coords="589,1024,795,1066"/>
+<area shape="rect" id="node27" href="$class_veins_1_1_tra_c_i_command_interface.html#afd701397f390d4f6ce48c326f6a126de" title="Veins::TraCICommandInterface\l::setPolygonShape" alt="" coords="589,1090,795,1131"/>
+<area shape="rect" id="node28" href="$class_veins_1_1_tra_c_i_command_interface.html#a461a0c6e0919a5c0c9432a2abdd01d8e" title="Veins::TraCICommandInterface\l::addPolygon" alt="" coords="589,1155,795,1196"/>
+<area shape="rect" id="node29" href="$class_veins_1_1_tra_c_i_command_interface.html#a907c785e9a9f033e3f8df23e948c9d0d" title="Veins::TraCICommandInterface\l::removePolygon" alt="" coords="589,1220,795,1262"/>
+<area shape="rect" id="node30" href="$class_veins_1_1_tra_c_i_command_interface.html#ab96a689984239c3b71b26e789de6bc76" title="Veins::TraCICommandInterface\l::addPoi" alt="" coords="589,1286,795,1327"/>
+<area shape="rect" id="node31" href="$class_veins_1_1_tra_c_i_command_interface.html#a52ddaeea1ebceaf387c6f250a221a10c" title="Veins::TraCICommandInterface\l::removePoi" alt="" coords="589,1351,795,1392"/>
+<area shape="rect" id="node32" href="$class_veins_1_1_tra_c_i_command_interface.html#a574015e5fb2e460634f28ef510d6f8cb" title="Veins::TraCICommandInterface\l::changeVehicleRoute" alt="" coords="589,1416,795,1458"/>
+<area shape="rect" id="node33" href="$class_veins_1_1_tra_c_i_command_interface.html#ad8985afa0ca072941b12456557f03b5c" title="Veins::TraCICommandInterface\l::positionConversionLonLat" alt="" coords="589,1482,795,1523"/>
+<area shape="rect" id="node34" href="$class_veins_1_1_tra_c_i_command_interface.html#adfa71f32d366ee0b702a4a59f822a0a4" title="Veins::TraCICommandInterface\l::genericGetString" alt="" coords="589,1547,795,1588"/>
+<area shape="rect" id="node35" href="$class_veins_1_1_tra_c_i_command_interface.html#a0401641eb2dcf84a31bab71f5cd5fbb0" title="Veins::TraCICommandInterface\l::genericGetCoord" alt="" coords="589,1612,795,1654"/>
+<area shape="rect" id="node36" href="$class_veins_1_1_tra_c_i_command_interface.html#a9bd02d0be1222e43bd321ccf8ca8263d" title="Veins::TraCICommandInterface\l::genericGetDouble" alt="" coords="589,1678,795,1719"/>
+<area shape="rect" id="node37" href="$class_veins_1_1_tra_c_i_command_interface.html#a06bdb5ff8829cb2cd25ea5176c7d69d9" title="Veins::TraCICommandInterface\l::genericGetInt" alt="" coords="589,1743,795,1784"/>
+<area shape="rect" id="node38" href="$class_veins_1_1_tra_c_i_command_interface.html#ab95ab875524c5556aac9d53f20ba0532" title="Veins::TraCICommandInterface\l::genericGetStringList" alt="" coords="589,1808,795,1850"/>
+<area shape="rect" id="node39" href="$class_veins_1_1_tra_c_i_command_interface.html#a6ca67c63f0e2e095693fce07dc6e90cd" title="Veins::TraCICommandInterface\l::genericGetCoordList" alt="" coords="589,1874,795,1915"/>
+<area shape="rect" id="node40" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a5389f3fc889b1fe3fd126c33a7d9ae36" title="Veins::TraCIScenarioManager\l::init_traci" alt="" coords="853,1932,1051,1974"/>
+<area shape="rect" id="node42" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a95586be7e5fa2b6f0bb15a5768559dc9" title="Veins::TraCIScenarioManager\l::finish" alt="" coords="593,123,791,164"/>
+<area shape="rect" id="node43" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a84ebe9fb50441189bd39f949f2593115" title="read and execute all commands for the next timestep " alt="" coords="853,182,1051,223"/>
+<area shape="rect" id="node44" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a999d945fca20d45532a24b492430d742" title="Veins::TraCIScenarioManager\l::subscribeToVehicleVariables" alt="" coords="593,240,791,282"/>
+<area shape="rect" id="node45" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a53c90abb9587bfef622c410ea9ca31ae" title="Veins::TraCIScenarioManager\l::unsubscribeFromVehicleVariables" alt="" coords="579,306,805,347"/>
+<area shape="rect" id="node9" href="$class_veins_1_1_tra_c_i_mobility.html#a686f62e55282c715d50da5f8c8a93b96" title="Veins::TraCIMobility\l::commandSetSpeedMode" alt="" coords="864,371,1040,412"/>
+<area shape="rect" id="node11" href="$class_veins_1_1_tra_c_i_mobility.html#a19446d0b35ddc06910584035f448caf0" title="Veins::TraCIMobility\l::commandSetSpeed" alt="" coords="880,436,1024,478"/>
+<area shape="rect" id="node13" href="$class_veins_1_1_tra_c_i_mobility.html#acfe0eb11dba7e58ceb8a73a1fc546dc4" title="Veins::TraCIMobility\l::commandSetColor" alt="" coords="881,502,1023,543"/>
+<area shape="rect" id="node15" href="$class_veins_1_1_tra_c_i_mobility.html#a8dba82d0b5d3ca0b4ee808cd232ac10d" title="Veins::TraCIMobility\l::commandSlowDown" alt="" coords="877,567,1027,608"/>
+<area shape="rect" id="node17" href="$class_veins_1_1_tra_c_i_mobility.html#a394eacba927cdd8c775f8cbe447b88b8" title="Veins::TraCIMobility\l::commandNewRoute" alt="" coords="877,632,1027,674"/>
+<area shape="rect" id="node19" href="$class_veins_1_1_tra_c_i_mobility.html#ab6699c46462926214843851676a9b7b6" title="Veins::TraCIMobility\l::commandParkVehicle" alt="" coords="873,698,1031,739"/>
+<area shape="rect" id="node21" href="$class_veins_1_1_tra_c_i_mobility.html#acb8588a5bf9a1935ae2c56665e4b8c14" title="Veins::TraCIMobility\l::commandChangeRoute" alt="" coords="869,763,1035,804"/>
+<area shape="rect" id="node23" href="$class_veins_1_1_tra_c_i_mobility.html#ad12b4eeeda71908c5ef92e2c898bb223" title="Veins::TraCIMobility\l::commandDistanceRequest" alt="" coords="858,828,1046,870"/>
+<area shape="rect" id="node47" href="$class_veins_1_1_tra_c_i_command_interface.html#a5ec16879b2f125f96cca09406ba948d7" title="Veins::TraCICommandInterface\l::getVersion" alt="" coords="589,1991,795,2032"/>
+<area shape="rect" id="node48" href="$class_veins_1_1_tra_c_i_command_interface.html#a6ac5b17a01d5e6034ed0f806587b4829" title="Veins::TraCICommandInterface\l::addVehicle" alt="" coords="589,2056,795,2098"/>
+</map>

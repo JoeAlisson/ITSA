@@ -1,0 +1,4 @@
+<map id="LinearIntplMappingIterator" name="LinearIntplMappingIterator">
+<area shape="rect" id="node2" href="$class_mapping_iterator.html" title="Defines an iterator for a Mapping which is able to iterate over the Mapping. " alt="" coords="115,84,225,111"/>
+<area shape="rect" id="node3" href="$class_const_mapping_iterator.html" title="Defines an const iterator for a ConstMapping which is able to iterate over the Mapping. " alt="" coords="17,5,164,32"/>
+</map>

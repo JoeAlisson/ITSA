@@ -1,0 +1,10 @@
+<map id="Veins::TraCICommandInterface::genericGetCoordList" name="Veins::TraCICommandInterface::genericGetCoordList">
+<area shape="rect" id="node2" href="$class_veins_1_1_tra_c_i_command_interface.html#ac321eba394eb9c41a0a0c6284dfc4452" title="Veins::TraCICommandInterface\l::getLaneShape" alt="" coords="262,5,469,46"/>
+<area shape="rect" id="node5" href="$class_veins_1_1_tra_c_i_command_interface.html#a4d673ca4ad88f229b75648f227c56c97" title="Veins::TraCICommandInterface\l::getPolygonShape" alt="" coords="262,70,469,111"/>
+<area shape="rect" id="node3" href="$class_veins_1_1_tra_c_i_test_app.html#a634a6ed505d6ff32b4b035c14e6a4e4b" title="Veins::TraCITestApp\l::handlePositionUpdate" alt="" coords="537,5,695,46"/>
+<area shape="rect" id="node4" href="$class_veins_1_1_tra_c_i_test_app.html#a6c6b28964a05c10b4c0c8d956bf48292" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="789,5,934,46"/>
+<area shape="rect" id="node6" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a5389f3fc889b1fe3fd126c33a7d9ae36" title="Veins::TraCIScenarioManager\l::init_traci" alt="" coords="517,70,715,111"/>
+<area shape="rect" id="node7" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a86a0b91aab8823c087c33b99f3a06b1f" title="Veins::TraCIScenarioManager\l::handleSelfMsg" alt="" coords="763,70,960,111"/>
+<area shape="rect" id="node9" href="$class_veins_1_1_tra_c_i_scenario_manager_launchd.html#a4c5b4cac20e03a2e333fd3e49a6a7e0e" title="Veins::TraCIScenarioManager\lLaunchd::init_traci" alt="" coords="763,135,960,177"/>
+<area shape="rect" id="node8" href="$class_veins_1_1_tra_c_i_scenario_manager.html#a7ca227c28f036e04e42ef08d1639dbf1" title="Veins::TraCIScenarioManager\l::handleMessage" alt="" coords="1008,70,1205,111"/>
+</map>

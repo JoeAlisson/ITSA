@@ -1,0 +1,11 @@
+<map id="Mac1609_4::createSignal" name="Mac1609_4::createSignal">
+<area shape="rect" id="node2" href="$class_base_mac_layer.html#a3da0a0f34a80528e6efcb5593a073c55" title="Creates a Mapping defined over time and frequency with constant power in a certain frequency band..." alt="" coords="229,53,419,94"/>
+<area shape="rect" id="node3" href="$class_mapping_utils.html#a0c61c76ba04339162563339b23bf42e9" title="Returns an appropriate changeable Mapping with the specified domain and the specified interpolation m..." alt="" coords="482,5,673,32"/>
+<area shape="rect" id="node6" href="$class_argument.html#a8087982f050bdc61d787b128ca9ac8f9" title="Changes the time value of this argument. " alt="" coords="511,113,644,140"/>
+<area shape="rect" id="node7" href="$class_mapping.html#ab8906dfac661d5c6a0a35cf1744f06ed" title="Changes the value of the Mapping at the specified position. " alt="" coords="512,168,643,195"/>
+<area shape="rect" id="node8" href="$class_signal.html#ad8c5494d0f7bd564bf14dc0c90f9a361" title="Sets the function representing the transmission power of the signal. " alt="" coords="225,220,423,247"/>
+<area shape="rect" id="node10" href="$class_signal.html#a86e4ecdabd5ca03ede5e2c81c6b76002" title="Sets the function representing the bitrate of the signal. " alt="" coords="263,271,385,297"/>
+<area shape="rect" id="node5" href="$class_argument.html#a27bd7000e865670a673039233424d2ab" title="Changes the value for the specified dimension. " alt="" coords="499,60,656,87"/>
+<area shape="rect" id="node4" href="$class_dimension_set.html#a015cb6fa6c77b26b8c7b1e65827b8342" title="Returns true if the passed Dimension is inside this DimensionSet. " alt="" coords="731,5,925,32"/>
+<area shape="rect" id="node9" href="$class_signal.html#a594e926b3d8ff3330375c8850699ae76" title="Deletes the rcvPower mapping member because it became out&#45;dated. " alt="" coords="473,220,682,247"/>
+</map>

@@ -1,0 +1,36 @@
+<map id="TraCIDemo11p::sendMessage" name="TraCIDemo11p::sendMessage">
+<area shape="rect" id="node2" href="$class_base_wave_appl_layer.html#aaa76362a567f160e008bf8a1dbde15d0" title="BaseWaveApplLayer::\lprepareWSM" alt="" coords="291,323,443,365"/>
+<area shape="rect" id="node14" href="$class_wave_short_message.html#a138e7425f6286d388541280dceab0352" title="WaveShortMessage::setWsmData" alt="" coords="254,549,479,576"/>
+<area shape="rect" id="node15" href="$class_tra_c_i_demo11p.html#a63233b99c92c122e8fc7c5ce5da0c438" title="TraCIDemo11p::sendWSM" alt="" coords="277,768,457,795"/>
+<area shape="rect" id="node3" href="$class_wave_short_message.html#a33ef604b6a5878e11a3bc4c2477e242e" title="WaveShortMessage::setChannel\lNumber" alt="" coords="537,5,751,46"/>
+<area shape="rect" id="node4" href="$class_wave_short_message.html#adaf66b336060aff74a296c29f41509d6" title="WaveShortMessage::setPsid" alt="" coords="548,71,740,97"/>
+<area shape="rect" id="node5" href="$class_wave_short_message.html#a21ccdbb5f448dbc3853885bc16bc3b3c" title="WaveShortMessage::setPriority" alt="" coords="541,121,747,148"/>
+<area shape="rect" id="node6" href="$class_wave_short_message.html#a980ce99a99ced19d20878103bb5a671e" title="WaveShortMessage::setWsm\lVersion" alt="" coords="545,173,743,214"/>
+<area shape="rect" id="node7" href="$class_wave_short_message.html#aed9bcc826c641cf992fe9bd82b2d5ca6" title="WaveShortMessage::setTimestamp" alt="" coords="529,239,759,265"/>
+<area shape="rect" id="node8" href="$class_wave_short_message.html#ac5318ca78711740c66b88bc156f7c52b" title="WaveShortMessage::setSender\lAddress" alt="" coords="541,290,747,331"/>
+<area shape="rect" id="node9" href="$class_wave_short_message.html#a818105a3cb5d5bc51a1257826be98b13" title="WaveShortMessage::setRecipient\lAddress" alt="" coords="533,355,755,397"/>
+<area shape="rect" id="node10" href="$class_wave_short_message.html#a66e2d0a9a7bb00d63cf79837fe0de6a3" title="WaveShortMessage::setSenderPos" alt="" coords="529,421,759,448"/>
+<area shape="rect" id="node11" href="$class_wave_short_message.html#a89a1fd291250ae9c6e16b104d3a76e8e" title="WaveShortMessage::setSerial" alt="" coords="545,472,743,499"/>
+<area shape="rect" id="node12" href="$class_wave_short_message.html#a88e397ba4444c1e4bb00f94d344014f0" title="WaveShortMessage::getWsmData" alt="" coords="531,523,757,549"/>
+<area shape="rect" id="node13" href="$class_wave_short_message.html#a26d848cf954f3c04bc78063e8c16d956" title="WaveShortMessage::getTimestamp" alt="" coords="529,573,759,600"/>
+<area shape="rect" id="node16" href="$_tra_c_i_demo11p_8cc.html#afd816191e7de5b607f7b7063202fb031" title="getBluetoothConnection" alt="" coords="563,624,725,651"/>
+<area shape="rect" id="node18" href="$class_bluetooth_connection.html#ad6c4a5a2a51172ba2841f68e236b1c25" title="BluetoothConnection\l::isConnected" alt="" coords="843,617,986,658"/>
+<area shape="rect" id="node21" href="$class_bluetooth_connection.html#a776d3683d0710a3405114bb61f81af53" title="BluetoothConnection\l::sendPacket" alt="" coords="573,802,715,843"/>
+<area shape="rect" id="node32" href="$class_wave_short_message.html#a2a994de6e6306a0d3b6792e35ae40a64" title="WaveShortMessage::dup" alt="" coords="559,964,729,991"/>
+<area shape="rect" id="node34" href="$class_base_appl_layer.html#a08d91ffcf2598556db4dd3ba845e4979" title="Sends a message delayed to the lower layer. " alt="" coords="530,1019,758,1045"/>
+<area shape="rect" id="node17" href="$class_bluetooth_connection.html#aa3ddc3e3d2dc7718bc2888be3ec0cb5e" title="BluetoothConnection\l::setPacketReader" alt="" coords="843,486,986,527"/>
+<area shape="rect" id="node19" href="$class_bluetooth_connection.html#a3cdc3cbd68723aec36098c21675b9798" title="BluetoothConnection\l::accept" alt="" coords="843,551,986,593"/>
+<area shape="rect" id="node20" href="$class_packet_reader.html#a512bb345b47c581674dd44ca6cbb18aa" title="PacketReader::handler" alt="" coords="1075,559,1229,585"/>
+<area shape="rect" id="node22" href="$class_byte_buffer.html#ab9fbbcf0abe4049e2016c1262795c97e" title="Clear Clears out all data from the internal vector (original preallocated size remains), resets the positions to 0. " alt="" coords="855,683,975,709"/>
+<area shape="rect" id="node23" href="$class_byte_buffer.html#ad668fde1c1e4a7becdd76d1042f16990" title="ByteBuffer::setWritePos" alt="" coords="833,733,997,760"/>
+<area shape="rect" id="node24" href="$class_byte_buffer.html#a6fba22ab88302bee25f7d64b086bcb71" title="ByteBuffer::putShort" alt="" coords="844,784,985,811"/>
+<area shape="rect" id="node25" href="$class_writeble_packet.html#ad4707252402aa020a74dda80826d7723" title="WriteblePacket::getOpcode" alt="" coords="823,835,1006,861"/>
+<area shape="rect" id="node26" href="$class_writeble_packet.html#aa629c811756809fc3c7037a1925cd4eb" title="WriteblePacket::write" alt="" coords="841,885,988,912"/>
+<area shape="rect" id="node27" href="$class_byte_buffer.html#a85351bf0cc782206d47f0aa030670ce6" title="ByteBuffer::getWritePos" alt="" coords="833,936,997,963"/>
+<area shape="rect" id="node28" href="$class_bluetooth_connection.html#aa78a39b8dc5d56aa400462f0a4c18c7b" title="BluetoothConnection\l::write" alt="" coords="843,987,986,1029"/>
+<area shape="rect" id="node29" href="$class_byte_buffer.html#a6b693a9deba1b48b9680a976746665c2" title="ByteBuffer::getShort" alt="" coords="1081,944,1223,971"/>
+<area shape="rect" id="node30" href="$class_byte_buffer.html#a2a75eca5720fbc73411a566b05dcac87" title="ByteBuffer::setReadPos" alt="" coords="1070,995,1234,1021"/>
+<area shape="rect" id="node31" href="$class_byte_buffer.html#ac993ba5491cdc7b04b7a1dffbacce6d2" title="ByteBuffer::getBytes" alt="" coords="1080,1045,1224,1072"/>
+<area shape="rect" id="node33" href="$class_wave_short_message.html#a8d66edc68ebe3ec56c8df75d5b367310" title="WaveShortMessage::WaveShort\lMessage" alt="" coords="808,1053,1021,1094"/>
+<area shape="rect" id="node35" href="$class_base_layer.html#a33f4f320f4b6c4ec48651847338ff47f" title="BaseLayer::recordPacket" alt="" coords="830,1119,999,1145"/>
+</map>

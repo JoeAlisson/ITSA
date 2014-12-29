@@ -1,0 +1,6 @@
+<map id="Veins::TraCIMobility::getSpeed" name="Veins::TraCIMobility::getSpeed">
+<area shape="rect" id="node2" href="$class_tra_c_i_demo11p.html#ad9a9d4f6da6e486797c930f6f6df5ab1" title="TraCIDemo11p::handlePosition\lUpdate" alt="" coords="195,5,399,46"/>
+<area shape="rect" id="node4" href="$class_veins_1_1_tra_c_i_test_app.html#a634a6ed505d6ff32b4b035c14e6a4e4b" title="Veins::TraCITestApp\l::handlePositionUpdate" alt="" coords="219,70,376,111"/>
+<area shape="rect" id="node3" href="$class_tra_c_i_demo11p.html#a63c38f89463a42420b046dd8170117b6" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="448,12,645,39"/>
+<area shape="rect" id="node5" href="$class_veins_1_1_tra_c_i_test_app.html#a6c6b28964a05c10b4c0c8d956bf48292" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="474,70,619,111"/>
+</map>

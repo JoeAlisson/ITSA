@@ -1,0 +1,27 @@
+<map id="BasePhyLayer.h" name="BasePhyLayer.h">
+<area shape="rect" id="node5" href="$_mi_xi_m_defs_8h.html" title="MiXiMDefs.h" alt="" coords="1339,544,1437,571"/>
+<area shape="rect" id="node8" href="$_channel_access_8h.html" title="base/connectionManager\l/ChannelAccess.h" alt="" coords="1698,81,1864,122"/>
+<area shape="rect" id="node22" href="$_decider_to_phy_interface_8h.html" title="DeciderToPhyInterface.h" alt="" coords="1337,88,1503,115"/>
+<area shape="rect" id="node24" href="$_mac_to_phy_interface_8h.html" title="MacToPhyInterface.h" alt="" coords="696,171,843,197"/>
+<area shape="rect" id="node38" href="$_channel_info_8h.html" title="ChannelInfo.h" alt="" coords="1170,88,1272,115"/>
+<area shape="rect" id="node7" href="$miximkerneldefs_8h.html" title="miximkerneldefs.h" alt="" coords="1303,619,1431,645"/>
+<area shape="rect" id="node9" href="$_battery_access_8h.html" title="BatteryAccess.h" alt="" coords="1870,245,1988,272"/>
+<area shape="rect" id="node14" href="$_find_module_8h.html" title="FindModule.h" alt="" coords="2117,245,2216,272"/>
+<area shape="rect" id="node15" href="$_base_mobility_8h.html" title="BaseMobility.h" alt="" coords="1727,171,1835,197"/>
+<area shape="rect" id="node10" href="$_base_module_8h.html" title="BaseModule.h" alt="" coords="1946,395,2051,421"/>
+<area shape="rect" id="node13" href="$_base_battery_8h.html" title="BaseBattery.h" alt="" coords="2037,320,2141,347"/>
+<area shape="rect" id="node12" href="$_host_state_8h.html" title="HostState.h" alt="" coords="2126,469,2217,496"/>
+<area shape="rect" id="node16" href="$_coord_8h.html" title="Coord.h" alt="" coords="1694,395,1761,421"/>
+<area shape="rect" id="node19" href="$_move_8h.html" title="Move.h" alt="" coords="1819,320,1884,347"/>
+<area shape="rect" id="node21" href="$_base_world_utility_8h.html" title="BaseWorldUtility.h" alt="" coords="1613,320,1743,347"/>
+<area shape="rect" id="node17" href="$_f_w_math_8h.html" title="FWMath.h" alt="" coords="1765,469,1847,496"/>
+<area shape="rect" id="node25" href="$_signal___8h.html" title="Signal_.h" alt="" coords="897,245,972,272"/>
+<area shape="rect" id="node35" href="$_channel_state_8h.html" title="ChannelState.h" alt="" coords="616,469,727,496"/>
+<area shape="rect" id="node36" href="$_phy_utils_8h.html" title="PhyUtils.h" alt="" coords="768,245,849,272"/>
+<area shape="rect" id="node26" href="$_mapping_8h.html" title="Mapping.h" alt="" coords="825,320,907,347"/>
+<area shape="rect" id="node27" href="$_mapping_base_8h.html" title="MappingBase.h" alt="" coords="379,469,489,496"/>
+<area shape="rect" id="node34" href="$_mapping_utils_8h.html" title="MappingUtils.h" alt="" coords="819,395,928,421"/>
+<area shape="rect" id="node31" href="$_interpolation_8h.html" title="Interpolation.h" alt="" coords="149,544,253,571"/>
+<area shape="rect" id="node37" href="$_analogue_model_8h.html" title="AnalogueModel.h" alt="" coords="1048,320,1171,347"/>
+<area shape="rect" id="node39" href="$_air_frame__m_8h.html" title="base/messages/AirFrame_m.h" alt="" coords="911,171,1109,197"/>
+</map>

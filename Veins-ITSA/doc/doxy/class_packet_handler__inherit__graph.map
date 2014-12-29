@@ -1,0 +1,4 @@
+<map id="PacketHandler" name="PacketHandler">
+<area shape="rect" id="node2" href="$class_packet_reader.html" title="PacketReader" alt="" coords="5,5,109,32"/>
+<area shape="rect" id="node3" href="$class_packet_listener.html" title="PacketListener" alt="" coords="135,5,244,32"/>
+</map>

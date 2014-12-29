@@ -1,0 +1,5 @@
+<map id="Veins::TraCICommandInterface::setPolygonShape" name="Veins::TraCICommandInterface::setPolygonShape">
+<area shape="rect" id="node2" href="$class_veins_1_1_tra_c_i_mobility.html#ab7240e81be9c67822c1dc7786939fb00" title="Veins::TraCIMobility\l::commandSetPolygonShape" alt="" coords="262,5,453,46"/>
+<area shape="rect" id="node3" href="$class_veins_1_1_tra_c_i_test_app.html#a634a6ed505d6ff32b4b035c14e6a4e4b" title="Veins::TraCITestApp\l::handlePositionUpdate" alt="" coords="501,5,659,46"/>
+<area shape="rect" id="node4" href="$class_veins_1_1_tra_c_i_test_app.html#a6c6b28964a05c10b4c0c8d956bf48292" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="707,5,853,46"/>
+</map>

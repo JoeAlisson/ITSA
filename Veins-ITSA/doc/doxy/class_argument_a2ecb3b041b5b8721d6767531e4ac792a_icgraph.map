@@ -1,0 +1,35 @@
+<map id="Argument::getTime" name="Argument::getTime">
+<area shape="rect" id="node2" href="$class_mapping_utils.html#af1b74160ce464f825e0715f1fc656f5f" title="Adds a discontinuity in time&#45;dimension, i.e. " alt="" coords="187,15,389,41"/>
+<area shape="rect" id="node5" href="$class_s_n_r_threshold_decider.html#a1d796e2f0da1c41810c5f2c5b4cfcd2e" title="Checks a mapping against a specific threshold (element&#45;wise). " alt="" coords="205,73,371,114"/>
+<area shape="rect" id="node7" href="$class_time_mapping.html#a46c922604b76bf239263820a34a6ff29" title="Returns a pointer of a new Iterator which is able to iterate over the function and can change the val..." alt="" coords="195,145,381,172"/>
+<area shape="rect" id="node8" href="$class_simple_const_mapping.html#a3804bf19eee40fe09c626b7ca9e0885e" title="Utility method to fill add range of key entries in the time dimension to the key entry set..." alt="" coords="215,197,361,238"/>
+<area shape="rect" id="node11" href="$class_base_delayed_iterator.html#a2f79592eaa15f47a5c2758572ed58ce0" title="BaseDelayedIterator\l::delayPosition" alt="" coords="217,314,359,355"/>
+<area shape="rect" id="node18" href="$class_base_delayed_mapping.html#a98979867884249cd5e2644ec9ebc2adb" title="BaseDelayedMapping\l\&lt; Mapping \&gt;::delayPosition" alt="" coords="197,379,379,421"/>
+<area shape="rect" id="node19" href="$class_mapping_utils.html#ac9d1a808dbca5da873af58f1da4cbcf4" title="Iterates over the passed mapping and returns the value at the key entry with the highest value in the..." alt="" coords="212,445,364,472"/>
+<area shape="rect" id="node20" href="$class_mapping_utils.html#adb9e9ced268b9a5d1d4f6d34738654aa" title="Iterates over the passed mapping and returns the value at the key entry with the smallest value in th..." alt="" coords="214,496,362,523"/>
+<area shape="rect" id="node21" href="$class_jakes_fading_mapping.html#a23e8978d7aab4509f846ac6a8044de19" title="Returns the value of the mapping at the passed position. " alt="" coords="215,547,361,589"/>
+<area shape="rect" id="node22" href="$class_time_mapping.html#a4f46930630d6c6a79b34211992840731" title="Returns the value of this Function at the position specified by the passed Argument. " alt="" coords="209,613,367,640"/>
+<area shape="rect" id="node23" href="$class_r_s_a_m_mapping.html#adfde2753ba641cbdafbd95fc914034e6" title="Returns the value of this Function at position specified by the passed Argument. " alt="" coords="203,664,373,691"/>
+<area shape="rect" id="node24" href="$class_time_mapping_iterator.html#adf215619550c90677bb8784e61813c45" title="Iterates to the specified position. " alt="" coords="217,715,359,757"/>
+<area shape="rect" id="node25" href="$class_r_s_a_m_const_mapping_iterator.html#a7694574b32a82ddbfa3e86bed32be016" title="Iterates to the specified position. " alt="" coords="195,781,381,822"/>
+<area shape="rect" id="node26" href="$class_time_mapping_iterator.html#a41457ef9679298443d01dd5d29d63864" title="Lets the iterator point to the passed position. " alt="" coords="217,846,359,887"/>
+<area shape="rect" id="node27" href="$class_r_s_a_m_const_mapping_iterator.html#a3740e6b65c335fcde632e296b56070de" title="Lets the iterator point to the passed position. " alt="" coords="195,911,381,953"/>
+<area shape="rect" id="node29" href="$class_time_mapping_iterator.html#aa12e17f8a08312b3661671c1c2b6c4ea" title="Iterates to the next position of the function. " alt="" coords="217,977,359,1018"/>
+<area shape="rect" id="node30" href="$class_const_mapping.html#a526e8d5b948e9b2ce9d729e66b162e13" title="Prints the Mapping to an output stream. " alt="" coords="219,1043,357,1069"/>
+<area shape="rect" id="node31" href="$class_time_mapping.html#a453ce64062fa7afd7398735a9cf499a6" title="Changes the value of the function at the specified position. " alt="" coords="209,1093,367,1120"/>
+<area shape="rect" id="node34" href="$class_base_delayed_iterator.html#adc48153655a44a6cb038437df65dd8d8" title="BaseDelayedIterator\l::undelayPosition" alt="" coords="473,266,615,307"/>
+<area shape="rect" id="node3" href="$class_base_mac_layer.html#a23ed373dcfd98255df5f5ffa7e30eec6" title="Creates a simple Mapping with a constant curve progression at the passed value and discontinuities at..." alt="" coords="438,5,650,46"/>
+<area shape="rect" id="node4" href="$class_base_mac_layer.html#a28ca155ff241c3e202a94724cc87b232" title="Creates a simple Signal defined over time with the passed parameters. " alt="" coords="699,12,888,39"/>
+<area shape="rect" id="node6" href="$class_s_n_r_threshold_decider.html#a6002f2ee8ffa35ded0162c72f93c9fba" title="Processes a received AirFrame. " alt="" coords="467,70,621,111"/>
+<area shape="rect" id="node9" href="$class_simple_const_mapping.html#aa6f392c0904f66eb264c597980873367" title="Utility method to fill add range of key entries in the passed dimension (and recursively its sub dime..." alt="" coords="471,201,617,242"/>
+<area shape="rect" id="node10" href="$class_simple_const_mapping.html#aca948c360cd24e21a92c80bf5f53cf16" title="Initializes the key entry set with the passed min, max and interval&#45;Arguments. " alt="" coords="471,135,617,177"/>
+<area shape="rect" id="node12" href="$class_base_delayed_iterator.html#a13b0a9510f63d62886e3359f5f1bcdb1" title="BaseDelayedIterator\l::updatePosition" alt="" coords="473,331,615,373"/>
+<area shape="rect" id="node13" href="$class_base_delayed_iterator.html#abcab9572c280c99fef14ddd0a87412f9" title="BaseDelayedIterator\l::BaseDelayedIterator" alt="" coords="719,331,868,373"/>
+<area shape="rect" id="node14" href="$class_base_delayed_iterator.html#aa0c12e487930b671c16e697782c4fcf3" title="BaseDelayedIterator\l::jumpTo" alt="" coords="723,201,864,242"/>
+<area shape="rect" id="node15" href="$class_base_delayed_iterator.html#a46a0da319b981b94d0c6e2bf73d0e28b" title="BaseDelayedIterator\l::jumpToBegin" alt="" coords="723,397,864,438"/>
+<area shape="rect" id="node16" href="$class_base_delayed_iterator.html#abc9b1227759ade39f70bde566d7ca596" title="BaseDelayedIterator\l::iterateTo" alt="" coords="723,266,864,307"/>
+<area shape="rect" id="node17" href="$class_base_delayed_iterator.html#a0f4e26de87701b0d5522101c6161c568" title="BaseDelayedIterator\l::next" alt="" coords="723,462,864,503"/>
+<area shape="rect" id="node28" href="$class_r_s_a_m_mapping.html#a79e3de9b0f3220b01dd28346e51ae019" title="Returns a pointer of a new Iterator which is able to iterate over the function. " alt="" coords="449,911,639,953"/>
+<area shape="rect" id="node32" href="$class_breakpoint_pathloss_model.html#a50fed0d02ee407b1ab602a6c203cfd83" title="Filters a specified AirFrame&#39;s Signal by adding an attenuation over time to the Signal. " alt="" coords="459,1115,629,1157"/>
+<area shape="rect" id="node33" href="$class_p_e_r_model.html#ab571e93f422b0e6a299cee2c2b886bc0" title="Has to be overriden by every implementation. " alt="" coords="467,1064,621,1091"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="getBluetoothConnection" name="getBluetoothConnection">
+<area shape="rect" id="node2" href="$class_tra_c_i_demo11p.html#a0f070d06bf6eafef5bf85063f963a13d" title="Initialization of the module and some variables. " alt="" coords="223,5,390,32"/>
+<area shape="rect" id="node3" href="$class_tra_c_i_demo11p.html#a63233b99c92c122e8fc7c5ce5da0c438" title="TraCIDemo11p::sendWSM" alt="" coords="217,56,397,83"/>
+<area shape="rect" id="node4" href="$class_tra_c_i_demo11p.html#ab41ac005b7c30f7217ba3a26c23a645d" title="TraCIDemo11p::sendMessage" alt="" coords="445,56,645,83"/>
+<area shape="rect" id="node5" href="$class_tra_c_i_demo11p.html#a73a6ca11b60eeb8ca9a523e382787a72" title="TraCIDemo11p::onData" alt="" coords="715,27,877,53"/>
+<area shape="rect" id="node6" href="$class_tra_c_i_demo11p.html#ad9a9d4f6da6e486797c930f6f6df5ab1" title="TraCIDemo11p::handlePosition\lUpdate" alt="" coords="694,78,898,119"/>
+<area shape="rect" id="node7" href="$class_tra_c_i_demo11p.html#a63c38f89463a42420b046dd8170117b6" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="947,85,1144,112"/>
+</map>

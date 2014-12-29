@@ -1,0 +1,4 @@
+<map id="Veins::TraCIMobility::getParkingState" name="Veins::TraCIMobility::getParkingState">
+<area shape="rect" id="node2" href="$class_tra_c_i_demo11p.html#a173cade98af1b12755ee6dbac4e7584e" title="TraCIDemo11p::handleParking\lUpdate" alt="" coords="195,5,397,46"/>
+<area shape="rect" id="node3" href="$class_tra_c_i_demo11p.html#a63c38f89463a42420b046dd8170117b6" title="Called by the signaling mechanism whenever a change of a category occurs to which we have subscribed..." alt="" coords="445,12,643,39"/>
+</map>

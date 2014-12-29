@@ -1,0 +1,8 @@
+<map id="Veins::TraCICommandInterface::genericGetDouble" name="Veins::TraCICommandInterface::genericGetDouble">
+<area shape="rect" id="node2" href="$class_veins_1_1_tra_c_i_command_interface.html#a90f17d035256946ebf1d883ae04eb46b" title="Veins::TraCICommandInterface\l::getEdgeCurrentTravelTime" alt="" coords="262,5,469,46"/>
+<area shape="rect" id="node3" href="$class_veins_1_1_tra_c_i_command_interface.html#ac4338b211f2c21d5b978c1516491577d" title="Veins::TraCICommandInterface\l::getEdgeMeanSpeed" alt="" coords="262,70,469,111"/>
+<area shape="rect" id="node4" href="$class_veins_1_1_tra_c_i_command_interface.html#a21a58a8611558cdfb01ca666797a4643" title="Veins::TraCICommandInterface\l::getLaneLength" alt="" coords="262,135,469,177"/>
+<area shape="rect" id="node5" href="$class_veins_1_1_tra_c_i_command_interface.html#acb4b737672dc93997cf09f522fdeaca9" title="Veins::TraCICommandInterface\l::getLaneMaxSpeed" alt="" coords="262,201,469,242"/>
+<area shape="rect" id="node6" href="$class_veins_1_1_tra_c_i_command_interface.html#a468a556d1aaf5ef0610db43cfd10512e" title="Veins::TraCICommandInterface\l::getLaneMeanSpeed" alt="" coords="262,266,469,307"/>
+<area shape="rect" id="node7" href="$class_veins_1_1_tra_c_i_command_interface.html#aea3bcd95e6559e9ea9b20cdb8b79f996" title="Veins::TraCICommandInterface\l::getLanePosition" alt="" coords="262,331,469,373"/>
+</map>

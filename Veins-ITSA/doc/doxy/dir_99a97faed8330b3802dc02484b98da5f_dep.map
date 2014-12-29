@@ -1,0 +1,15 @@
+<map id="world" name="world">
+<area shape="rect" id="node2" href="dir_79c3bb924aa01a0420e4e0235dd1de55.html" title="annotations" alt="" coords="59,63,148,111"/>
+<area shape="rect" id="node3" href="dir_5d6314687355e40b46cb7ff22257e953.html" title="base" alt="" coords="5,255,77,303"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000008_000001.html" title="1" alt="" coords="46,229,54,244"/>
+<area shape="rect" id="node4" href="dir_374aca7bdf0bfa6b6417cb1cda323ac9.html" title="mobility" alt="" coords="68,159,140,207"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000008_000024.html" title="2" alt="" coords="108,133,116,148"/>
+<area shape="rect" id="node5" href="dir_4fa41523f3376fcba61e71436bb9916e.html" title="inet" alt="" coords="41,351,113,399"/>
+<area shape="rect" id="edge4-headlabel" href="dir_000008_000017.html" title="1" alt="" coords="104,331,112,346"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000001_000017.html" title="9" alt="" coords="57,323,65,338"/>
+<area shape="rect" id="edge5-headlabel" href="dir_000024_000001.html" title="5" alt="" coords="70,237,78,252"/>
+<area shape="rect" id="edge6-headlabel" href="dir_000024_000017.html" title="2" alt="" coords="89,327,97,341"/>
+<area shape="rect" id="edge7-headlabel" href="dir_000017_000001.html" title="2" alt="" coords="54,316,62,330"/>
+<area shape="rect" id="clust2" href="dir_99a97faed8330b3802dc02484b98da5f.html" alt="" coords="48,52,256,121"/>
+<area shape="rect" id="clust1" href="dir_939cb03d40fe06f514408dc6ec1ae306.html" title="modules" alt="" coords="37,16,267,132"/>
+</map>

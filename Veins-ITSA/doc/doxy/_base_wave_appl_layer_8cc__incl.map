@@ -1,0 +1,24 @@
+<map id="BaseWaveApplLayer.cc" name="BaseWaveApplLayer.cc">
+<area shape="rect" id="node2" href="$_base_wave_appl_layer_8h.html" title="BaseWaveApplLayer.h" alt="" coords="1011,80,1164,107"/>
+<area shape="rect" id="node4" href="$_base_appl_layer_8h.html" title="BaseApplLayer.h" alt="" coords="978,163,1099,189"/>
+<area shape="rect" id="node17" href="$_consts80211p_8h.html" title="Consts80211p.h" alt="" coords="1184,245,1300,272"/>
+<area shape="rect" id="node18" href="$_wave_short_message__m_8h.html" title="WaveShortMessage_m.h" alt="" coords="1377,395,1545,421"/>
+<area shape="rect" id="node22" href="$_channel_access_8h.html" title="base/connectionManager\l/ChannelAccess.h" alt="" coords="535,155,701,197"/>
+<area shape="rect" id="node30" href="$_wave_app_to_mac1609__4_interface_8h.html" title="WaveAppToMac1609_4Interface.h" alt="" coords="1174,163,1396,189"/>
+<area shape="rect" id="node6" href="$_mi_xi_m_defs_8h.html" title="MiXiMDefs.h" alt="" coords="783,619,881,645"/>
+<area shape="rect" id="node9" href="$_base_layer_8h.html" title="BaseLayer.h" alt="" coords="963,245,1057,272"/>
+<area shape="rect" id="node16" href="$_simple_address_8h.html" title="SimpleAddress.h" alt="" coords="1278,544,1399,571"/>
+<area shape="rect" id="node8" href="$miximkerneldefs_8h.html" title="miximkerneldefs.h" alt="" coords="768,693,896,720"/>
+<area shape="rect" id="node10" href="$_battery_access_8h.html" title="BatteryAccess.h" alt="" coords="381,320,499,347"/>
+<area shape="rect" id="node15" href="$_passed_message_8h.html" title="PassedMessage.h" alt="" coords="1123,544,1252,571"/>
+<area shape="rect" id="node11" href="$_base_module_8h.html" title="BaseModule.h" alt="" coords="275,469,380,496"/>
+<area shape="rect" id="node14" href="$_base_battery_8h.html" title="BaseBattery.h" alt="" coords="185,395,289,421"/>
+<area shape="rect" id="node13" href="$_host_state_8h.html" title="HostState.h" alt="" coords="145,544,236,571"/>
+<area shape="rect" id="node19" href="$_coord_8h.html" title="Coord.h" alt="" coords="726,469,793,496"/>
+<area shape="rect" id="node20" href="$_f_w_math_8h.html" title="FWMath.h" alt="" coords="611,544,692,571"/>
+<area shape="rect" id="node24" href="$_find_module_8h.html" title="FindModule.h" alt="" coords="138,320,237,347"/>
+<area shape="rect" id="node25" href="$_base_mobility_8h.html" title="BaseMobility.h" alt="" coords="618,245,725,272"/>
+<area shape="rect" id="node26" href="$_move_8h.html" title="Move.h" alt="" coords="563,395,628,421"/>
+<area shape="rect" id="node29" href="$_base_world_utility_8h.html" title="BaseWorldUtility.h" alt="" coords="709,395,839,421"/>
+<area shape="rect" id="node31" href="$_netw_to_mac_control_info_8h.html" title="NetwToMacControlInfo.h" alt="" coords="1255,469,1423,496"/>
+</map>
