@@ -36,6 +36,13 @@ public:
     ReadablePacket* pop();
 };
 
+
+class Manager {
+public:
+    virtual void newPedestrian(double latitude, double longitude, double altitude) = 0;
+
+};
+
 class BluetoothConnection {
     friend class PacketReader;
     PacketReader* reader;
@@ -63,7 +70,7 @@ public:
     static const short OPCODE = -1;
     virtual ~WriteblePacket() {
     }
-    virtual void write(BluetoothConnection*, ByteBuffer*) = 0;
+    virtual void write(BluetoothConnection* connection, ByteBuffer* buf) = 0;
     virtual short getOpcode() = 0;
 protected:
     void writeString(std::string, ByteBuffer*);
@@ -75,15 +82,15 @@ public:
     static const short OPCODE =-1;
     virtual ~ReadablePacket() {
     }
-    virtual void read(ByteBuffer*)=0;
-    virtual void process(BluetoothConnection*)=0;
+    virtual void read(ByteBuffer* buf)=0;
+    virtual void process(BluetoothConnection* con, Manager* manager)=0;
 protected:
-    std::string readString(ByteBuffer*);
+    std::string readString(ByteBuffer* buf);
 };
 
 class PacketListener {
 public:
-    virtual void processPacket(ReadablePacket*) = 0;
+    virtual void processPacket(ReadablePacket* packet, Manager* manager ) = 0;
 };
 
 class PacketReader {
@@ -95,9 +102,10 @@ class PacketReader {
     static void* handlerPacketsWrapped(void*);
 protected:
     BluetoothConnection* con;
+    Manager* manager;
     void setConnection(BluetoothConnection*);
 public:
-    PacketReader(BluetoothConnection* = NULL);
+    PacketReader(BluetoothConnection* = NULL, Manager* = NULL);
     virtual ~PacketReader();
     static void* handler(void*);
     virtual ReadablePacket* createPacket(short) = 0;

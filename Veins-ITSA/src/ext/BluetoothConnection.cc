@@ -166,8 +166,9 @@ void BluetoothConnection::setPacketReader(PacketReader* reader) {
 // PacketReader
 //
 
-PacketReader::PacketReader(BluetoothConnection* con) {
+PacketReader::PacketReader(BluetoothConnection* con, Manager* manager) {
     this->con = con;
+    this->manager = manager;
     packets = new BlockingQueue();
     listener = NULL;
     mutex = PTHREAD_MUTEX_INITIALIZER;
@@ -232,7 +233,7 @@ void* PacketReader::handlerPacketsWrapped(void* context) {
     pthread_mutex_lock(&self->mutex);
     {
         while (!self->packets->empty() && self->listener != NULL) {
-            self->listener->processPacket(self->packets->pop());
+            self->listener->processPacket(self->packets->pop(), self->manager);
         }
     }
     pthread_mutex_unlock(&self->mutex);

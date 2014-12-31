@@ -21,7 +21,6 @@ using Veins::InfoBusScenarioManager;
 Define_Module(InfoBusScenarioManager);
 
 InfoBusScenarioManager::~InfoBusScenarioManager() {
-    delete bluetoothConnection;
 }
 
 void InfoBusScenarioManager::initialize(int stage) {
@@ -36,10 +35,8 @@ void InfoBusScenarioManager::initialize(int stage) {
     pedestrianModType = par("pedestrianModType").stdstringValue();
     pedestrianModName = par("pedestrianModName").stdstringValue();
 
-    //TODO getAddress automatically
-    con = new BluetoothConnection(par("bluetoothAddress").stringValue());
-    con->setPacketReader(this);
-    setPacketListener(this);
+    connectionHandler = new ConnectionHandler(par("bluetoothAddress").stringValue(), this);
+
     TraCIScenarioManagerLaunchd::initialize(stage);
 
 }
@@ -48,8 +45,7 @@ void InfoBusScenarioManager::finish() {
     TraCIScenarioManagerLaunchd::finish();
 }
 
-void InfoBusScenarioManager::newPedestrian(double latitude, double longitude,
-        double altitude) {
+void InfoBusScenarioManager::newPedestrian(double latitude, double longitude, double altitude) {
     pedestrianInsertQueue[++pedestrianNameCounter] = traci2omnet(
             getCommandInterface()->positionConversionCoord(longitude, latitude,
                     altitude));
@@ -70,8 +66,7 @@ void InfoBusScenarioManager::executeOneTimestep() {
     }
 }
 
-void InfoBusScenarioManager::addPedestrianModule(int pedestrianId,
-        Coord position) {
+void InfoBusScenarioManager::addPedestrianModule(int pedestrianId,  Coord position) {
 
     int32_t nodeVectorIndex = nextNodePedestrianIndex++;
 
@@ -112,23 +107,5 @@ void InfoBusScenarioManager::addPedestrianModule(int pedestrianId,
             continue;
         mm->changePosition();
     }
-}
-
-ReadablePacket* InfoBusScenarioManager::createPacket(short opcode) {
-    ReadablePacket* packet = NULL;
-    std::cout << "receiving opcode " << opcode << std::endl;
-    switch (opcode) {
-    case 0x00:
-        packet = new R_InitPacket(this);
-        break;
-    default:
-        std::cout << "Received Unknown Packet Opcode " << opcode << std::endl;
-    }
-    return packet;
-}
-
-void InfoBusScenarioManager::processPacket(ReadablePacket* packet) {
-    packet->process(con);
-    delete packet;
 }
 

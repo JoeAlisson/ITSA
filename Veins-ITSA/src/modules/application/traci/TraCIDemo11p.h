@@ -23,13 +23,9 @@
 
 #include "BaseWaveApplLayer.h"
 #include "modules/mobility/traci/TraCIMobility.h"
-#include <BluetoothConnection.hpp>
-#include <Handler.hpp>
 
 using Veins::TraCIMobility;
 using Veins::AnnotationManager;
-
-BluetoothConnection* getBluetoothConnection();
 
 /**
  * Small IVC Demo using 11p

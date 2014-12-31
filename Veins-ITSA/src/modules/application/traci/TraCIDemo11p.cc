@@ -29,24 +29,10 @@ const simsignalwrap_t TraCIDemo11p::parkingStateChangedSignal = simsignalwrap_t(
 
 Define_Module(TraCIDemo11p);
 
-BluetoothConnection* connection = NULL;
-
-BluetoothConnection* getBluetoothConnection() {
-    if (connection == NULL) {
-        connection = new BluetoothConnection("14:2D:27:CD:A5:68");
-        connection->setPacketReader(new PacketHandler(connection));
-    }
-    if (!(connection->isConnected() || connection->waiting)) {
-        connection->accept();
-    }
-    return connection;
-}
-
 void TraCIDemo11p::initialize(int stage) {
     BaseWaveApplLayer::initialize(stage);
 
     if (stage == 0) {
-        getBluetoothConnection(); // start up connection
         traci = TraCIMobilityAccess().get(getParentModule());
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
@@ -128,13 +114,5 @@ void TraCIDemo11p::handlePositionUpdate(cObject* obj) {
 void TraCIDemo11p::sendWSM(WaveShortMessage* wsm) {
     if (isParking && !sendWhileParking)
         return;
-    BluetoothConnection* con = getBluetoothConnection();
-    if(con->isConnected()) {
-        WaveShortMessage* cp = wsm->dup();
-        std::pair<double, double> pos = traci->getCommandInterface()->positionConversionLonLat(
-                traci->getManager()->omnet2traci(cp->getSenderPos()));
-        cp->setSenderPos(Coord(pos.second, pos.first));
-        con->sendPacket(new W_WSMPacket(cp));
-    }
     sendDelayedDown(wsm, individualOffset);
 }

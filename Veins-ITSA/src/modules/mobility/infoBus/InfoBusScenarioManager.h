@@ -17,12 +17,8 @@
 #define __VEINS_INFOBUSSCENARIOMANAGER_H_
 
 #include <omnetpp.h>
-
 #include <TraCIScenarioManagerLaunchd.h>
-#include <BluetoothConnection.hpp>
-#include <Packets.hpp>
-
-using Veins::TraCIScenarioManagerLaunchd;
+#include <ConnectionHandler.h>
 
 /**
  *
@@ -30,15 +26,13 @@ using Veins::TraCIScenarioManagerLaunchd;
  */
 namespace Veins {
 
-class InfoBusScenarioManager : public TraCIScenarioManagerLaunchd, public PacketReader, public PacketListener
+class InfoBusScenarioManager : public TraCIScenarioManagerLaunchd, public Manager
 {
   public:
     virtual ~InfoBusScenarioManager();
     virtual void initialize(int stage);
     virtual void finish();
-    virtual ReadablePacket* createPacket(short);
-    virtual void processPacket(ReadablePacket*);
-    void newPedestrian(double, double, double);
+    virtual void newPedestrian(double, double, double);
   protected:
     std::map<int, cModule*> pedestrians;
     std::string pedestrianModType;
@@ -46,7 +40,8 @@ class InfoBusScenarioManager : public TraCIScenarioManagerLaunchd, public Packet
     uint32_t pedestrianNameCounter;
     size_t nextNodePedestrianIndex;
     std::map<int, Coord > pedestrianInsertQueue;
-    BluetoothConnection* bluetoothConnection;
+    ConnectionHandler* connectionHandler;
+    //ConnectionHandler* connectionHandler;
     void addPedestrianModule(int, Coord);
     void executeOneTimestep();
 
