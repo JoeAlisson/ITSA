@@ -16,9 +16,9 @@ protected:
 public:
     ConnectionHandler(const char*, Manager*);
     virtual ~ConnectionHandler();
-
     virtual ReadablePacket* createPacket(short);
     virtual void processPacket(ReadablePacket*, Manager*);
+    void listen();
 };
 
 #endif /* CONNECTIONHANDLER_H_ */

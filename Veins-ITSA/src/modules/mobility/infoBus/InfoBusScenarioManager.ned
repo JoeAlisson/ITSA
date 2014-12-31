@@ -37,7 +37,7 @@ simple InfoBusScenarioManager extends TraCIScenarioManagerLaunchd {
     
     parameters:
         @class(Veins::InfoBusScenarioManager);
-        string pedestrianModType = default("org.car2x.veins.modules.nodes.Pedestrian");  // module type to be used in the simulation for each pedestrian
+        string pedestrianModType = default("org.car2x.veins.nodes.Pedestrian");  // module type to be used in the simulation for each pedestrian
         string pedestrianModName = default("pedestrian");  // module name to be used in the simulation for each pedestrian
         string bluetoothAddress = default("14:2D:27:CD:A5:68");
     

@@ -36,7 +36,7 @@ void InfoBusScenarioManager::initialize(int stage) {
     pedestrianModName = par("pedestrianModName").stdstringValue();
 
     connectionHandler = new ConnectionHandler(par("bluetoothAddress").stringValue(), this);
-
+    connectionHandler->listen();
     TraCIScenarioManagerLaunchd::initialize(stage);
 
 }
@@ -46,15 +46,15 @@ void InfoBusScenarioManager::finish() {
 }
 
 void InfoBusScenarioManager::newPedestrian(double latitude, double longitude, double altitude) {
-    pedestrianInsertQueue[++pedestrianNameCounter] = traci2omnet(
-            getCommandInterface()->positionConversionCoord(longitude, latitude,
-                    altitude));
+    pedestrianInsertQueue[++pedestrianNameCounter] = traci2omnet(getCommandInterface()->positionConversionCoord(longitude, latitude, altitude));
+    std::cout << "new pedestrian add into queue" << std::endl;
 }
 
 void InfoBusScenarioManager::executeOneTimestep() {
     TraCIScenarioManagerLaunchd::executeOneTimestep();
 
     if (!pedestrianInsertQueue.empty()) {
+        std::cout << "queue is not empty " << std::endl;
         for (std::map<int, Coord>::iterator i = pedestrianInsertQueue.begin();
                 i != pedestrianInsertQueue.end();) {
             addPedestrianModule(i->first, i->second);
@@ -68,6 +68,7 @@ void InfoBusScenarioManager::executeOneTimestep() {
 
 void InfoBusScenarioManager::addPedestrianModule(int pedestrianId,  Coord position) {
 
+    std::cout << "Add new Module " << std::endl;
     int32_t nodeVectorIndex = nextNodePedestrianIndex++;
 
     cModule* parentmod = getParentModule();

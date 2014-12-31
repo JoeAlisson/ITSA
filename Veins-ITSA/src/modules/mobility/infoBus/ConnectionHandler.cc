@@ -20,12 +20,19 @@ ConnectionHandler::~ConnectionHandler() {
     }
 }
 
+void ConnectionHandler::listen() {
+    con->accept();
+}
+
 ReadablePacket* ConnectionHandler::createPacket(short opcode) {
     ReadablePacket* packet = NULL;
     std::cout << "receiving opcode " << opcode << std::endl;
     switch (opcode) {
     case 0x00:
         packet = new R_InitPacket();
+        break;
+    case 0x02:
+        packet = new R_PositionUpdate();
         break;
     default:
         std::cout << "Received Unknown Packet Opcode " << opcode << std::endl;

@@ -1,14 +1,14 @@
 version 2
-run nodebug-0-20141231-11:43:22-13827
+run nodebug-0-20141231-13:31:57-18571
 attr configname nodebug
-attr datetime 20141231-11:43:22
+attr datetime 20141231-13:31:57
 attr experiment nodebug
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network InfoBusScenario
-attr processid 13827
+attr processid 18571
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -70,128 +70,4 @@ scalar InfoBusScenario.node[19].nic.mac1609_4 	NumInternalContention 	0
 scalar InfoBusScenario.node[19].nic.mac1609_4 	totalBusyTime 	0
 scalar InfoBusScenario.node[19].veinsmobility 	startTime 	13.5
 scalar InfoBusScenario.node[19].veinsmobility 	totalTime 	66.5
-scalar InfoBusScenario.node[19].veinsmobility 	stopTime 	80.5
-scalar InfoBusScenario.node[19].veinsmobility 	minSpeed 	2.1283764608405
-scalar InfoBusScenario.node[19].veinsmobility 	maxSpeed 	13.888970461988
-scalar InfoBusScenario.node[19].veinsmobility 	totalDistance 	652.42375973538
-scalar InfoBusScenario.node[19].veinsmobility 	totalCO2Emission 	226.74889026412
-scalar InfoBusScenario.node[40].nic.phy80211p 	busyTime 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	ReceivedUnicastPackets 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	ReceivedBroadcasts 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	SentPackets 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	SNIRLostPackets 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	RXTXLostPackets 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	TotalLostPackets 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	DroppedPacketsInMac 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	TooLittleTime 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	TimesIntoBackoff 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	SlotsBackoff 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	NumInternalContention 	0
-scalar InfoBusScenario.node[40].nic.mac1609_4 	totalBusyTime 	0
-scalar InfoBusScenario.node[40].veinsmobility 	startTime 	34.5
-scalar InfoBusScenario.node[40].veinsmobility 	totalTime 	59
-scalar InfoBusScenario.node[40].veinsmobility 	stopTime 	94
-scalar InfoBusScenario.node[40].veinsmobility 	minSpeed 	1.4052039548633
-scalar InfoBusScenario.node[40].veinsmobility 	maxSpeed 	22.201496350118
-scalar InfoBusScenario.node[40].veinsmobility 	totalDistance 	664.26801219181
-scalar InfoBusScenario.node[40].veinsmobility 	totalCO2Emission 	230.8942964808
-scalar InfoBusScenario.node[92].nic.phy80211p 	busyTime 	8.1818181136364e-06
-scalar InfoBusScenario.node[92].nic.mac1609_4 	ReceivedUnicastPackets 	0
-scalar InfoBusScenario.node[92].nic.mac1609_4 	ReceivedBroadcasts 	6
-scalar InfoBusScenario.node[92].nic.mac1609_4 	SentPackets 	1
-scalar InfoBusScenario.node[92].nic.mac1609_4 	SNIRLostPackets 	0
-scalar InfoBusScenario.node[92].nic.mac1609_4 	RXTXLostPackets 	0
-scalar InfoBusScenario.node[92].nic.mac1609_4 	TotalLostPackets 	0
-scalar InfoBusScenario.node[92].nic.mac1609_4 	DroppedPacketsInMac 	0
-scalar InfoBusScenario.node[92].nic.mac1609_4 	TooLittleTime 	0
-scalar InfoBusScenario.node[92].nic.mac1609_4 	TimesIntoBackoff 	1
-scalar InfoBusScenario.node[92].nic.mac1609_4 	SlotsBackoff 	1
-scalar InfoBusScenario.node[92].nic.mac1609_4 	NumInternalContention 	0
-scalar InfoBusScenario.node[92].nic.mac1609_4 	totalBusyTime 	0.000840999993
-scalar InfoBusScenario.node[92].veinsmobility 	startTime 	79.5
-scalar InfoBusScenario.node[92].veinsmobility 	totalTime 	87.5
-scalar InfoBusScenario.node[92].veinsmobility 	stopTime 	167.5
-scalar InfoBusScenario.node[92].veinsmobility 	minSpeed 	0.95488685170421
-scalar InfoBusScenario.node[92].veinsmobility 	maxSpeed 	22.213336600524
-scalar InfoBusScenario.node[92].veinsmobility 	totalDistance 	1180.3431377908
-scalar InfoBusScenario.node[92].veinsmobility 	totalCO2Emission 	321.86497447673
-scalar InfoBusScenario.node[118].nic.phy80211p 	busyTime 	3.3103448e-06
-scalar InfoBusScenario.node[118].nic.mac1609_4 	ReceivedUnicastPackets 	0
-scalar InfoBusScenario.node[118].nic.mac1609_4 	ReceivedBroadcasts 	2
-scalar InfoBusScenario.node[118].nic.mac1609_4 	SentPackets 	1
-scalar InfoBusScenario.node[118].nic.mac1609_4 	SNIRLostPackets 	0
-scalar InfoBusScenario.node[118].nic.mac1609_4 	RXTXLostPackets 	0
-scalar InfoBusScenario.node[118].nic.mac1609_4 	TotalLostPackets 	0
-scalar InfoBusScenario.node[118].nic.mac1609_4 	DroppedPacketsInMac 	0
-scalar InfoBusScenario.node[118].nic.mac1609_4 	TooLittleTime 	0
-scalar InfoBusScenario.node[118].nic.mac1609_4 	TimesIntoBackoff 	1
-scalar InfoBusScenario.node[118].nic.mac1609_4 	SlotsBackoff 	2
-scalar InfoBusScenario.node[118].nic.mac1609_4 	NumInternalContention 	0
-scalar InfoBusScenario.node[118].nic.mac1609_4 	totalBusyTime 	0.000360999997
-scalar InfoBusScenario.node[118].veinsmobility 	startTime 	101.5
-scalar InfoBusScenario.node[118].veinsmobility 	totalTime 	72
-scalar InfoBusScenario.node[118].veinsmobility 	stopTime 	174
-scalar InfoBusScenario.node[118].veinsmobility 	minSpeed 	0.96110543454997
-scalar InfoBusScenario.node[118].veinsmobility 	maxSpeed 	22.219973987755
-scalar InfoBusScenario.node[118].veinsmobility 	totalDistance 	954.97661013953
-scalar InfoBusScenario.node[118].veinsmobility 	totalCO2Emission 	243.2394675088
-scalar InfoBusScenario.node[103].nic.phy80211p 	busyTime 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	ReceivedUnicastPackets 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	ReceivedBroadcasts 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	SentPackets 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	SNIRLostPackets 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	RXTXLostPackets 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	TotalLostPackets 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	DroppedPacketsInMac 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	TooLittleTime 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	TimesIntoBackoff 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	SlotsBackoff 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	NumInternalContention 	0
-scalar InfoBusScenario.node[103].nic.mac1609_4 	totalBusyTime 	0
-scalar InfoBusScenario.node[103].veinsmobility 	startTime 	90.5
-scalar InfoBusScenario.node[103].veinsmobility 	totalTime 	86
-scalar InfoBusScenario.node[103].veinsmobility 	stopTime 	177
-scalar InfoBusScenario.node[103].veinsmobility 	minSpeed 	1.953818153514
-scalar InfoBusScenario.node[103].veinsmobility 	maxSpeed 	19.899544030665
-scalar InfoBusScenario.node[103].veinsmobility 	totalDistance 	847.23183344763
-scalar InfoBusScenario.node[103].veinsmobility 	totalCO2Emission 	308.09486252064
-scalar InfoBusScenario.node[16].nic.phy80211p 	busyTime 	4.0336134117647e-06
-scalar InfoBusScenario.node[16].nic.mac1609_4 	ReceivedUnicastPackets 	0
-scalar InfoBusScenario.node[16].nic.mac1609_4 	ReceivedBroadcasts 	6
-scalar InfoBusScenario.node[16].nic.mac1609_4 	SentPackets 	1
-scalar InfoBusScenario.node[16].nic.mac1609_4 	SNIRLostPackets 	0
-scalar InfoBusScenario.node[16].nic.mac1609_4 	RXTXLostPackets 	0
-scalar InfoBusScenario.node[16].nic.mac1609_4 	TotalLostPackets 	0
-scalar InfoBusScenario.node[16].nic.mac1609_4 	DroppedPacketsInMac 	0
-scalar InfoBusScenario.node[16].nic.mac1609_4 	TooLittleTime 	0
-scalar InfoBusScenario.node[16].nic.mac1609_4 	TimesIntoBackoff 	1
-scalar InfoBusScenario.node[16].nic.mac1609_4 	SlotsBackoff 	5
-scalar InfoBusScenario.node[16].nic.mac1609_4 	NumInternalContention 	0
-scalar InfoBusScenario.node[16].nic.mac1609_4 	totalBusyTime 	0.000840999993
-scalar InfoBusScenario.node[16].veinsmobility 	startTime 	10.5
-scalar InfoBusScenario.node[16].veinsmobility 	totalTime 	178
-scalar InfoBusScenario.node[16].veinsmobility 	stopTime 	189
-scalar InfoBusScenario.node[16].veinsmobility 	minSpeed 	1.6485311602164e-09
-scalar InfoBusScenario.node[16].veinsmobility 	maxSpeed 	22.219248066223
-scalar InfoBusScenario.node[16].veinsmobility 	totalDistance 	2125.7864268515
-scalar InfoBusScenario.node[16].veinsmobility 	totalCO2Emission 	738.455501404
-scalar InfoBusScenario.node[51].nic.phy80211p 	busyTime 	7.0358305602606e-06
-scalar InfoBusScenario.node[51].nic.mac1609_4 	ReceivedUnicastPackets 	0
-scalar InfoBusScenario.node[51].nic.mac1609_4 	ReceivedBroadcasts 	7
-scalar InfoBusScenario.node[51].nic.mac1609_4 	SentPackets 	1
-scalar InfoBusScenario.node[51].nic.mac1609_4 	SNIRLostPackets 	2
-scalar InfoBusScenario.node[51].nic.mac1609_4 	RXTXLostPackets 	0
-scalar InfoBusScenario.node[51].nic.mac1609_4 	TotalLostPackets 	2
-scalar InfoBusScenario.node[51].nic.mac1609_4 	DroppedPacketsInMac 	0
-scalar InfoBusScenario.node[51].nic.mac1609_4 	TooLittleTime 	0
-scalar InfoBusScenario.node[51].nic.mac1609_4 	TimesIntoBackoff 	1
-scalar InfoBusScenario.node[51].nic.mac1609_4 	SlotsBackoff 	5
-scalar InfoBusScenario.node[51].nic.mac1609_4 	NumInternalContention 	0
-scalar InfoBusScenario.node[51].nic.mac1609_4 	totalBusyTime 	0.001119529381
-scalar InfoBusScenario.node[51].veinsmobility 	startTime 	44.5
-scalar InfoBusScenario.node[51].veinsmobility 	totalTime 	153
-scalar InfoBusScenario.node[51].veinsmobility 	stopTime 	198
-scalar InfoBusScenario.node[51].veinsmobility 	minSpeed 	2.1156218483656
-scalar InfoBusScenario.node[51].veinsmobility 	maxSpeed 	22.219144652812
-scalar InfoBusScenario.node[51].veinsmobility 	totalDistance 	2102.5497383138
-scalar InfoBusScenario.node[51].veinsmobility 	totalCO2Emission 	531.06066501567
+scalar InfoBusScenario.node[19].veinsmobility 	stop

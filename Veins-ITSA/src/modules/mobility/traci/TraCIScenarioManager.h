@@ -162,7 +162,7 @@ class TraCIScenarioManager : public cSimpleModule
 
 		uint32_t getCurrentTimeMs(); /**< get current simulation time (in ms) */
 
-		void executeOneTimestep(); /**< read and execute all commands for the next timestep */
+		virtual void executeOneTimestep(); /**< read and execute all commands for the next timestep */
 
 		virtual void init_traci();
 

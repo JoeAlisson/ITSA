@@ -123,6 +123,7 @@ void BluetoothConnection::write() {
 }
 
 ByteBuffer* BluetoothConnection::read() {
+    std::cout << "Waiting Packets " << std::endl;
     readerBuffer->clear();
     uint8_t buf[4096];
     ssize_t received;
@@ -164,7 +165,6 @@ void BluetoothConnection::setPacketReader(PacketReader* reader) {
 }
 
 // PacketReader
-//
 
 PacketReader::PacketReader(BluetoothConnection* con, Manager* manager) {
     this->con = con;
@@ -195,11 +195,15 @@ void PacketReader::handlerPackets() {
 
 void PacketReader::handlerWrapped() {
     con->waiting = true;
+    std::cout << "Waiting Connections " << std::endl;
     con->client = accept(con->mSocket, (struct sockaddr*) &con->remote, &con->opt);
+    std::cout << "Connection accept " << std::endl;
     con->waiting = false;
-    if (!con->isConnected())
+    if (!con->isConnected()) {
         con->handlerDisconnection();
         return;
+    }
+    std::cout << "connection successful" << std::endl;
     do {
         try {
             ByteBuffer* buf = con->read();
@@ -256,7 +260,5 @@ std::string ReadablePacket::readString(ByteBuffer * buf) {
         str += c;
         std::cout << c;
     }
-    std::cout << c << std::endl;
-
     return str;
 }
