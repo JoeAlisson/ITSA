@@ -15,9 +15,10 @@
 
 import org.car2x.veins.base.connectionManager.ConnectionManager;
 import org.car2x.veins.base.modules.BaseWorldUtility;
-import org.car2x.veins.modules.mobility.infoBus.InfoBusScenarioManager;
 import org.car2x.veins.modules.obstacle.ObstacleControl;
 import org.car2x.veins.modules.world.annotations.AnnotationManager;
+import org.car2x.veins.modules.mobility.pedestrian.PedestrianScenarioManager;
+
 
 network InfoBusScenario
 {
@@ -44,7 +45,7 @@ network InfoBusScenario
                 playgroundSizeZ = playgroundSizeZ;
                 @display("p=41,50;i=misc/globe");
         }
-        manager: InfoBusScenarioManager {
+        manager: PedestrianScenarioManager {
             parameters:
                 @display("p=512,128");
         }

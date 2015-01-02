@@ -20,9 +20,10 @@
 #define HEADER_SIZE 2
 #define BUFFER_SIZE 64*1024
 
-class WriteblePacket;
+class WritablePacket;
 class ReadablePacket;
 class PacketReader;
+class Manager;
 
 class BlockingQueue {
     std::queue<ReadablePacket*>* queue;
@@ -36,56 +37,67 @@ public:
     ReadablePacket* pop();
 };
 
-
-class Manager {
+class BluetoothConnectionClient {
+    int socket;
+    ByteBuffer *writerBuffer, *readerBuffer;
+    struct sockaddr_rc address;
+    unsigned int lengthAddress;
+    pthread_mutex_t mutex;
+    Manager* manager;
+    void write();
+    virtual void handleDisconnection();
 public:
-    virtual void newPedestrian(double latitude, double longitude, double altitude) = 0;
-
+    BluetoothConnectionClient(int socket, sockaddr_rc address, unsigned int lengthAddress, Manager* manager);
+    virtual ~BluetoothConnectionClient();
+    virtual bool isConnected();
+    virtual void sendPacket(WritablePacket*);
+    virtual ByteBuffer* read();
+    std::string getAddress();
 };
 
-class BluetoothConnection {
+class BluetoothConnectionServer {
     friend class PacketReader;
     PacketReader* reader;
-    pthread_mutex_t mutex;
-    ByteBuffer* writerBuffer;
-    ByteBuffer* readerBuffer;
-    void write();
-    void handlerDisconnection();
-public:
     bool waiting;
-    struct sockaddr_rc local, remote;
-    int mSocket, client;
-    unsigned int opt;
-    ~BluetoothConnection();
-    BluetoothConnection(const char*, int = 1);
+    struct sockaddr_rc local;
+    int mSocket;
+public:
+    ~BluetoothConnectionServer();
+    BluetoothConnectionServer(const char*, int = 1, int = 7);
     void accept();
-    void sendPacket(WriteblePacket*);
-    ByteBuffer* read();
-    bool isConnected();
     void setPacketReader(PacketReader*);
 };
 
-class WriteblePacket {
+class Manager {
+public:
+    virtual void onForcedDisconnection(BluetoothConnectionClient* connection) = 0;
+    virtual void handleConnection(BluetoothConnectionClient* connection) = 0;
+};
+
+class WritablePacket {
 public:
     static const short OPCODE = -1;
-    virtual ~WriteblePacket() {
+    virtual ~WritablePacket() {
     }
-    virtual void write(BluetoothConnection* connection, ByteBuffer* buf) = 0;
+    virtual void write(BluetoothConnectionClient* connection, ByteBuffer* buf) = 0;
     virtual short getOpcode() = 0;
 protected:
     void writeString(std::string, ByteBuffer*);
 
 };
 
+
 class ReadablePacket {
+    friend class PacketReader;
 public:
     static const short OPCODE =-1;
     virtual ~ReadablePacket() {
     }
     virtual void read(ByteBuffer* buf)=0;
-    virtual void process(BluetoothConnection* con, Manager* manager)=0;
+    virtual void process(Manager* manager)=0;
 protected:
     std::string readString(ByteBuffer* buf);
+    BluetoothConnectionClient* connection;
 };
 
 class PacketListener {
@@ -101,11 +113,11 @@ class PacketReader {
     void handlerPackets();
     static void* handlerPacketsWrapped(void*);
 protected:
-    BluetoothConnection* con;
+    BluetoothConnectionServer* server;
     Manager* manager;
-    void setConnection(BluetoothConnection*);
+    void setConnection(BluetoothConnectionServer*);
 public:
-    PacketReader(BluetoothConnection* = NULL, Manager* = NULL);
+    PacketReader(BluetoothConnectionServer* = NULL, Manager* = NULL);
     virtual ~PacketReader();
     static void* handler(void*);
     virtual ReadablePacket* createPacket(short) = 0;

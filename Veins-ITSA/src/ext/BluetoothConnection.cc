@@ -45,51 +45,36 @@ ReadablePacket* BlockingQueue::pop() {
 }
 
 // BluetoothConnection
-//
 
-BluetoothConnection::BluetoothConnection(const char* mac, int porta) {
-    client = -1;
-    mutex = PTHREAD_MUTEX_INITIALIZER;
-    opt = sizeof(remote);
-    mSocket = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
-    local.rc_family = AF_BLUETOOTH;
-    str2ba(mac, &local.rc_bdaddr);
-    local.rc_channel = (u_int8_t) porta;
-    bind(mSocket, (struct sockaddr*) &local, sizeof(local));
-    listen(mSocket, 1);
+BluetoothConnectionClient::BluetoothConnectionClient(int socket,
+        sockaddr_rc address, unsigned int lengthAddress, Manager* manager) {
+    this->socket = socket;
+    this->lengthAddress = lengthAddress;
+    this->address = address;
+    this->manager = manager;
     writerBuffer = new ByteBuffer(BUFFER_SIZE);
     readerBuffer = new ByteBuffer(BUFFER_SIZE);
-    waiting = false;
+    mutex = PTHREAD_MUTEX_INITIALIZER;
 }
 
-BluetoothConnection::~BluetoothConnection() {
-    if(reader) {
-        delete reader;
-    }
+BluetoothConnectionClient::~BluetoothConnectionClient() {
     delete writerBuffer;
     delete readerBuffer;
+    close(socket);
 }
 
-void BluetoothConnection::accept() {
-    pthread_t thread;
-    if (reader != NULL)
-        pthread_create(&thread, NULL, PacketReader::handler, (void*) reader);
+void BluetoothConnectionClient::handleDisconnection() {
+    manager->onForcedDisconnection(this);
 }
 
-void BluetoothConnection::handlerDisconnection() {
-    close(client);
-    client = -1;
-    accept();
+bool BluetoothConnectionClient::isConnected() {
+    return socket != -1;
 }
 
-bool BluetoothConnection::isConnected() {
-    return client != -1;
-}
-
-void BluetoothConnection::sendPacket(WriteblePacket* packet) {
+void BluetoothConnectionClient::sendPacket(WritablePacket* packet) {
     if (packet == NULL)
         return;
-
+    std::cout << "Sending Packet " << packet->getOpcode() << std::endl;
     pthread_mutex_lock(&mutex);
     {
         writerBuffer->clear();
@@ -106,53 +91,51 @@ void BluetoothConnection::sendPacket(WriteblePacket* packet) {
     delete packet;
 }
 
-void BluetoothConnection::write() {
+void BluetoothConnectionClient::write() {
     short size = writerBuffer->getShort() + HEADER_SIZE;
     uint8_t * array = new uint8_t[size];
     writerBuffer->setReadPos(0);
     writerBuffer->getBytes(array, size);
-    try {
-        int f = send(client, array, size, 0);
-        if (f < 0) {
-            handlerDisconnection();
-        }
-    } catch (...) {
+
+    int f = send(socket, array, size, 0);
+    if (f < 0) {
         std::cout << "error on write " << std::endl;
+        handleDisconnection();
     }
     delete array;
 }
 
-ByteBuffer* BluetoothConnection::read() {
+ByteBuffer* BluetoothConnectionClient::read() {
     std::cout << "Waiting Packets " << std::endl;
     readerBuffer->clear();
     uint8_t buf[4096];
-    ssize_t received;
+    ssize_t received = 0;
     // read header
-    short count = 0;
-    while (count < HEADER_SIZE) {
-        int i = ioctl(client, FIONREAD, &count);
-        usleep(300);
-        if (i == -1) {
-            handlerDisconnection();
+
+    uint8_t * tmp = buf;
+    while (received < HEADER_SIZE) {
+        int r = recv(socket, tmp, HEADER_SIZE - received, 0);
+        if (r == -1) {
+            handleDisconnection();
             return 0;
+        } else if (r == 0) {
+            usleep(300);
+        } else {
+            tmp += r;
+            received += r;
         }
     }
-
-    received = recv(client, buf, HEADER_SIZE, 0);
-    if (received == -1) {
-        handlerDisconnection();
-        return 0;
-    }
+    tmp = NULL;
 
     readerBuffer->putBytes(buf, received);
 
     unsigned short datasize = readerBuffer->getShort() + HEADER_SIZE;
     do {
-        received = recv(client, buf, datasize - readerBuffer->getWritePos(), 0);
+        received = recv(socket, buf, datasize - readerBuffer->getWritePos(), 0);
         if (received > 0)
             readerBuffer->putBytes(buf, received);
         else if (received < 0) {
-            handlerDisconnection();
+            handleDisconnection();
             return 0;
         }
     } while (readerBuffer->getWritePos() < datasize);
@@ -160,14 +143,42 @@ ByteBuffer* BluetoothConnection::read() {
     return readerBuffer->clone();
 }
 
-void BluetoothConnection::setPacketReader(PacketReader* reader) {
+std::string BluetoothConnectionClient::getAddress() {
+    return batostr(&address.rc_bdaddr);
+}
+
+BluetoothConnectionServer::BluetoothConnectionServer(const char* mac, int porta,
+        int connections) {
+    mSocket = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
+    local.rc_family = AF_BLUETOOTH;
+    str2ba(mac, &local.rc_bdaddr);
+    local.rc_channel = (u_int8_t) porta;
+    bind(mSocket, (struct sockaddr*) &local, sizeof(local));
+    listen(mSocket, connections);
+    waiting = false;
+}
+
+BluetoothConnectionServer::~BluetoothConnectionServer() {
+    if (reader) {
+        delete reader;
+    }
+}
+
+void BluetoothConnectionServer::accept() {
+    if (waiting)
+        return;
+    pthread_t thread;
+    if (reader != NULL)
+        pthread_create(&thread, NULL, PacketReader::handler, (void*) reader);
+}
+
+void BluetoothConnectionServer::setPacketReader(PacketReader* reader) {
     this->reader = reader;
 }
 
 // PacketReader
-
-PacketReader::PacketReader(BluetoothConnection* con, Manager* manager) {
-    this->con = con;
+PacketReader::PacketReader(BluetoothConnectionServer* con, Manager* manager) {
+    this->server = con;
     this->manager = manager;
     packets = new BlockingQueue();
     listener = NULL;
@@ -179,8 +190,8 @@ PacketReader::~PacketReader() {
     pthread_mutex_destroy(&mutex);
 }
 
-void PacketReader::setConnection(BluetoothConnection* con){
-    this->con = con;
+void PacketReader::setConnection(BluetoothConnectionServer* con) {
+    this->server = con;
 }
 void PacketReader::setPacketListener(PacketListener* listener) {
     this->listener = listener;
@@ -194,25 +205,36 @@ void PacketReader::handlerPackets() {
 }
 
 void PacketReader::handlerWrapped() {
-    con->waiting = true;
+    server->waiting = true;
     std::cout << "Waiting Connections " << std::endl;
-    con->client = accept(con->mSocket, (struct sockaddr*) &con->remote, &con->opt);
-    std::cout << "Connection accept " << std::endl;
-    con->waiting = false;
-    if (!con->isConnected()) {
-        con->handlerDisconnection();
+    struct sockaddr_rc clientAddress;
+    unsigned int length = sizeof(clientAddress);
+    int clientSocket = accept(server->mSocket,
+            (struct sockaddr*) &clientAddress, &length);
+    server->waiting = false;
+    BluetoothConnectionClient* client = NULL;
+    if (clientSocket != -1) {
+        client = new BluetoothConnectionClient(clientSocket, clientAddress,
+                length, manager);
+    } else {
+        server->accept();
         return;
     }
-    std::cout << "connection successful" << std::endl;
+    std::cout << "connection successful, client: " << clientSocket
+            << " address: " << client->getAddress() << std::endl;
+    manager->handleConnection(client);
     do {
         try {
-            ByteBuffer* buf = con->read();
+            ByteBuffer* buf = client->read();
             if (buf == NULL) {
+                // something wrong happened, probably the connection is already closed.
+                std::cout << "Error on client->read " << std::endl;
                 return;
             }
             short opcode = buf->getShort();
             ReadablePacket * packet = createPacket(opcode);
             if (packet != NULL) {
+                packet->connection = client;
                 packet->read(buf);
                 packets->push(packet);
                 if (listener != NULL) {
@@ -223,7 +245,6 @@ void PacketReader::handlerWrapped() {
             std::cout << "error in handler " << std::endl;
             break;
         }
-
     } while (true);
 }
 
@@ -245,13 +266,12 @@ void* PacketReader::handlerPacketsWrapped(void* context) {
 }
 
 // Packets base
-void WriteblePacket::writeString(std::string msg, ByteBuffer* buf) {
+void WritablePacket::writeString(std::string msg, ByteBuffer* buf) {
     for (unsigned short i = 0; i < msg.size(); ++i) {
         buf->putChar(msg[i]);
     }
     buf->putChar('\000');
 }
-
 
 std::string ReadablePacket::readString(ByteBuffer * buf) {
     std::string str = "";

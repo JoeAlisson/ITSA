@@ -24,14 +24,14 @@ INCLUDE_PATH = \
     -Imodules/analogueModel \
     -Imodules/application \
     -Imodules/application/ieee80211p \
-    -Imodules/application/infoBus \
+    -Imodules/application/pedestrian \
     -Imodules/application/traci \
     -Imodules/mac \
     -Imodules/mac/ieee80211p \
     -Imodules/messages \
     -Imodules/mobility \
-    -Imodules/mobility/infoBus \
-    -Imodules/mobility/infoBus/packet \
+    -Imodules/mobility/pedestrian \
+    -Imodules/mobility/pedestrian/packet \
     -Imodules/mobility/traci \
     -Imodules/nic \
     -Imodules/obstacle \
@@ -92,15 +92,15 @@ OBJS = \
     $O/modules/analogueModel/BreakpointPathlossModel.o \
     $O/modules/analogueModel/TwoRayInterferenceModel.o \
     $O/modules/application/ieee80211p/BaseWaveApplLayer.o \
-    $O/modules/application/infoBus/Pedestrian11p.o \
+    $O/modules/application/pedestrian/Pedestrian11p.o \
     $O/modules/application/traci/TraCIDemoRSU11p.o \
     $O/modules/application/traci/TraCIDemo11p.o \
     $O/modules/application/traci/TraCITestApp.o \
     $O/modules/mac/ieee80211p/Mac1609_4.o \
-    $O/modules/mobility/infoBus/ConnectionHandler.o \
-    $O/modules/mobility/infoBus/PedestrianMobility.o \
-    $O/modules/mobility/infoBus/InfoBusScenarioManager.o \
-    $O/modules/mobility/infoBus/packet/Packets.o \
+    $O/modules/mobility/pedestrian/ConnectionHandler.o \
+    $O/modules/mobility/pedestrian/PedestrianMobility.o \
+    $O/modules/mobility/pedestrian/PedestrianScenarioManager.o \
+    $O/modules/mobility/pedestrian/packet/Packets.o \
     $O/modules/mobility/traci/TraCIScenarioManager.o \
     $O/modules/mobility/traci/TraCIBuffer.o \
     $O/modules/mobility/traci/TraCICommandInterface.o \
@@ -220,14 +220,14 @@ clean:
 	$(Q)-rm -f modules/analogueModel/*_m.cc modules/analogueModel/*_m.h
 	$(Q)-rm -f modules/application/*_m.cc modules/application/*_m.h
 	$(Q)-rm -f modules/application/ieee80211p/*_m.cc modules/application/ieee80211p/*_m.h
-	$(Q)-rm -f modules/application/infoBus/*_m.cc modules/application/infoBus/*_m.h
+	$(Q)-rm -f modules/application/pedestrian/*_m.cc modules/application/pedestrian/*_m.h
 	$(Q)-rm -f modules/application/traci/*_m.cc modules/application/traci/*_m.h
 	$(Q)-rm -f modules/mac/*_m.cc modules/mac/*_m.h
 	$(Q)-rm -f modules/mac/ieee80211p/*_m.cc modules/mac/ieee80211p/*_m.h
 	$(Q)-rm -f modules/messages/*_m.cc modules/messages/*_m.h
 	$(Q)-rm -f modules/mobility/*_m.cc modules/mobility/*_m.h
-	$(Q)-rm -f modules/mobility/infoBus/*_m.cc modules/mobility/infoBus/*_m.h
-	$(Q)-rm -f modules/mobility/infoBus/packet/*_m.cc modules/mobility/infoBus/packet/*_m.h
+	$(Q)-rm -f modules/mobility/pedestrian/*_m.cc modules/mobility/pedestrian/*_m.h
+	$(Q)-rm -f modules/mobility/pedestrian/packet/*_m.cc modules/mobility/pedestrian/packet/*_m.h
 	$(Q)-rm -f modules/mobility/traci/*_m.cc modules/mobility/traci/*_m.h
 	$(Q)-rm -f modules/nic/*_m.cc modules/nic/*_m.h
 	$(Q)-rm -f modules/obstacle/*_m.cc modules/obstacle/*_m.h
@@ -243,7 +243,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc base/*.cc base/connectionManager/*.cc base/messages/*.cc base/modules/*.cc base/phyLayer/*.cc base/utils/*.cc ext/*.cc ext/utils/*.cc inet/*.cc modules/*.cc modules/analogueModel/*.cc modules/application/*.cc modules/application/ieee80211p/*.cc modules/application/infoBus/*.cc modules/application/traci/*.cc modules/mac/*.cc modules/mac/ieee80211p/*.cc modules/messages/*.cc modules/mobility/*.cc modules/mobility/infoBus/*.cc modules/mobility/infoBus/packet/*.cc modules/mobility/traci/*.cc modules/nic/*.cc modules/obstacle/*.cc modules/phy/*.cc modules/utility/*.cc modules/world/*.cc modules/world/annotations/*.cc nodes/*.cc scripts/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc base/*.cc base/connectionManager/*.cc base/messages/*.cc base/modules/*.cc base/phyLayer/*.cc base/utils/*.cc ext/*.cc ext/utils/*.cc inet/*.cc modules/*.cc modules/analogueModel/*.cc modules/application/*.cc modules/application/ieee80211p/*.cc modules/application/pedestrian/*.cc modules/application/traci/*.cc modules/mac/*.cc modules/mac/ieee80211p/*.cc modules/messages/*.cc modules/mobility/*.cc modules/mobility/pedestrian/*.cc modules/mobility/pedestrian/packet/*.cc modules/mobility/traci/*.cc modules/nic/*.cc modules/obstacle/*.cc modules/phy/*.cc modules/utility/*.cc modules/world/*.cc modules/world/annotations/*.cc nodes/*.cc scripts/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/base/connectionManager/BaseConnectionManager.o: base/connectionManager/BaseConnectionManager.cc \
@@ -686,7 +686,7 @@ $O/modules/application/ieee80211p/BaseWaveApplLayer.o: modules/application/ieee8
 	modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
 	modules/messages/WaveShortMessage_m.h \
 	modules/utility/Consts80211p.h
-$O/modules/application/infoBus/Pedestrian11p.o: modules/application/infoBus/Pedestrian11p.cc \
+$O/modules/application/pedestrian/Pedestrian11p.o: modules/application/pedestrian/Pedestrian11p.cc \
 	base/connectionManager/BaseConnectionManager.h \
 	base/connectionManager/ChannelAccess.h \
 	base/connectionManager/NicEntry.h \
@@ -708,12 +708,12 @@ $O/modules/application/infoBus/Pedestrian11p.o: modules/application/infoBus/Pede
 	inet/Coord.h \
 	inet/FWMath.h \
 	modules/application/ieee80211p/BaseWaveApplLayer.h \
-	modules/application/infoBus/Pedestrian11p.h \
+	modules/application/pedestrian/Pedestrian11p.h \
 	modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
 	modules/messages/WaveShortMessage_m.h \
-	modules/mobility/infoBus/ConnectionHandler.h \
-	modules/mobility/infoBus/InfoBusScenarioManager.h \
-	modules/mobility/infoBus/PedestrianMobility.h \
+	modules/mobility/pedestrian/ConnectionHandler.h \
+	modules/mobility/pedestrian/PedestrianMobility.h \
+	modules/mobility/pedestrian/PedestrianScenarioManager.h \
 	modules/mobility/traci/TraCIBuffer.h \
 	modules/mobility/traci/TraCIColor.h \
 	modules/mobility/traci/TraCICommandInterface.h \
@@ -891,9 +891,9 @@ $O/modules/messages/WaveShortMessage_m.o: modules/messages/WaveShortMessage_m.cc
 	inet/Coord.h \
 	inet/FWMath.h \
 	modules/messages/WaveShortMessage_m.h
-$O/modules/mobility/infoBus/ConnectionHandler.o: modules/mobility/infoBus/ConnectionHandler.cc \
-	modules/mobility/infoBus/ConnectionHandler.h
-$O/modules/mobility/infoBus/InfoBusScenarioManager.o: modules/mobility/infoBus/InfoBusScenarioManager.cc \
+$O/modules/mobility/pedestrian/ConnectionHandler.o: modules/mobility/pedestrian/ConnectionHandler.cc \
+	modules/mobility/pedestrian/ConnectionHandler.h
+$O/modules/mobility/pedestrian/PedestrianMobility.o: modules/mobility/pedestrian/PedestrianMobility.cc \
 	base/connectionManager/BaseConnectionManager.h \
 	base/connectionManager/NicEntry.h \
 	base/modules/BaseBattery.h \
@@ -908,9 +908,9 @@ $O/modules/mobility/infoBus/InfoBusScenarioManager.o: modules/mobility/infoBus/I
 	base/utils/miximkerneldefs.h \
 	inet/Coord.h \
 	inet/FWMath.h \
-	modules/mobility/infoBus/ConnectionHandler.h \
-	modules/mobility/infoBus/InfoBusScenarioManager.h \
-	modules/mobility/infoBus/PedestrianMobility.h \
+	modules/mobility/pedestrian/ConnectionHandler.h \
+	modules/mobility/pedestrian/PedestrianMobility.h \
+	modules/mobility/pedestrian/PedestrianScenarioManager.h \
 	modules/mobility/traci/TraCIBuffer.h \
 	modules/mobility/traci/TraCIColor.h \
 	modules/mobility/traci/TraCICommandInterface.h \
@@ -921,7 +921,7 @@ $O/modules/mobility/infoBus/InfoBusScenarioManager.o: modules/mobility/infoBus/I
 	modules/obstacle/Obstacle.h \
 	modules/obstacle/ObstacleControl.h \
 	modules/world/annotations/AnnotationManager.h
-$O/modules/mobility/infoBus/PedestrianMobility.o: modules/mobility/infoBus/PedestrianMobility.cc \
+$O/modules/mobility/pedestrian/PedestrianScenarioManager.o: modules/mobility/pedestrian/PedestrianScenarioManager.cc \
 	base/connectionManager/BaseConnectionManager.h \
 	base/connectionManager/NicEntry.h \
 	base/modules/BaseBattery.h \
@@ -936,9 +936,9 @@ $O/modules/mobility/infoBus/PedestrianMobility.o: modules/mobility/infoBus/Pedes
 	base/utils/miximkerneldefs.h \
 	inet/Coord.h \
 	inet/FWMath.h \
-	modules/mobility/infoBus/ConnectionHandler.h \
-	modules/mobility/infoBus/InfoBusScenarioManager.h \
-	modules/mobility/infoBus/PedestrianMobility.h \
+	modules/mobility/pedestrian/ConnectionHandler.h \
+	modules/mobility/pedestrian/PedestrianMobility.h \
+	modules/mobility/pedestrian/PedestrianScenarioManager.h \
 	modules/mobility/traci/TraCIBuffer.h \
 	modules/mobility/traci/TraCIColor.h \
 	modules/mobility/traci/TraCICommandInterface.h \
@@ -949,7 +949,26 @@ $O/modules/mobility/infoBus/PedestrianMobility.o: modules/mobility/infoBus/Pedes
 	modules/obstacle/Obstacle.h \
 	modules/obstacle/ObstacleControl.h \
 	modules/world/annotations/AnnotationManager.h
-$O/modules/mobility/infoBus/packet/Packets.o: modules/mobility/infoBus/packet/Packets.cc
+$O/modules/mobility/pedestrian/packet/Packets.o: modules/mobility/pedestrian/packet/Packets.cc \
+	base/connectionManager/BaseConnectionManager.h \
+	base/connectionManager/NicEntry.h \
+	base/modules/BaseWorldUtility.h \
+	base/utils/FindModule.h \
+	base/utils/MiXiMDefs.h \
+	base/utils/miximkerneldefs.h \
+	inet/Coord.h \
+	inet/FWMath.h \
+	modules/mobility/pedestrian/ConnectionHandler.h \
+	modules/mobility/pedestrian/PedestrianScenarioManager.h \
+	modules/mobility/traci/TraCIBuffer.h \
+	modules/mobility/traci/TraCIColor.h \
+	modules/mobility/traci/TraCIConnection.h \
+	modules/mobility/traci/TraCICoord.h \
+	modules/mobility/traci/TraCIScenarioManager.h \
+	modules/mobility/traci/TraCIScenarioManagerLaunchd.h \
+	modules/obstacle/Obstacle.h \
+	modules/obstacle/ObstacleControl.h \
+	modules/world/annotations/AnnotationManager.h
 $O/modules/mobility/traci/TraCIBuffer.o: modules/mobility/traci/TraCIBuffer.cc \
 	modules/mobility/traci/TraCIBuffer.h \
 	modules/mobility/traci/TraCIConstants.h \
