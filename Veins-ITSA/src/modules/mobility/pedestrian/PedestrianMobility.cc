@@ -99,20 +99,13 @@ void PedestrianMobility::preInitialize(BluetoothConnectionClient* con, const Coo
 
 void PedestrianMobility::nextPosition(const Coord& position, std::string road_id, double speed, double angle) {
     if (debug)
-        EV << "nextPosition " << position.x << " " << position.y << " " << road_id << " " << speed << " " << angle << std::endl;
+        EV << "Pedestrian nextPosition " << position.x << " " << position.y << " " << road_id << " " << speed << " " << angle << std::endl;
     isPreInitialized = false;
     this->roadPosition = position;
     changePosition();
 }
 
 void PedestrianMobility::changePosition() {
-    // ensure we're not called twice in one time step
-    ASSERT(lastUpdate != simTime());
-
-    // keep statistics (for current step)
-    currentPosXVec.record(move.getStartPos().x);
-    currentPosYVec.record(move.getStartPos().y);
-
     Coord nextPos = calculateAntennaPosition(roadPosition);
     nextPos.z = move.getCurrentPosition().z;
 

@@ -36,6 +36,7 @@ class PedestrianScenarioManager : public TraCIScenarioManagerLaunchd, public Man
     virtual void initialize(int stage);
     virtual void finish();
     virtual void newPedestrian(BluetoothConnectionClient*, double, double, double);
+    virtual void updatePedestrian(BluetoothConnectionClient*, double, double, double);
   protected:
     std::map<BluetoothConnectionClient*, cModule*> pedestrians;
     std::string pedestrianModType;

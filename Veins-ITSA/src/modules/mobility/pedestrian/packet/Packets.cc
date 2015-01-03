@@ -88,5 +88,5 @@ void R_PositionUpdate::read(ByteBuffer* buf) {
 }
 
 void R_PositionUpdate::process(Manager* manager) {
-    //manager->newPedestrian(latitude, longitude, altitude);
+    ((PedestrianScenarioManager*)manager)->updatePedestrian(connection,latitude, longitude,altitude);
 }
