@@ -1,8 +1,24 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+//
+
 /*
- * ConnectionHandler.cpp
  *
  *  Created on: Dec 31, 2014
- *      Author: Alisson Oliveira
+ *      @author: Alisson Oliveira
+ *
+ *  Updated on: Jan 02, 2015
  */
 
 #include <ConnectionHandler.h>
@@ -27,14 +43,17 @@ void ConnectionHandler::listen() {
     server->accept();
 }
 
-ReadablePacket* ConnectionHandler::createPacket(short opcode) {
+ReadablePacket* ConnectionHandler::createPacket(uint16_t opcode) {
     ReadablePacket* packet = NULL;
     std::cout << "receiving opcode " << opcode << std::endl;
     switch (opcode) {
-    case 0x00:
+    case R_InitPacket::OPCODE:
         packet = new R_InitPacket();
         break;
-    case 0x02:
+    case R_ClosePacket::OPCODE:
+        packet = new R_ClosePacket();
+        break;
+    case R_PositionUpdate::OPCODE:
         packet = new R_PositionUpdate();
         break;
     default:

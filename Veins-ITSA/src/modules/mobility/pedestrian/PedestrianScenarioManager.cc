@@ -13,6 +13,13 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
+/**
+ *
+ *  @author Alisson Oliveira
+ *
+ *  Updated on: Jan 02, 2015
+ */
+
 #include <pedestrian/PedestrianScenarioManager.h>
 #include <pedestrian/PedestrianMobility.h>
 
@@ -21,6 +28,28 @@ using Veins::PedestrianScenarioManager;
 Define_Module(PedestrianScenarioManager);
 
 PedestrianScenarioManager::~PedestrianScenarioManager() {
+    for (std::map<BluetoothConnectionClient*, Coord>::iterator i =
+            pedestrianInsertQueue.begin(); i != pedestrianInsertQueue.end();) {
+        i->first->sendPacket(new W_ClosePacket());
+        i->first->closeConnection();
+        std::map<BluetoothConnectionClient*, Coord>::iterator tmp = i;
+        ++tmp;
+        pedestrianInsertQueue.erase(i);
+        i = tmp;
+    }
+
+    for (std::map<BluetoothConnectionClient*, cModule*>::iterator i =
+            pedestrians.begin(); i != pedestrians.end();) {
+        i->first->sendPacket(new W_ClosePacket());
+        i->first->closeConnection();
+        std::map<BluetoothConnectionClient*, cModule*>::iterator tmp = i;
+        ++tmp;
+        pedestrians.erase(i);
+        i = tmp;
+    }
+
+
+
 }
 
 void PedestrianScenarioManager::initialize(int stage) {
@@ -46,8 +75,9 @@ void PedestrianScenarioManager::finish() {
 }
 
 void PedestrianScenarioManager::newPedestrian(BluetoothConnectionClient* con, double latitude, double longitude, double altitude) {
-    pedestrianInsertQueue[con] = traci2omnet(getCommandInterface()->positionConversionCoord(longitude, latitude, altitude));
-    std::cout << "new pedestrian add into queue" << std::endl;
+    pedestrianInsertQueue[con] = traci2omnet(
+            getCommandInterface()->positionConversionCoord(longitude, latitude, altitude));
+    std::cout << "new pedestrian add into queue " << con->getAddress().c_str() << std::endl;
 }
 
 void PedestrianScenarioManager::executeOneTimestep() {
@@ -65,7 +95,8 @@ void PedestrianScenarioManager::executeOneTimestep() {
     }
 }
 
-void PedestrianScenarioManager::addPedestrianModule(BluetoothConnectionClient* con,  Coord position) {
+void PedestrianScenarioManager::addPedestrianModule(
+        BluetoothConnectionClient* con, Coord position) {
 
     std::cout << "Add new Module " << std::endl;
     int32_t nodeVectorIndex = nextNodePedestrianIndex++;
@@ -80,7 +111,8 @@ void PedestrianScenarioManager::addPedestrianModule(BluetoothConnectionClient* c
     if (!nodeType)
         error("Module Type \"%s\" not found", pedestrianModType.c_str());
 
-    cModule* mod = nodeType->create(pedestrianModName.c_str(), parentmod, nodeVectorIndex, nodeVectorIndex);
+    cModule* mod = nodeType->create(pedestrianModName.c_str(), parentmod,
+            nodeVectorIndex, nodeVectorIndex);
     mod->finalizeParameters();
     mod->getDisplayString().parse("");
     mod->buildInside();
@@ -108,8 +140,17 @@ void PedestrianScenarioManager::addPedestrianModule(BluetoothConnectionClient* c
     }
 }
 
-void  PedestrianScenarioManager::onForcedDisconnection(BluetoothConnectionClient* connection) {
-        std::cout << "handling disconnection " << std::endl;
+void PedestrianScenarioManager::onForcedDisconnection(BluetoothConnectionClient* connection) {
+    onDisconnection(connection);
+}
+
+void PedestrianScenarioManager::handleConnection(BluetoothConnectionClient* connection) {
+    connection->sendPacket(new W_InitPacket());
+    connectionHandler->onConnected();
+}
+
+void PedestrianScenarioManager::onDisconnection(BluetoothConnectionClient* connection) {
+    std::cout << "handling disconnection " << std::endl;
         cModule* mod = pedestrians[connection];
         if (!mod) {
             //probably it is in queue yet
@@ -122,13 +163,6 @@ void  PedestrianScenarioManager::onForcedDisconnection(BluetoothConnectionClient
         pedestrians.erase(connection);
         mod->callFinish();
         mod->deleteModule();
-        delete connection;
+        connection->closeConnection();
         connectionHandler->onDisconnected();
 }
-
-void  PedestrianScenarioManager::handleConnection(BluetoothConnectionClient* connection) {
-    connection->sendPacket(new W_InitPacket());
-    connectionHandler->onConnected();
-}
-
-

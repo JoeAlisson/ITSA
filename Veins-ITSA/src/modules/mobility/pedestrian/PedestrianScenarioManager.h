@@ -13,6 +13,13 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
+/*
+ *
+ *      @author Alisson Oliveira
+ *
+ *  Updated on: Jan 02, 2015
+ *
+ */
 #ifndef __VEINS_INFOBUSSCENARIOMANAGER_H_
 #define __VEINS_INFOBUSSCENARIOMANAGER_H_
 
@@ -20,10 +27,6 @@
 #include <TraCIScenarioManagerLaunchd.h>
 #include <ConnectionHandler.h>
 
-/**
- *
- * @author Alisson Oliveira
- */
 namespace Veins {
 
 class PedestrianScenarioManager : public TraCIScenarioManagerLaunchd, public Manager
@@ -44,6 +47,7 @@ class PedestrianScenarioManager : public TraCIScenarioManagerLaunchd, public Man
     virtual void addPedestrianModule(BluetoothConnectionClient*, Coord);
     virtual void onForcedDisconnection(BluetoothConnectionClient* connection);
     virtual void handleConnection(BluetoothConnectionClient* connection);
+    virtual void onDisconnection(BluetoothConnectionClient* connection);
     virtual void executeOneTimestep();
 
 };

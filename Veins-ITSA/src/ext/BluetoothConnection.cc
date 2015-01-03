@@ -1,8 +1,23 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+//
+
 /*
- * BluetoothConnection.cpp
- *
  *  Created on: 01/11/2014
  *      Author: Alisson Oliveira
+ *
+ *  Updated on: 02/01/2015
  */
 
 #include <BluetoothConnection.hpp>
@@ -60,11 +75,15 @@ BluetoothConnectionClient::BluetoothConnectionClient(int socket,
 BluetoothConnectionClient::~BluetoothConnectionClient() {
     delete writerBuffer;
     delete readerBuffer;
-    close(socket);
 }
 
 void BluetoothConnectionClient::handleDisconnection() {
     manager->onForcedDisconnection(this);
+}
+
+void BluetoothConnectionClient::closeConnection() {
+    close(socket);
+    socket = -1;
 }
 
 bool BluetoothConnectionClient::isConnected() {
@@ -129,9 +148,10 @@ ByteBuffer* BluetoothConnectionClient::read() {
 
     readerBuffer->putBytes(buf, received);
 
-    unsigned short datasize = readerBuffer->getShort() + HEADER_SIZE;
+    uint16_t datasize = readerBuffer->getShort();
+
     do {
-        received = recv(socket, buf, datasize - readerBuffer->getWritePos(), 0);
+        received = recv(socket, buf, datasize + HEADER_SIZE - readerBuffer->getWritePos(), 0);
         if (received > 0)
             readerBuffer->putBytes(buf, received);
         else if (received < 0) {
@@ -147,8 +167,7 @@ std::string BluetoothConnectionClient::getAddress() {
     return batostr(&address.rc_bdaddr);
 }
 
-BluetoothConnectionServer::BluetoothConnectionServer(const char* mac, int porta,
-        int connections) {
+BluetoothConnectionServer::BluetoothConnectionServer(const char* mac, int porta, int connections) {
     mSocket = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
     local.rc_family = AF_BLUETOOTH;
     str2ba(mac, &local.rc_bdaddr);
@@ -165,8 +184,7 @@ BluetoothConnectionServer::~BluetoothConnectionServer() {
 }
 
 void BluetoothConnectionServer::accept() {
-    if (waiting)
-        return;
+    if (waiting) return;
     pthread_t thread;
     if (reader != NULL)
         pthread_create(&thread, NULL, PacketReader::handler, (void*) reader);
@@ -200,8 +218,7 @@ void PacketReader::setPacketListener(PacketListener* listener) {
 
 void PacketReader::handlerPackets() {
     pthread_t thread;
-    pthread_create(&thread, NULL, PacketReader::handlerPacketsWrapped,
-            (void*) this);
+    pthread_create(&thread, NULL, PacketReader::handlerPacketsWrapped, (void*) this);
 }
 
 void PacketReader::handlerWrapped() {
@@ -209,19 +226,16 @@ void PacketReader::handlerWrapped() {
     std::cout << "Waiting Connections " << std::endl;
     struct sockaddr_rc clientAddress;
     unsigned int length = sizeof(clientAddress);
-    int clientSocket = accept(server->mSocket,
-            (struct sockaddr*) &clientAddress, &length);
+    int clientSocket = accept(server->mSocket, (struct sockaddr*) &clientAddress, &length);
     server->waiting = false;
     BluetoothConnectionClient* client = NULL;
     if (clientSocket != -1) {
-        client = new BluetoothConnectionClient(clientSocket, clientAddress,
-                length, manager);
+        client = new BluetoothConnectionClient(clientSocket, clientAddress, length, manager);
     } else {
         server->accept();
         return;
     }
-    std::cout << "connection successful, client: " << clientSocket
-            << " address: " << client->getAddress() << std::endl;
+    std::cout << "connection successful, client: " << clientSocket  << " address: " << client->getAddress() << std::endl;
     manager->handleConnection(client);
     do {
         try {
@@ -229,9 +243,10 @@ void PacketReader::handlerWrapped() {
             if (buf == NULL) {
                 // something wrong happened, probably the connection is already closed.
                 std::cout << "Error on client->read " << std::endl;
-                return;
+                break;
             }
-            short opcode = buf->getShort();
+            uint16_t opcode = buf->getShort();
+            std::cout << "OPCODE " << opcode << std::endl;
             ReadablePacket * packet = createPacket(opcode);
             if (packet != NULL) {
                 packet->connection = client;
@@ -245,7 +260,8 @@ void PacketReader::handlerWrapped() {
             std::cout << "error in handler " << std::endl;
             break;
         }
-    } while (true);
+    } while (client->isConnected());
+    delete client;
 }
 
 void* PacketReader::handler(void* context) {
@@ -278,7 +294,6 @@ std::string ReadablePacket::readString(ByteBuffer * buf) {
     char c;
     while ((c = buf->getChar()) != '\000') {
         str += c;
-        std::cout << c;
     }
     return str;
 }
