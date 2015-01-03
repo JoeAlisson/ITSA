@@ -17,34 +17,23 @@
  *
  *  @author Alisson Oliveira
  *
- *  Updated on: Jan 02, 2015
+ *  Updated on: Jan 03, 2015
  */
 
-#include <pedestrian/PedestrianScenarioManager.h>
-#include <pedestrian/PedestrianMobility.h>
+#include <PedestrianScenarioManager.h>
+#include <PedestrianMobility.h>
 
 using Veins::PedestrianScenarioManager;
 
 Define_Module(PedestrianScenarioManager);
 
 PedestrianScenarioManager::~PedestrianScenarioManager() {
-    for (std::map<BluetoothConnectionClient*, Coord>::iterator i =
-            pedestrianInsertQueue.begin(); i != pedestrianInsertQueue.end();) {
-        i->first->sendPacket(new W_ClosePacket());
-        i->first->closeConnection();
-        std::map<BluetoothConnectionClient*, Coord>::iterator tmp = i;
-        ++tmp;
-        pedestrianInsertQueue.erase(i);
-        i = tmp;
-    }
+}
 
-    for (std::map<BluetoothConnectionClient*, cModule*>::iterator i = pedestrians.begin(); i != pedestrians.end();) {
-        i->first->sendPacket(new W_ClosePacket());
-        i->first->closeConnection();
-        std::map<BluetoothConnectionClient*, cModule*>::iterator tmp = i;
-        ++tmp;
-        pedestrians.erase(i);
-        i = tmp;
+void PedestrianScenarioManager::handleSelfMsg(cMessage *msg) {
+    TraCIScenarioManager::handleSelfMsg(msg);
+    if (msg == connectAndStartTrigger) {
+        connectionHandler->listen();
     }
 }
 
@@ -61,7 +50,6 @@ void PedestrianScenarioManager::initialize(int stage) {
     pedestrianModName = par("pedestrianModName").stdstringValue();
 
     connectionHandler = new ConnectionHandler(par("bluetoothAddress").stringValue(), this);
-    connectionHandler->listen();
     TraCIScenarioManagerLaunchd::initialize(stage);
 
 }
@@ -70,38 +58,42 @@ void PedestrianScenarioManager::finish() {
     TraCIScenarioManagerLaunchd::finish();
 }
 
-void PedestrianScenarioManager::newPedestrian(BluetoothConnectionClient* con, double latitude, double longitude, double altitude) {
-    pedestrianInsertQueue[con] = traci2omnet(getCommandInterface()->positionConversionCoord(longitude, latitude, altitude));
+void PedestrianScenarioManager::newPedestrian(BluetoothConnectionClient* connection, double latitude, double longitude, double altitude) {
+    pedestrianToUpdate[connection] = new PedestrianPosition(latitude, longitude, altitude);
 }
 
 void PedestrianScenarioManager::updatePedestrian(BluetoothConnectionClient* connection, double latitude, double longitude, double altitude) {
 
-    cModule* mod = pedestrians[connection];
-
-    // Wasn't inserted yet.
-    if(!mod) return;
-
-    for (cModule::SubmoduleIterator iter(mod); !iter.end(); iter++) {
-        cModule* submod = iter();
-        PedestrianMobility* mm = dynamic_cast<PedestrianMobility*>(submod);
-        if (!mm)
-            continue;
-        try{
-            mm->nextPosition(traci2omnet(getCommandInterface()->positionConversionCoord(longitude, latitude, altitude)));
-        } catch (...) {
-
-        }
+    PedestrianPosition* pos = pedestrianToUpdate[connection];
+    if(pos) {
+        pos->latitude = latitude;
+        pos->altitude = altitude;
+        pos->longitude = longitude;
+    } else {
+        // pedestrian already inserted into simulation.
+        pedestrianToUpdate[connection] = new PedestrianPosition(latitude, longitude, altitude);
     }
+}
+
+Coord PedestrianScenarioManager::pedestrianPositionToCoord(PedestrianPosition* pos) {
+    return traci2omnet(getCommandInterface()->positionConversionCoord(pos->longitude, pos->latitude, pos->altitude));
 }
 
 void PedestrianScenarioManager::executeOneTimestep() {
     TraCIScenarioManagerLaunchd::executeOneTimestep();
 
-    for (std::map<BluetoothConnectionClient*, Coord>::iterator i = pedestrianInsertQueue.begin(); i != pedestrianInsertQueue.end();) {
-        addPedestrianModule(i->first, i->second);
-        std::map<BluetoothConnectionClient*, Coord>::iterator tmp = i;
+    for (std::map<BluetoothConnectionClient*, PedestrianPosition*>::iterator i = pedestrianToUpdate.begin(); i != pedestrianToUpdate.end();) {
+        cModule* mod = pedestrians[i->first];
+        if(!mod) {
+            addPedestrianModule(i->first, pedestrianPositionToCoord(i->second));
+        } else {
+            PedestrianMobility* mobility = PedestrianMobilityAccess().get(mod);
+            mobility->nextPosition(pedestrianPositionToCoord(i->second));
+        }
+        delete i->second;
+        std::map<BluetoothConnectionClient*, PedestrianPosition*>::iterator tmp = i;
         ++tmp;
-        pedestrianInsertQueue.erase(i);
+        pedestrianToUpdate.erase(i);
         i = tmp;
     }
 }
@@ -126,25 +118,12 @@ void PedestrianScenarioManager::addPedestrianModule(BluetoothConnectionClient* c
     mod->scheduleStart(simTime() + updateInterval);
 
     // pre-initialize PedestrianMobility
-    for (cModule::SubmoduleIterator iter(mod); !iter.end(); iter++) {
-        cModule* submod = iter();
-        PedestrianMobility* mm = dynamic_cast<PedestrianMobility*>(submod);
-        if (!mm)
-            continue;
-        mm->preInitialize(con, position);
-    }
-
+    PedestrianMobility* mobility= PedestrianMobilityAccess().get(mod);
+    mobility->preInitialize(con, position);
     mod->callInitialize();
     pedestrians[con] = mod;
-
-    // post-initialize TraCIMobility
-    for (cModule::SubmoduleIterator iter(mod); !iter.end(); iter++) {
-        cModule* submod = iter();
-        PedestrianMobility* mm = dynamic_cast<PedestrianMobility*>(submod);
-        if (!mm)
-            continue;
-        mm->changePosition();
-    }
+    // post-initialize PedestrianMobility
+    mobility->changePosition();
 }
 
 void PedestrianScenarioManager::onForcedDisconnection(BluetoothConnectionClient* connection) {
@@ -158,18 +137,16 @@ void PedestrianScenarioManager::handleConnection(BluetoothConnectionClient* conn
 
 void PedestrianScenarioManager::onDisconnection(BluetoothConnectionClient* connection) {
     std::cout << "handling disconnection " << std::endl;
-        cModule* mod = pedestrians[connection];
-        if (!mod) {
-            //probably it is in queue yet
-            pedestrianInsertQueue.erase(connection);
-            return;
-        }
+    pedestrianToUpdate.erase(connection);
+    cModule* mod = pedestrians[connection];
 
+    if (mod) {
         cc->unregisterNic(mod->getSubmodule("nic"));
-
-        pedestrians.erase(connection);
         mod->callFinish();
         mod->deleteModule();
-        connection->closeConnection();
-        connectionHandler->onDisconnected();
+        pedestrians.erase(connection);
+    }
+
+    connection->closeConnection();
+    connectionHandler->onDisconnected();
 }

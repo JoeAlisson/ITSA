@@ -17,7 +17,7 @@
  *
  *      @author Alisson Oliveira
  *
- *  Updated on: Jan 02, 2015
+ *  Updated on: Jan 03, 2015
  *
  */
 #ifndef __VEINS_INFOBUSSCENARIOMANAGER_H_
@@ -37,20 +37,32 @@ class PedestrianScenarioManager : public TraCIScenarioManagerLaunchd, public Man
     virtual void finish();
     virtual void newPedestrian(BluetoothConnectionClient*, double, double, double);
     virtual void updatePedestrian(BluetoothConnectionClient*, double, double, double);
+    virtual void handleSelfMsg(cMessage *msg);
   protected:
+    class PedestrianPosition {
+    public:
+        double latitude;
+        double longitude;
+        double altitude;
+        PedestrianPosition(double latitude, double longitude, double altitude) {
+            this->latitude = latitude;
+            this->longitude = longitude;
+            this->altitude = altitude;
+        }
+    };
     std::map<BluetoothConnectionClient*, cModule*> pedestrians;
     std::string pedestrianModType;
     std::string pedestrianModName;
     uint32_t pedestrianNameCounter;
     size_t nextNodePedestrianIndex;
-    std::map<BluetoothConnectionClient*, Coord > pedestrianInsertQueue;
+    std::map<BluetoothConnectionClient*, PedestrianPosition*> pedestrianToUpdate;
     ConnectionHandler* connectionHandler;
     virtual void addPedestrianModule(BluetoothConnectionClient*, Coord);
     virtual void onForcedDisconnection(BluetoothConnectionClient* connection);
     virtual void handleConnection(BluetoothConnectionClient* connection);
     virtual void onDisconnection(BluetoothConnectionClient* connection);
     virtual void executeOneTimestep();
-
+    virtual Coord pedestrianPositionToCoord(PedestrianPosition*);
 };
 }
 

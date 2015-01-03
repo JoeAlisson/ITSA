@@ -1,6 +1,4 @@
 //
-// Copyright (C) 2006-2012 Christoph Sommer <christoph.sommer@uibk.ac.at>
-//
 // Documentation for these modules is at http://veins.car2x.org/
 //
 // This program is free software; you can redistribute it and/or modify
@@ -34,21 +32,11 @@
 #include <PedestrianScenarioManager.h>
 
 /**
- * @brief
- * Used in modules created by the TraCIScenarioManager.
- *
- * This module relies on the TraCIScenarioManager for state updates
- * and can not be used on its own.
- *
- * See the Veins website <a href="http://veins.car2x.org/"> for a tutorial, documentation, and publications </a>.
+ * Based on @see TraciMobility
  *
  * @author Alisson Oliveira
  *
- * @see TraCIScenarioManager
- * @see TraCIScenarioManagerLaunchd
- * @see InfoBusScenarioManager
- *
- * @ingroup mobility
+ * Updated on: Jan 03, 2015
  */
 
 namespace Veins {
@@ -81,18 +69,15 @@ class PedestrianMobility : public BaseMobility {
 		}
 
 	protected:
-		bool debug; /**< whether to emit debug messages */
+		bool debug;
 
-		cOutVector currentPosXVec; /**< vector plotting posx */
-		cOutVector currentPosYVec; /**< vector plotting posy */
-		cOutVector currentSpeedVec; /**< vector plotting speed */
 
-		bool isPreInitialized; /**< true if preInitialize() has been called immediately before initialize() */
+		bool isPreInitialized;
 
-		double antennaPositionOffset; /**< front offset for the antenna on this car */
+		double antennaPositionOffset;
 
-		simtime_t lastUpdate; /**< updated by nextPosition() */
-		Coord roadPosition; /**< position of front bumper, updated by nextPosition() */
+		simtime_t lastUpdate;
+		Coord roadPosition;
 
 		mutable PedestrianScenarioManager* manager;
 		BluetoothConnectionClient* con;
@@ -100,11 +85,8 @@ class PedestrianMobility : public BaseMobility {
 		double last_speed;
 
 
-		virtual void fixIfHostGetsOutside(); /**< called after each read to check for (and handle) invalid positions */
+		virtual void fixIfHostGetsOutside();
 
-		/**
-		 * Calculates where the antenna of this car is, given its front bumper position
-		 */
 		Coord calculateAntennaPosition(const Coord& vehiclePos) const;
 };
 }

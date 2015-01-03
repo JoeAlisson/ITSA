@@ -46,10 +46,6 @@ void PedestrianMobility::initialize(int stage) {
         debug = par("debug");
         antennaPositionOffset = par("antennaPositionOffset");
 
-        currentPosXVec.setName("posx");
-        currentPosYVec.setName("posy");
-        currentSpeedVec.setName("speed");
-
         //ASSERT(isPreInitialized);
         isPreInitialized = false;
 

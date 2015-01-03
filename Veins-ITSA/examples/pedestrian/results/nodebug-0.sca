@@ -1,0 +1,37 @@
+version 2
+run nodebug-0-20150103-13:40:19-31883
+attr configname nodebug
+attr datetime 20150103-13:40:19
+attr experiment nodebug
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network InfoBusScenario
+attr processid 31883
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+scalar InfoBusScenario.node[4].nic.phy80211p 	busyTime 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	ReceivedUnicastPackets 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	ReceivedBroadcasts 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	SentPackets 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	SNIRLostPackets 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	RXTXLostPackets 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	TotalLostPackets 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	DroppedPacketsInMac 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	TooLittleTime 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	TimesIntoBackoff 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	SlotsBackoff 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	NumInternalContention 	0
+scalar InfoBusScenario.node[4].nic.mac1609_4 	totalBusyTime 	0
+scalar InfoBusScenario.node[4].veinsmobility 	startTime 	0.5
+scalar InfoBusScenario.node[4].veinsmobility 	totalTime 	38.5
+scalar InfoBusScenario.node[4].veinsmobility 	stopTime 	39.5
+scalar InfoBusScenario.node[4].veinsmobility 	minSpeed 	1.9984376355134
+scalar InfoBusScenario.node[4].veinsmobility 	maxSpeed 	13.877150025701
+scalar InfoBusScenario.node[4].veinsmobility 	totalDistance 	369.03955077685
+scalar InfoBusScenario.node[4].veinsmobility 	totalCO2Emission 	115.57974491164

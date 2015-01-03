@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<!-- debug config -->
-<launch>
-	<copy file="arapiraca.net.xml" />
-	<copy file="arapiraca.rou.xml" />
-	<copy file="arapiraca.poly.xml" />
-	<copy file="arapiraca.sumo.cfg" type="config" />
-</launch>
-

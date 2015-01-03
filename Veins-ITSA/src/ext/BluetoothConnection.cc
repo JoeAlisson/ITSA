@@ -17,7 +17,7 @@
  *  Created on: 01/11/2014
  *      Author: Alisson Oliveira
  *
- *  Updated on: 02/01/2015
+ *  Updated on: 03/01/2015
  */
 
 #include <BluetoothConnection.hpp>
@@ -78,7 +78,8 @@ BluetoothConnectionClient::~BluetoothConnectionClient() {
 }
 
 void BluetoothConnectionClient::handleDisconnection() {
-    manager->onForcedDisconnection(this);
+    if(manager)
+        manager->onForcedDisconnection(this);
 }
 
 void BluetoothConnectionClient::closeConnection() {
