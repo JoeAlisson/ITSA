@@ -1,4 +1,24 @@
-#include "Pedestrian11p.h"
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+//
+
+/*
+ *  @author: Alisson Oliveira
+ *
+ *  Updated on: Jan 03, 2015
+ */
+#include <Pedestrian11p.h>
 
 using Veins::PedestrianMobilityAccess;
 using Veins::AnnotationManagerAccess;
@@ -24,18 +44,16 @@ void Pedestrian11p::onBeacon(WaveShortMessage* wsm) {
     DBG << "Eu sou  " << myId << " recebendo msg de " << wsm->getSenderAddress() << " com dados = " << wsm->getWsmData() << std::endl;
 
     //send data through Bluetooth
-    mobility->handleReceiveWSM(wsm);
-
+    handlerWSM(wsm);
 }
 
 void Pedestrian11p::onData(WaveShortMessage* wsm) {
-    mobility->handleReceiveWSM(wsm);
     findHost()->getDisplayString().updateWith("r=16,green");
     annotations->scheduleErase(1,
             annotations->drawLine(wsm->getSenderPos(), mobility->getPositionAt(simTime()), "blue"));
 
     //send data through Bluetooth
-    mobility->handleReceiveWSM(wsm);
+    handlerWSM(wsm);
 
     if (!sentMessage)
         sendMessage(wsm->getWsmData());
@@ -56,4 +74,13 @@ void Pedestrian11p::handlePositionUpdate(cObject* obj) {
 
 void Pedestrian11p::sendWSM(WaveShortMessage* wsm) {
     sendDelayedDown(wsm, individualOffset);
+}
+
+void Pedestrian11p::handlerWSM(WaveShortMessage* wsm) {
+   WaveShortMessage* cop = wsm->dup();
+    std::pair<double, double> lonlat = mobility->getCommandInterface()->positionConversionLonLat(mobility->getManager()->omnet2traci(cop->getSenderPos()));
+    Coord pos(lonlat.first, lonlat.second);
+    cop->setSenderPos(pos);
+    connection->sendPacket(new W_WSMPacket(cop));
+
 }

@@ -18,7 +18,7 @@
  *  Created on: Dec 31, 2014
  *      @author: Alisson Oliveira
  *
- *  Updated on: Jan 02, 2015
+ *  Updated on: Jan 03, 2015
  */
 
 #include <ConnectionHandler.h>
@@ -49,9 +49,6 @@ ReadablePacket* ConnectionHandler::createPacket(uint16_t opcode) {
     switch (opcode) {
     case R_InitPacket::OPCODE:
         packet = new R_InitPacket();
-        break;
-    case R_ClosePacket::OPCODE:
-        packet = new R_ClosePacket();
         break;
     case R_PositionUpdate::OPCODE:
         packet = new R_PositionUpdate();

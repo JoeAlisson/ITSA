@@ -17,7 +17,7 @@
  *  Created on: Nov 20, 2014
  *      @author: Alisson Oliveira
  *
- *  Updated on: Jan 02, 2015
+ *  Updated on: Jan 03, 2015
  */
 
 #ifndef PACKETS_HPP_
@@ -32,13 +32,6 @@ class W_InitPacket: public WritablePacket {
     static const uint16_t OPCODE = 0x00;
 public:
     virtual void write(BluetoothConnectionClient*, ByteBuffer*) {/* just a packet flag: Connection was accepted*/};
-    virtual short getOpcode() {return OPCODE;}
-};
-
-class W_ClosePacket: public WritablePacket {
-    static const uint16_t OPCODE = 0xFF;
-public:
-    virtual void write(BluetoothConnectionClient*, ByteBuffer*){/* just a packet flag: Connection will be closed */}
     virtual short getOpcode() {return OPCODE;}
 };
 
@@ -62,15 +55,6 @@ public:
     virtual void read(ByteBuffer*);
     virtual void process(Manager*);
 };
-
-class R_ClosePacket: public ReadablePacket {
-public:
-    static const uint16_t OPCODE = 0xFF;
-    virtual void read(ByteBuffer*) {/* just a packet flag: Connection was closed */}
-    virtual void process(Manager*);
-};
-
-
 
 class R_PositionUpdate: public ReadablePacket {
     double longitude, latitude, altitude;

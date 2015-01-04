@@ -269,3 +269,14 @@ Tcl error: moduleinspector.cc#631: ptr0x2c1b820 not found
 "ModuleInspector:drawNextEventMarker .network.c ptr0x2c1b820 2"
 
 
+----------------------------------------------------------------------
+
+
+Tcl error: tkenv.cc#970: null or malformed pointer
+    while executing
+"opp_msgarrtimefromnow $msgptr"
+    (procedure "redrawTimeline" line 81)
+    invoked from within
+"redrawTimeline"
+
+

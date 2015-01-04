@@ -18,7 +18,7 @@
  *  Created on: Nov 01, 2014
  *      @author: Alisson Oliveira
  *
- *  Updated on: Jan 02, 2015
+ *  Updated on: Jan 03, 2015
  */
 
 #ifndef BLUETOOTHCONNECTION_HPP_
@@ -87,7 +87,6 @@ public:
 
 class Manager {
 public:
-    virtual void onForcedDisconnection(BluetoothConnectionClient* connection) = 0;
     virtual void handleConnection(BluetoothConnectionClient* connection) = 0;
     virtual void onDisconnection(BluetoothConnectionClient* connection) = 0;
 };

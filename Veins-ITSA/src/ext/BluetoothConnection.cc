@@ -61,8 +61,7 @@ ReadablePacket* BlockingQueue::pop() {
 
 // BluetoothConnection
 
-BluetoothConnectionClient::BluetoothConnectionClient(int socket,
-        sockaddr_rc address, unsigned int lengthAddress, Manager* manager) {
+BluetoothConnectionClient::BluetoothConnectionClient(int socket, sockaddr_rc address, unsigned int lengthAddress, Manager* manager) {
     this->socket = socket;
     this->lengthAddress = lengthAddress;
     this->address = address;
@@ -70,21 +69,26 @@ BluetoothConnectionClient::BluetoothConnectionClient(int socket,
     writerBuffer = new ByteBuffer(BUFFER_SIZE);
     readerBuffer = new ByteBuffer(BUFFER_SIZE);
     mutex = PTHREAD_MUTEX_INITIALIZER;
+
 }
 
 BluetoothConnectionClient::~BluetoothConnectionClient() {
+    std::cout << "Deleting Connection " << std::endl;
     delete writerBuffer;
     delete readerBuffer;
+    std::cout << "Connection Deleted" << std::endl;
 }
 
 void BluetoothConnectionClient::handleDisconnection() {
     if(manager)
-        manager->onForcedDisconnection(this);
+        manager->onDisconnection(this);
 }
 
 void BluetoothConnectionClient::closeConnection() {
-    close(socket);
+    std::cout << "Closing Connection " << std::endl;
     socket = -1;
+    close(socket);
+    std::cout << "Connection Closed " << std::endl;
 }
 
 bool BluetoothConnectionClient::isConnected() {
@@ -127,41 +131,49 @@ void BluetoothConnectionClient::write() {
 
 ByteBuffer* BluetoothConnectionClient::read() {
     std::cout << "Waiting Packets " << std::endl;
-    readerBuffer->clear();
-    uint8_t buf[4096];
-    ssize_t received = 0;
-    // read header
+    try {
+        readerBuffer->clear();
+        uint8_t buf[4096];
+        ssize_t received = 0;
+        // read header
 
-    uint8_t * tmp = buf;
-    while (received < HEADER_SIZE) {
-        int r = recv(socket, tmp, HEADER_SIZE - received, 0);
-        if (r == -1) {
-            handleDisconnection();
-            return 0;
-        } else if (r == 0) {
-            usleep(300);
-        } else {
-            tmp += r;
-            received += r;
+        uint8_t * tmp = buf;
+        while (received < HEADER_SIZE) {
+            int r = recv(socket, tmp, HEADER_SIZE - received, 0);
+            if (r == -1) {
+                std::cout << "error receiving header " << std::endl;
+                handleDisconnection();
+                return 0;
+            } else if (r == 0) {
+                usleep(300);
+            } else {
+                tmp += r;
+                received += r;
+            }
         }
+        tmp = NULL;
+
+        readerBuffer->putBytes(buf, received);
+
+        uint16_t datasize = readerBuffer->getShort();
+
+        do {
+            received = recv(socket, buf, datasize + HEADER_SIZE - readerBuffer->getWritePos(), 0);
+            if (received > 0)
+                readerBuffer->putBytes(buf, received);
+            else if (received < 0) {
+                std::cout << "error receiving data " << std::endl;
+                handleDisconnection();
+                return 0;
+            }
+        } while (readerBuffer->getWritePos() < datasize);
+
+        return readerBuffer->clone();
+    } catch (...) {
+        std::cout << "error on read " << std::endl;
+        handleDisconnection();
+        return 0;
     }
-    tmp = NULL;
-
-    readerBuffer->putBytes(buf, received);
-
-    uint16_t datasize = readerBuffer->getShort();
-
-    do {
-        received = recv(socket, buf, datasize + HEADER_SIZE - readerBuffer->getWritePos(), 0);
-        if (received > 0)
-            readerBuffer->putBytes(buf, received);
-        else if (received < 0) {
-            handleDisconnection();
-            return 0;
-        }
-    } while (readerBuffer->getWritePos() < datasize);
-
-    return readerBuffer->clone();
 }
 
 std::string BluetoothConnectionClient::getAddress() {
@@ -236,32 +248,34 @@ void PacketReader::handlerWrapped() {
         server->accept();
         return;
     }
-    std::cout << "connection successful, client: " << clientSocket  << " address: " << client->getAddress() << std::endl;
+    std::cout << "connection successful, client: " << clientSocket << " address: " << client->getAddress() << std::endl;
     manager->handleConnection(client);
-    do {
-        try {
-            ByteBuffer* buf = client->read();
-            if (buf == NULL) {
-                // something wrong happened, probably the connection is already closed.
-                std::cout << "Error on client->read " << std::endl;
-                break;
-            }
-            uint16_t opcode = buf->getShort();
-            std::cout << "OPCODE " << opcode << std::endl;
-            ReadablePacket * packet = createPacket(opcode);
-            if (packet != NULL) {
-                packet->connection = client;
-                packet->read(buf);
-                packets->push(packet);
-                if (listener != NULL) {
-                    handlerPackets();
-                }
-            }
-        } catch (...) {
-            std::cout << "error in handler " << std::endl;
+    try {
+        do {
+        std::cout << "start to try read" << std::endl;
+
+        ByteBuffer* buf = client->read();
+        if (buf == NULL) {
+            // something wrong happened, probably the connection is already closed.
+            std::cout << "Error on client->read " << std::endl;
             break;
         }
+        uint16_t opcode = buf->getShort();
+        std::cout << "OPCODE " << opcode << std::endl;
+        ReadablePacket * packet = createPacket(opcode);
+        if (packet != NULL) {
+            packet->connection = client;
+            packet->read(buf);
+            packets->push(packet);
+            if (listener != NULL) {
+                handlerPackets();
+            }
+        }
+        std::cout << "while check connected " << std::endl;
     } while (client->isConnected());
+    } catch (...) {
+        std::cout << "error in handler " << std::endl;
+    }
     delete client;
 }
 

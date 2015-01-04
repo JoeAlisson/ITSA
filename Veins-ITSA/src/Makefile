@@ -923,8 +923,11 @@ $O/modules/mobility/pedestrian/PedestrianMobility.o: modules/mobility/pedestrian
 	modules/world/annotations/AnnotationManager.h
 $O/modules/mobility/pedestrian/PedestrianScenarioManager.o: modules/mobility/pedestrian/PedestrianScenarioManager.cc \
 	base/connectionManager/BaseConnectionManager.h \
+	base/connectionManager/ChannelAccess.h \
 	base/connectionManager/NicEntry.h \
+	base/modules/BaseApplLayer.h \
 	base/modules/BaseBattery.h \
+	base/modules/BaseLayer.h \
 	base/modules/BaseMobility.h \
 	base/modules/BaseModule.h \
 	base/modules/BaseWorldUtility.h \
@@ -933,9 +936,16 @@ $O/modules/mobility/pedestrian/PedestrianScenarioManager.o: modules/mobility/ped
 	base/utils/HostState.h \
 	base/utils/MiXiMDefs.h \
 	base/utils/Move.h \
+	base/utils/NetwToMacControlInfo.h \
+	base/utils/PassedMessage.h \
+	base/utils/SimpleAddress.h \
 	base/utils/miximkerneldefs.h \
 	inet/Coord.h \
 	inet/FWMath.h \
+	modules/application/ieee80211p/BaseWaveApplLayer.h \
+	modules/application/pedestrian/Pedestrian11p.h \
+	modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
+	modules/messages/WaveShortMessage_m.h \
 	modules/mobility/pedestrian/ConnectionHandler.h \
 	modules/mobility/pedestrian/PedestrianMobility.h \
 	modules/mobility/pedestrian/PedestrianScenarioManager.h \
@@ -948,6 +958,7 @@ $O/modules/mobility/pedestrian/PedestrianScenarioManager.o: modules/mobility/ped
 	modules/mobility/traci/TraCIScenarioManagerLaunchd.h \
 	modules/obstacle/Obstacle.h \
 	modules/obstacle/ObstacleControl.h \
+	modules/utility/Consts80211p.h \
 	modules/world/annotations/AnnotationManager.h
 $O/modules/mobility/pedestrian/packet/Packets.o: modules/mobility/pedestrian/packet/Packets.cc \
 	base/connectionManager/BaseConnectionManager.h \

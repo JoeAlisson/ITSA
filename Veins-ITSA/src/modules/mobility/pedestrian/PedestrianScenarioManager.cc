@@ -22,6 +22,7 @@
 
 #include <PedestrianScenarioManager.h>
 #include <PedestrianMobility.h>
+#include <Pedestrian11p.h>
 
 using Veins::PedestrianScenarioManager;
 
@@ -49,7 +50,8 @@ void PedestrianScenarioManager::initialize(int stage) {
     pedestrianModType = par("pedestrianModType").stdstringValue();
     pedestrianModName = par("pedestrianModName").stdstringValue();
 
-    connectionHandler = new ConnectionHandler(par("bluetoothAddress").stringValue(), this);
+    connectionHandler = new ConnectionHandler(
+            par("bluetoothAddress").stringValue(), this);
     TraCIScenarioManagerLaunchd::initialize(stage);
 
 }
@@ -58,14 +60,17 @@ void PedestrianScenarioManager::finish() {
     TraCIScenarioManagerLaunchd::finish();
 }
 
-void PedestrianScenarioManager::newPedestrian(BluetoothConnectionClient* connection, double latitude, double longitude, double altitude) {
-    pedestrianToUpdate[connection] = new PedestrianPosition(latitude, longitude, altitude);
+void PedestrianScenarioManager::newPedestrian(
+        BluetoothConnectionClient* connection, double latitude,
+        double longitude, double altitude) {
+    pedestrianToUpdate[connection] = new PedestrianPosition(latitude, longitude,
+            altitude);
 }
 
 void PedestrianScenarioManager::updatePedestrian(BluetoothConnectionClient* connection, double latitude, double longitude, double altitude) {
 
     PedestrianPosition* pos = pedestrianToUpdate[connection];
-    if(pos) {
+    if (pos) {
         pos->latitude = latitude;
         pos->altitude = altitude;
         pos->longitude = longitude;
@@ -83,8 +88,10 @@ void PedestrianScenarioManager::executeOneTimestep() {
     TraCIScenarioManagerLaunchd::executeOneTimestep();
 
     for (std::map<BluetoothConnectionClient*, PedestrianPosition*>::iterator i = pedestrianToUpdate.begin(); i != pedestrianToUpdate.end();) {
+        std::cout << "Executing timestep " << std::endl;
+        std::cout << i->first->getAddress() << std::endl;
         cModule* mod = pedestrians[i->first];
-        if(!mod) {
+        if (!mod) {
             addPedestrianModule(i->first, pedestrianPositionToCoord(i->second));
         } else {
             PedestrianMobility* mobility = PedestrianMobilityAccess().get(mod);
@@ -98,7 +105,7 @@ void PedestrianScenarioManager::executeOneTimestep() {
     }
 }
 
-void PedestrianScenarioManager::addPedestrianModule(BluetoothConnectionClient* con, Coord position) {
+void PedestrianScenarioManager::addPedestrianModule(BluetoothConnectionClient* connection, Coord position) {
     int32_t nodeVectorIndex = nextNodePedestrianIndex++;
 
     cModule* parentmod = getParentModule();
@@ -111,23 +118,24 @@ void PedestrianScenarioManager::addPedestrianModule(BluetoothConnectionClient* c
     if (!nodeType)
         error("Module Type \"%s\" not found", pedestrianModType.c_str());
 
-    cModule* mod = nodeType->create(pedestrianModName.c_str(), parentmod, nodeVectorIndex, nodeVectorIndex);
+    cModule* mod = nodeType->create(pedestrianModName.c_str(), parentmod,
+            nodeVectorIndex, nodeVectorIndex);
     mod->finalizeParameters();
     mod->getDisplayString().parse("");
     mod->buildInside();
     mod->scheduleStart(simTime() + updateInterval);
 
     // pre-initialize PedestrianMobility
-    PedestrianMobility* mobility= PedestrianMobilityAccess().get(mod);
-    mobility->preInitialize(con, position);
+    PedestrianMobility* mobility = PedestrianMobilityAccess().get(mod);
+
+    Pedestrian11p* appl = Pedestrian11pAccess().get(mod);
+
+    appl->preInitialize(connection);
+    mobility->preInitialize(connection, position);
     mod->callInitialize();
-    pedestrians[con] = mod;
+    pedestrians[connection] = mod;
     // post-initialize PedestrianMobility
     mobility->changePosition();
-}
-
-void PedestrianScenarioManager::onForcedDisconnection(BluetoothConnectionClient* connection) {
-    onDisconnection(connection);
 }
 
 void PedestrianScenarioManager::handleConnection(BluetoothConnectionClient* connection) {
@@ -141,12 +149,15 @@ void PedestrianScenarioManager::onDisconnection(BluetoothConnectionClient* conne
     cModule* mod = pedestrians[connection];
 
     if (mod) {
+        std::cout << "Unregister " << std::endl;
         cc->unregisterNic(mod->getSubmodule("nic"));
         mod->callFinish();
         mod->deleteModule();
         pedestrians.erase(connection);
     }
-
+    std::cout << "Closing connection " << std::endl;
     connection->closeConnection();
+    std::cout << "on Disconnect " << std::endl;
     connectionHandler->onDisconnected();
+    std::cout << "Disconnection handled " << std::endl;
 }

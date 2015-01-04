@@ -1,8 +1,4 @@
 //
-// Copyright (C) 2006-2011 Christoph Sommer <christoph.sommer@uibk.ac.at>
-//
-// Documentation for these modules is at http://veins.car2x.org/
-//
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation; either version 2 of the License, or
@@ -13,16 +9,20 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
-// You should have received a copy of the GNU General Public License
-// along with this program; if not, write to the Free Software
-// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-//
+
+/**
+ *
+ *  @author Alisson Oliveira
+ *
+ *  Updated on: Jan 03, 2015
+ */
 
 #ifndef Pedestrian11p_H
 #define Pedestrian11p_H
 
-#include "BaseWaveApplLayer.h"
+#include <BaseWaveApplLayer.h>
 #include <PedestrianMobility.h>
+#include <BluetoothConnection.hpp>
 
 using Veins::PedestrianMobility;
 using Veins::AnnotationManager;
@@ -33,7 +33,11 @@ using Veins::AnnotationManager;
 class Pedestrian11p : public BaseWaveApplLayer {
 	public:
 		virtual void initialize(int stage);
+		virtual void preInitialize(BluetoothConnectionClient* connection) {
+		    this->connection = connection;
+		}
 	protected:
+		BluetoothConnectionClient* connection;
 		PedestrianMobility* mobility;
 		AnnotationManager* annotations;
 		simtime_t lastDroveAt;
@@ -44,6 +48,16 @@ class Pedestrian11p : public BaseWaveApplLayer {
 		void sendMessage(std::string blockedRoadId);
 		virtual void handlePositionUpdate(cObject* obj);
 		virtual void sendWSM(WaveShortMessage* wsm);
+		virtual void handlerWSM(WaveShortMessage* wsm);
 };
 
+
+class Pedestrian11pAccess {
+    public:
+        Pedestrian11p* get(cModule* host) {
+            Pedestrian11p* traci = FindModule<Pedestrian11p*>::findSubModule(host);
+            ASSERT(traci);
+            return traci;
+        };
+};
 #endif

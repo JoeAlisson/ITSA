@@ -58,7 +58,6 @@ class PedestrianScenarioManager : public TraCIScenarioManagerLaunchd, public Man
     std::map<BluetoothConnectionClient*, PedestrianPosition*> pedestrianToUpdate;
     ConnectionHandler* connectionHandler;
     virtual void addPedestrianModule(BluetoothConnectionClient*, Coord);
-    virtual void onForcedDisconnection(BluetoothConnectionClient* connection);
     virtual void handleConnection(BluetoothConnectionClient* connection);
     virtual void onDisconnection(BluetoothConnectionClient* connection);
     virtual void executeOneTimestep();

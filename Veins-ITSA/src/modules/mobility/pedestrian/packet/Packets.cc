@@ -18,7 +18,7 @@
  *  Created on: Nov 20, 2014
  *      @author: Alisson Oliveira
  *
- *  Updated on: Jan 02, 2015
+ *  Updated on: Jan 03, 2015
  */
 
 #include <packet/Packets.hpp>
@@ -50,9 +50,9 @@ void W_WSMPacket::write(BluetoothConnectionClient* con, ByteBuffer* buf) {
     buf->putInt(wsm->getRecipientAddress());
     buf->putInt(wsm->getSerial());
     // Sender Pos
-    buf->putDouble(wsm->getSenderPos().x); // latitude
-    buf->putDouble(wsm->getSenderPos().y); // longitude
-    buf->putDouble(wsm->getSenderPos().z); //
+    buf->putDouble(wsm->getSenderPos().x); // longitude
+    buf->putDouble(wsm->getSenderPos().y); // latitude
+    buf->putDouble(wsm->getSenderPos().z); // altitude
 }
 
 // ============================ READABLE PACKETS ====================================
@@ -74,11 +74,6 @@ void R_InitPacket::read(ByteBuffer* buf) {
 
 void R_InitPacket::process(Manager* manager) {
     ((PedestrianScenarioManager*)manager)->newPedestrian(connection,latitude, longitude,altitude);
-}
-
-
-void R_ClosePacket::process(Manager* manager) {
-    manager->onDisconnection(connection);
 }
 
 void R_PositionUpdate::read(ByteBuffer* buf) {
