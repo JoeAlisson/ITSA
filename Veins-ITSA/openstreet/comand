@@ -1,0 +1,11 @@
+command
+
+
+netconvert --osm map.osm -o arapiraca.net.xml --output.street-names --tls.join --remove-edges.isolated --no-turnarounds --junctions.join --sidewalks.guess.max-speed 60.0 --crossings.guess --tls.guess-signals 
+
+./randomTrips.py -n arapiraca.net.xml -o arapiraca.trip.xml -e 6000
+
+
+duarouter -n arapiraca.net.xml -f flows.xml -o def.rou.xml --repair -e 6000 --ignore-errors  --unsorted-input
+
+duarouter -n arapiraca.net.xml -t arapiraca.trip.xml -o arapiraca.rou.xml --repair -e 6000 --ignore-errors  --unsorted-input

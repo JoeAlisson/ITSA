@@ -1,0 +1,9 @@
+<flows>
+  <flow id="0" from="249135432#0" to="249132505" begin="0" end="3600" no="10" probability="0.4"/>
+  <flow id="1" from="248953807" to="214489918#9" begin="0" end="3600" no="10" probability="0.3"/>
+  <flow id="2" from="318290987#0" to="261800766" begin="0" end="3600" no="10" probability="0.3"/>
+  <flow id="ufal0" from="318411331" to="235394811#2" begin="0" end="3600" no="10" probability="0.3"/>
+  <flow id="ufal2" from="-248953062" to="235394811#2" begin="0" end="3600" no="10" probability="0.3"/>
+  <flow id="ufal3" from="-249236743#0" to="235394811#2" begin="0" end="3600" no="10" probability="0.3"/>
+  <flow id="ufal4" from="249220215#0" to="235394811#2" begin="0" end="3600" no="10" probability="0.3"/>
+</flows>
