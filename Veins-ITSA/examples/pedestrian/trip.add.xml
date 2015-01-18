@@ -1,0 +1,17 @@
+<additional>	
+	 <vTypeDistribution id="typedist1">
+		 <vType id="1" guiShape="passenger/hatchback" vClass="private" decel="4.5" sigma="0.5" length="4.5" minGap="2.5" maxSpeed="18" color="1,0,0"/>
+		<vType id="2" guiShape="passenger/van" vClass="passenger" decel="4.5" sigma="0.5" length="5.5" minGap="2.5" maxSpeed="18" color="0,1,0"/>
+		<vType id="3" guiShape="delivery" vClass="delivery" decel="4.5" sigma="0.5" length="4.5" minGap="2.5" maxSpeed="12" color="0.5,0.5,0.5"/>
+		<vType id="4" guiShape="evehicle" vClass="evehicle" decel="4.5" sigma="0.5" length="4.5" minGap="2.5" maxSpeed="14" color="0.5,1,0.5"/>
+		
+		<vType id="5" guiShape="passenger/hatchback" vClass="private" decel="4.5" sigma="0.5" length="4.5" minGap="2.5" maxSpeed="18" color="0,0,1"/>
+		<vType id="6" guiShape="passenger/van" vClass="passenger" decel="4.5" sigma="0.5" length="5.5" minGap="2.5" maxSpeed="18" color="1,1,0"/>
+		<vType id="7" guiShape="delivery" vClass="delivery" decel="4.5" sigma="0.5" length="4.5" minGap="2.5" maxSpeed="12" color="0,1,1"/>
+		<vType id="8" guiShape="evehicle" vClass="evehicle" decel="4.5" sigma="0.5" length="4.5" minGap="2.5" maxSpeed="14" color="0.3,0.5,0.8"/>
+	 </vTypeDistribution>
+</additional>
+
+
+
+	

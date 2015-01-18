@@ -48,7 +48,9 @@ class Pedestrian11p : public BaseWaveApplLayer {
 		void sendMessage(std::string blockedRoadId);
 		virtual void handlePositionUpdate(cObject* obj);
 		virtual void sendWSM(WaveShortMessage* wsm);
-		virtual void handlerWSM(WaveShortMessage* wsm);
+		virtual void handleWSM(WaveShortMessage* wsm);
+		virtual void handleLowerMsg(cMessage* msg);
+		WaveShortMessage* transformPosition(WaveShortMessage* wsm);
 };
 
 

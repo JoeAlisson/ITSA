@@ -40,11 +40,26 @@ class W_WSMPacket : public WritablePacket {
     WaveShortMessage* wsm;
 public:
     W_WSMPacket(WaveShortMessage*);
+    ~W_WSMPacket() {
+        delete wsm;
+    }
     virtual void write(BluetoothConnectionClient*, ByteBuffer*);
     virtual short getOpcode() { return OPCODE; }
 };
 
+class W_RoutePacket : public WritablePacket {
+    static const uint16_t OPCODE = 0x03;
+    int sender;
+    std::string route;
+    double longitude;
+    double latitude;
+    double altitude;
+public:
+    W_RoutePacket(int sender, std::string route, double longitude, double latitude, double altitude);
+    virtual void write(BluetoothConnectionClient*, ByteBuffer*);
+    virtual short getOpcode() { return OPCODE; }
 
+};
 // =========================== READABLE PACKETS =============================
 
 class R_InitPacket: public ReadablePacket {

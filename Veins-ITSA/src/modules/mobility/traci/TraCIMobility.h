@@ -173,6 +173,14 @@ class TraCIMobility : public BaseMobility
 			return getCommandInterface()->changeVehicleRoute(getExternalId(), edges);
 		}
 
+		std::string getVehicleRouteId() {
+		    return getCommandInterface()->getRouteId(getExternalId());
+		}
+
+		std::string getVehicleTypeId() {
+		    return getCommandInterface()->getTypeId(getExternalId());
+		}
+
 
 	protected:
 		bool debug; /**< whether to emit debug messages */

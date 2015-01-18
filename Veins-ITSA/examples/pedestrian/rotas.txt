@@ -14,4 +14,37 @@ Brisa do Lago {
 ufal - centro { -235394809#6; 261454654#16; 318411332#0;
 
 
+}	
+
+Alto do Cruzeiro - Baixa Grande - Baixão - Boa Vista - Bom Sucesso - Brasiliana - Brasília - Cacimbas - Caititus - Canafistula -
+Capiatã - Cavaco - Centro - Eldorado - Guaribas - Itapuã - Jardim de Maria - Jardim Esperança - Jardim Tropical - João Paulo II - 
+Manoel Teles - Massaranduba - Nova Esperança - Novo horizonte - Olho D'Água dos Cazuzinhos - Ouro Preto - Planalto - Primavera - 
+Santa Edwiges - Santa Esmeralda - São Luiz - Senador Arnon de Melo - Senador Teotônio Vilela - Senador Nilo Coelho - Verdes Campos - Zélia Barbosa Rocha 
+
+itinerante:  todos os bairros {
+261800762#1; -248954689#3; -212429847#2; -211556660#1; 235394811#2; -215074419#0; -211151581#14; 212430462#1; 318290988#4; -249236741#1; 
+-261800747#5; -249132373#1; 212427583#3; 211151566#6; 248951733#0; 211935523#0; 215074431#1; 287960796#6; -211486119#18;  249220258#4
+212429826#1; -261800767#10; -248950257#0; 214489959#5; 249135413#0; -211561602#0; 249262761#1; -249220180#2
+-261800749#0; 214489918#4; 211561729#2; 248990527#0; 248953041#0; -248954705#0; -248950317#0; 287960805#3
 }
+
+Centro - Novo horizonte - Santa Esmeralda - Alto do Cruzeiro - Caititus - Santa Edwiges - Planalto - Bom Sucesso
+rota1 {
+	 318411332#0;  214489959#5;  214489918#4;  261800762#1;  318290988#4; -261800749#0;  249262761#1;  235394811#2
+}
+
+Bom Sucesso - Cavaco - Baixa Grande - Eldorado - Baixão - Manoel Teles - Centro - Caititus - Alto do Cruzeiro - Santa Esmeralda -  Brasília  - Itapuã  - Nova Esperança - Canafistula - Boa Vista.
+rota2 {
+	 235394811#2;  -249132373#1;  -248954689#3;  211151566#6;  -212429847#2;  212429826#1;  318411332#0;  318290988#4;  261800762#1;  214489918#4;  -211151581#14;  211935523#0;  -248950257#0;  -249236741#1;  -211556660#1 
+}
+
+Centro - Ouro Preto - Jardim Tropical - São Luiz - Primavera - Olho D'Água dos Cazuzinhos - Manoel Teles - Baixão - Eldorado - Capiatã  - Senador Teotônio Vilela -  Caititus - Jardim de Maria - Planalto - Massaranduba - Bom Sucesso.
+rota3 {
+	 318411332#0;  -211561602#0;  -211486119#18;  211561729#2;  -249220180#2;  249135413#0;  212429826#1; -212429847#2;  211151566#6; -261800747#5;  248953041#0; 318290988#4;  215074431#1;  249262761#1;  -261800767#10;  235394811#2
+}
+ 
+
+
+
+
+

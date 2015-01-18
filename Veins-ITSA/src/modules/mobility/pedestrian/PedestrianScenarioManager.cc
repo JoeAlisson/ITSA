@@ -75,7 +75,6 @@ void PedestrianScenarioManager::updatePedestrian(BluetoothConnectionClient* conn
         pos->altitude = altitude;
         pos->longitude = longitude;
     } else {
-        // pedestrian already inserted into simulation.
         pedestrianToUpdate[connection] = new PedestrianPosition(latitude, longitude, altitude);
     }
 }

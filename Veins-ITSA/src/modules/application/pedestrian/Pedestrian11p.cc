@@ -44,7 +44,7 @@ void Pedestrian11p::onBeacon(WaveShortMessage* wsm) {
     DBG << "Eu sou  " << myId << " recebendo msg de " << wsm->getSenderAddress() << " com dados = " << wsm->getWsmData() << std::endl;
 
     //send data through Bluetooth
-    handlerWSM(wsm);
+    handleWSM(wsm);
 }
 
 void Pedestrian11p::onData(WaveShortMessage* wsm) {
@@ -53,7 +53,7 @@ void Pedestrian11p::onData(WaveShortMessage* wsm) {
             annotations->drawLine(wsm->getSenderPos(), mobility->getPositionAt(simTime()), "blue"));
 
     //send data through Bluetooth
-    handlerWSM(wsm);
+    handleWSM(wsm);
 
     if (!sentMessage)
         sendMessage(wsm->getWsmData());
@@ -76,11 +76,31 @@ void Pedestrian11p::sendWSM(WaveShortMessage* wsm) {
     sendDelayedDown(wsm, individualOffset);
 }
 
-void Pedestrian11p::handlerWSM(WaveShortMessage* wsm) {
-   WaveShortMessage* cop = wsm->dup();
+void Pedestrian11p::handleWSM(WaveShortMessage* wsm) {
+   WaveShortMessage* cop = transformPosition(wsm);
+   if(std::string(cop->getName()) == "data_route"){
+       Coord pos = cop->getSenderPos();
+       connection->sendPacket(new W_RoutePacket(cop->getSenderAddress(),cop->getWsmData(), pos.x, pos.y, pos.z));
+   } else {
+       connection->sendPacket(new W_WSMPacket(cop));
+   }
+}
+
+WaveShortMessage* Pedestrian11p::transformPosition(WaveShortMessage* wsm) {
+    WaveShortMessage* cop = wsm->dup();
     std::pair<double, double> lonlat = mobility->getCommandInterface()->positionConversionLonLat(mobility->getManager()->omnet2traci(cop->getSenderPos()));
     Coord pos(lonlat.first, lonlat.second);
     cop->setSenderPos(pos);
-    connection->sendPacket(new W_WSMPacket(cop));
+    return cop;
+}
 
+void Pedestrian11p::handleLowerMsg(cMessage* msg) {
+    if(std::string(msg->getName()) == "data_route"){
+        WaveShortMessage* wsm = dynamic_cast<WaveShortMessage*>(msg);
+        ASSERT(wsm);
+        handleWSM(wsm);
+        delete(msg);
+    } else {
+        BaseWaveApplLayer::handleLowerMsg(msg);
+    }
 }

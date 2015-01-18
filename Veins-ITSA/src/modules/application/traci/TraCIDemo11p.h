@@ -23,6 +23,7 @@
 
 #include "BaseWaveApplLayer.h"
 #include "modules/mobility/traci/TraCIMobility.h"
+#include <Routes.h>
 
 using Veins::TraCIMobility;
 using Veins::AnnotationManager;
@@ -41,6 +42,9 @@ class TraCIDemo11p : public BaseWaveApplLayer {
 		bool sentMessage;
 		bool isParking;
 		bool sendWhileParking;
+		cMessage* sendRouteEvt;
+		std::string routeId;
+		std::string typeId;
 		static const simsignalwrap_t parkingStateChangedSignal;
 	protected:
 		virtual void onBeacon(WaveShortMessage* wsm);
@@ -49,6 +53,7 @@ class TraCIDemo11p : public BaseWaveApplLayer {
 		virtual void handlePositionUpdate(cObject* obj);
 		virtual void handleParkingUpdate(cObject* obj);
 		virtual void sendWSM(WaveShortMessage* wsm);
+		virtual void handleSelfMsg(cMessage* msg);
 };
 
 #endif

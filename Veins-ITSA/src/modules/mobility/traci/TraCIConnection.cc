@@ -84,7 +84,6 @@ TraCIConnection* TraCIConnection::connect(const char* host, int port) {
 
 TraCIBuffer TraCIConnection::query(uint8_t commandId, const TraCIBuffer& buf) {
     sendMessage(makeTraCICommand(commandId, buf));
-
     TraCIBuffer obuf(receiveMessage());
     uint8_t cmdLength;
     obuf >> cmdLength;

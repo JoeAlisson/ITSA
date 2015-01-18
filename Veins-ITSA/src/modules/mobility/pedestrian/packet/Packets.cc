@@ -55,6 +55,22 @@ void W_WSMPacket::write(BluetoothConnectionClient* con, ByteBuffer* buf) {
     buf->putDouble(wsm->getSenderPos().z); // altitude
 }
 
+W_RoutePacket::W_RoutePacket(int sender, std::string route, double longitude, double latitude, double altitude) {
+    this->sender = sender;
+    this->route = route;
+    this->longitude = longitude;
+    this->latitude = latitude;
+    this->altitude = altitude;
+}
+
+void W_RoutePacket::write(BluetoothConnectionClient* con, ByteBuffer* buf) {
+    buf->putInt(sender);
+    buf->putDouble(longitude);
+    buf->putDouble(latitude);
+    buf->putDouble(altitude);
+    writeString(route, buf);
+}
+
 // ============================ READABLE PACKETS ====================================
 
 void R_InitPacket::read(ByteBuffer* buf) {

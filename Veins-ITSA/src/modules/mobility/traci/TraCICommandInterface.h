@@ -39,6 +39,7 @@ class TraCICommandInterface
 		double getLanePosition(std::string nodeId);
 		std::list<std::string> getPlannedEdgeIds(std::string nodeId);
 		std::string getRouteId(std::string nodeId);
+		std::string getTypeId(std::string nodeId);
 		std::list<std::string> getRouteEdgeIds(std::string routeId);
 		void changeRoute(std::string nodeId, std::string roadId, double travelTime);
 		double distanceRequest(const TraCICoord& position1, const TraCICoord& position2, bool returnDrivingDistance);

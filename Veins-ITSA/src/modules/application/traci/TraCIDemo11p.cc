@@ -29,19 +29,26 @@ const simsignalwrap_t TraCIDemo11p::parkingStateChangedSignal = simsignalwrap_t(
 
 Define_Module(TraCIDemo11p);
 
+
 void TraCIDemo11p::initialize(int stage) {
     BaseWaveApplLayer::initialize(stage);
-
     if (stage == 0) {
         traci = TraCIMobilityAccess().get(getParentModule());
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
-
         sentMessage = false;
         lastDroveAt = simTime();
         findHost()->subscribe(parkingStateChangedSignal, this);
         isParking = false;
         sendWhileParking = par("sendWhileParking").boolValue();
+    } else if(stage == 1) {
+        routeId = traci->getVehicleRouteId();
+        typeId = traci->getVehicleTypeId();
+        sendRouteEvt= new cMessage("routeEvt");
+        if(typeId == "bus" && RoutesAccess().get(routeId) != "") {
+            scheduleAt(simTime() + 5, sendRouteEvt);
+        }
+
     }
 }
 
@@ -115,4 +122,16 @@ void TraCIDemo11p::sendWSM(WaveShortMessage* wsm) {
     if (isParking && !sendWhileParking)
         return;
     sendDelayedDown(wsm, individualOffset);
+}
+
+void TraCIDemo11p::handleSelfMsg(cMessage* msg) {
+    if(msg == sendRouteEvt) {
+        t_channel channel = dataOnSch ? type_SCH : type_CCH;
+        WaveShortMessage* wsm = prepareWSM("data_route", dataLengthBits, channel, dataPriority, -1, 2);
+        wsm->setWsmData(RoutesAccess().get(routeId).c_str());
+        sendWSM(wsm);
+        scheduleAt(simTime() + 5, sendRouteEvt);
+    } else {
+        BaseWaveApplLayer::handleSelfMsg(msg);
+    }
 }

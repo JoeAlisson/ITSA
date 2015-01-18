@@ -93,6 +93,7 @@ OBJS = \
     $O/modules/analogueModel/TwoRayInterferenceModel.o \
     $O/modules/application/ieee80211p/BaseWaveApplLayer.o \
     $O/modules/application/pedestrian/Pedestrian11p.o \
+    $O/modules/application/traci/Routes.o \
     $O/modules/application/traci/TraCIDemoRSU11p.o \
     $O/modules/application/traci/TraCIDemo11p.o \
     $O/modules/application/traci/TraCITestApp.o \
@@ -725,6 +726,8 @@ $O/modules/application/pedestrian/Pedestrian11p.o: modules/application/pedestria
 	modules/obstacle/ObstacleControl.h \
 	modules/utility/Consts80211p.h \
 	modules/world/annotations/AnnotationManager.h
+$O/modules/application/traci/Routes.o: modules/application/traci/Routes.cc \
+	modules/application/traci/Routes.h
 $O/modules/application/traci/TraCIDemo11p.o: modules/application/traci/TraCIDemo11p.cc \
 	base/connectionManager/BaseConnectionManager.h \
 	base/connectionManager/ChannelAccess.h \
@@ -747,6 +750,7 @@ $O/modules/application/traci/TraCIDemo11p.o: modules/application/traci/TraCIDemo
 	inet/Coord.h \
 	inet/FWMath.h \
 	modules/application/ieee80211p/BaseWaveApplLayer.h \
+	modules/application/traci/Routes.h \
 	modules/application/traci/TraCIDemo11p.h \
 	modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
 	modules/messages/WaveShortMessage_m.h \
