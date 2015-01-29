@@ -42,7 +42,7 @@ class Pedestrian11p : public BaseWaveApplLayer {
 		AnnotationManager* annotations;
 		simtime_t lastDroveAt;
 		bool sentMessage;
-	protected:
+		long int lastPacketReceived;
 		virtual void onBeacon(WaveShortMessage* wsm);
 		virtual void onData(WaveShortMessage* wsm);
 		void sendMessage(std::string blockedRoadId);

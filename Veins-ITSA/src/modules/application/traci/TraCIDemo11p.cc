@@ -25,10 +25,9 @@ using Veins::AnnotationManagerAccess;
 using Veins::TraCICoord;
 
 const simsignalwrap_t TraCIDemo11p::parkingStateChangedSignal = simsignalwrap_t(
-        TRACI_SIGNAL_PARKING_CHANGE_NAME);
+TRACI_SIGNAL_PARKING_CHANGE_NAME);
 
 Define_Module(TraCIDemo11p);
-
 
 void TraCIDemo11p::initialize(int stage) {
     BaseWaveApplLayer::initialize(stage);
@@ -40,23 +39,22 @@ void TraCIDemo11p::initialize(int stage) {
         lastDroveAt = simTime();
         findHost()->subscribe(parkingStateChangedSignal, this);
         isParking = false;
+        lastRouteRetransmission = -1;
         sendWhileParking = par("sendWhileParking").boolValue();
-    } else if(stage == 1) {
+        service = NONE;
+    } else if (stage == 1) {
         routeId = traci->getVehicleRouteId();
         typeId = traci->getVehicleTypeId();
-        sendRouteEvt= new cMessage("routeEvt");
-        if(typeId == "bus" && RoutesAccess().get(routeId) != "") {
-            scheduleAt(simTime() + 5, sendRouteEvt);
+        sendRouteEvt = new cMessage("routeEvt");
+        if (typeId == "bus" && RoutesAccess().get(routeId) != "") {
+            service = PUBLIC_TRANSPORT;
+            scheduleAt(simTime() + 10, sendRouteEvt);
         }
 
     }
 }
 
 void TraCIDemo11p::onBeacon(WaveShortMessage* wsm) {
-    //myId
-    DBG << "Eu sou  " << myId << " recebendo msg de " << wsm->getSenderAddress()
-               << " com dados = " << wsm->getWsmData() << std::endl;
-
 }
 
 void TraCIDemo11p::onData(WaveShortMessage* wsm) {
@@ -74,13 +72,16 @@ void TraCIDemo11p::onData(WaveShortMessage* wsm) {
 void TraCIDemo11p::sendMessage(std::string blockedRoadId) {
     sentMessage = true;
     t_channel channel = dataOnSch ? type_SCH : type_CCH;
-    WaveShortMessage* wsm = prepareWSM("data", dataLengthBits, channel, dataPriority, -1, 2);
+    WaveShortMessage* wsm = prepareWSM("data", dataLengthBits, channel,
+            dataPriority, -1, 2);
     wsm->setWsmData(blockedRoadId.c_str());
     sendWSM(wsm);
 }
 
-void TraCIDemo11p::receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj) {
-    Enter_Method_Silent();
+void TraCIDemo11p::receiveSignal(cComponent* source, simsignal_t signalID,
+        cObject* obj) {
+    Enter_Method_Silent
+    ();
     if (signalID == mobilityStateChangedSignal) {
         handlePositionUpdate(obj);
     } else if (signalID == parkingStateChangedSignal) {
@@ -98,7 +99,8 @@ void TraCIDemo11p::handleParkingUpdate(cObject* obj) {
             Coord pos = traci->getCurrentPosition();
             (FindModule<BaseConnectionManager*>::findGlobalModule())->registerNic(
                     this->getParentModule()->getSubmodule("nic"),
-                    (ChannelAccess*) this->getParentModule()->getSubmodule("nic")->getSubmodule("phy80211p"), &pos);
+                    (ChannelAccess*) this->getParentModule()->getSubmodule(
+                            "nic")->getSubmodule("phy80211p"), &pos);
         }
     }
 }
@@ -124,14 +126,30 @@ void TraCIDemo11p::sendWSM(WaveShortMessage* wsm) {
     sendDelayedDown(wsm, individualOffset);
 }
 
+
 void TraCIDemo11p::handleSelfMsg(cMessage* msg) {
-    if(msg == sendRouteEvt) {
+    if (msg == sendRouteEvt) {
         t_channel channel = dataOnSch ? type_SCH : type_CCH;
         WaveShortMessage* wsm = prepareWSM("data_route", dataLengthBits, channel, dataPriority, -1, 2);
+        wsm->setPsid(service);
+        wsm->setPsc("bus");
         wsm->setWsmData(RoutesAccess().get(routeId).c_str());
         sendWSM(wsm);
-        scheduleAt(simTime() + 5, sendRouteEvt);
+        scheduleAt(simTime() + 10, sendRouteEvt);
     } else {
         BaseWaveApplLayer::handleSelfMsg(msg);
+    }
+}
+
+void TraCIDemo11p::handleLowerMsg(cMessage* msg) {
+    if (std::string(msg->getName()) == "data_route") {
+        if (msg->getTreeId() != lastRouteRetransmission) {
+            lastRouteRetransmission = msg->getTreeId();
+            WaveShortMessage* wsm = dynamic_cast<WaveShortMessage*>(msg);
+            ASSERT(wsm);
+            //sendWSM(wsm);
+        }
+    } else {
+        BaseWaveApplLayer::handleLowerMsg(msg);
     }
 }

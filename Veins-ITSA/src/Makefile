@@ -751,6 +751,7 @@ $O/modules/application/traci/TraCIDemo11p.o: modules/application/traci/TraCIDemo
 	inet/FWMath.h \
 	modules/application/ieee80211p/BaseWaveApplLayer.h \
 	modules/application/traci/Routes.h \
+	modules/application/traci/Services.h \
 	modules/application/traci/TraCIDemo11p.h \
 	modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
 	modules/messages/WaveShortMessage_m.h \

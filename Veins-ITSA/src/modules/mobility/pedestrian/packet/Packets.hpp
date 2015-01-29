@@ -17,7 +17,7 @@
  *  Created on: Nov 20, 2014
  *      @author: Alisson Oliveira
  *
- *  Updated on: Jan 03, 2015
+ *  Updated on: Jan 26, 2015
  */
 
 #ifndef PACKETS_HPP_
@@ -47,19 +47,33 @@ public:
     virtual short getOpcode() { return OPCODE; }
 };
 
-class W_RoutePacket : public WritablePacket {
+class W_VehiclePacket : public WritablePacket {
     static const uint16_t OPCODE = 0x03;
+protected:
     int sender;
-    std::string route;
+    std::string serviceContext;
+    int service;
     double longitude;
     double latitude;
     double altitude;
+
 public:
-    W_RoutePacket(int sender, std::string route, double longitude, double latitude, double altitude);
+    W_VehiclePacket(int sender, std::string serviceContext, int service, double longitude, double latitude, double altitude);
     virtual void write(BluetoothConnectionClient*, ByteBuffer*);
     virtual short getOpcode() { return OPCODE; }
-
 };
+
+class W_RoutePacket : public W_VehiclePacket {
+    static const uint16_t OPCODE = 0x04;
+    std::string route;
+public:
+    W_RoutePacket(int sender, std::string serviceContext, int service, std::string route, double longitude, double latitude, double altitude);
+    virtual void write(BluetoothConnectionClient*, ByteBuffer*);
+    virtual short getOpcode() { return OPCODE; }
+};
+
+
+
 // =========================== READABLE PACKETS =============================
 
 class R_InitPacket: public ReadablePacket {

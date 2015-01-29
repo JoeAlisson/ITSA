@@ -16,7 +16,7 @@
 /*
  *  @author: Alisson Oliveira
  *
- *  Updated on: Jan 03, 2015
+ *  Updated on: Jan 28, 2015
  */
 #include <Pedestrian11p.h>
 
@@ -35,14 +35,12 @@ void Pedestrian11p::initialize(int stage) {
         annotations = AnnotationManagerAccess().getIfExists();
         ASSERT(annotations);
         sentMessage = false;
+        lastPacketReceived = -1;
         lastDroveAt = simTime();
     }
 }
 
 void Pedestrian11p::onBeacon(WaveShortMessage* wsm) {
-    //myId
-    DBG << "Eu sou  " << myId << " recebendo msg de " << wsm->getSenderAddress() << " com dados = " << wsm->getWsmData() << std::endl;
-
     //send data through Bluetooth
     handleWSM(wsm);
 }
@@ -77,12 +75,16 @@ void Pedestrian11p::sendWSM(WaveShortMessage* wsm) {
 }
 
 void Pedestrian11p::handleWSM(WaveShortMessage* wsm) {
+   if(wsm->getTreeId() == lastPacketReceived) {
+       return;
+   }
+   lastPacketReceived = wsm->getTreeId();
    WaveShortMessage* cop = transformPosition(wsm);
+   Coord pos = cop->getSenderPos();
    if(std::string(cop->getName()) == "data_route"){
-       Coord pos = cop->getSenderPos();
-       connection->sendPacket(new W_RoutePacket(cop->getSenderAddress(),cop->getWsmData(), pos.x, pos.y, pos.z));
+       connection->sendPacket(new W_RoutePacket(cop->getSenderAddress(), cop->getPsc(), cop->getPsid(), cop->getWsmData(), pos.x, pos.y, pos.z));
    } else {
-       connection->sendPacket(new W_WSMPacket(cop));
+       connection->sendPacket(new W_VehiclePacket(cop->getSenderAddress(),cop->getPsc(),cop->getPsid(), pos.x, pos.y, pos.z));
    }
 }
 

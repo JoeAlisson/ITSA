@@ -55,20 +55,32 @@ void W_WSMPacket::write(BluetoothConnectionClient* con, ByteBuffer* buf) {
     buf->putDouble(wsm->getSenderPos().z); // altitude
 }
 
-W_RoutePacket::W_RoutePacket(int sender, std::string route, double longitude, double latitude, double altitude) {
+
+W_VehiclePacket::W_VehiclePacket(int sender, std::string serviceContext, int service, double longitude, double latitude, double altitude) {
     this->sender = sender;
-    this->route = route;
+    this->serviceContext = serviceContext;
+    this->service = service;
     this->longitude = longitude;
     this->latitude = latitude;
     this->altitude = altitude;
 }
 
-void W_RoutePacket::write(BluetoothConnectionClient* con, ByteBuffer* buf) {
+void W_VehiclePacket::write(BluetoothConnectionClient* con, ByteBuffer* buf) {
     buf->putInt(sender);
+    buf->putInt(service);
+    writeString(serviceContext,buf);
     buf->putDouble(longitude);
     buf->putDouble(latitude);
     buf->putDouble(altitude);
-    writeString(route, buf);
+}
+W_RoutePacket::W_RoutePacket(int sender, std::string serviceContext, int service, std::string route, double longitude, double latitude, double altitude) :
+    W_VehiclePacket(sender, serviceContext, service, longitude, latitude, altitude){
+    this->route = route;
+}
+
+void W_RoutePacket::write(BluetoothConnectionClient* con, ByteBuffer* buf) {
+    W_VehiclePacket::write(con,buf);
+    writeString(route,buf);
 }
 
 // ============================ READABLE PACKETS ====================================

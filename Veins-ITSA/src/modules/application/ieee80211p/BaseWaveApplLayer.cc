@@ -104,7 +104,6 @@ void BaseWaveApplLayer::handlePositionUpdate(cObject* obj) {
 }
 
 void BaseWaveApplLayer::handleLowerMsg(cMessage* msg) {
-
     WaveShortMessage* wsm = dynamic_cast<WaveShortMessage*>(msg);
     ASSERT(wsm);
 
