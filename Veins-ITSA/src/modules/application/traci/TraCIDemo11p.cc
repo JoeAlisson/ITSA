@@ -78,8 +78,7 @@ void TraCIDemo11p::sendMessage(std::string blockedRoadId) {
     sendWSM(wsm);
 }
 
-void TraCIDemo11p::receiveSignal(cComponent* source, simsignal_t signalID,
-        cObject* obj) {
+void TraCIDemo11p::receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj) {
     Enter_Method_Silent
     ();
     if (signalID == mobilityStateChangedSignal) {
@@ -125,7 +124,6 @@ void TraCIDemo11p::sendWSM(WaveShortMessage* wsm) {
         return;
     sendDelayedDown(wsm, individualOffset);
 }
-
 
 void TraCIDemo11p::handleSelfMsg(cMessage* msg) {
     if (msg == sendRouteEvt) {
