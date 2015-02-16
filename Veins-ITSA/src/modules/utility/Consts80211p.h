@@ -26,20 +26,38 @@
  * as defined in Table 17-14 MIB attribute default values/ranges in the IEEE 802.11-2007 standard
  */
 const double NUM_BITRATES_80211P = 8;
-const double BITRATES_80211P[] = { 3000000, 4500000, 6000000, 9000000, 12000000,
-        18000000, 24000000, 27000000 };
+const double BITRATES_80211P[] = {
+	3000000,
+	4500000,
+	6000000,
+	9000000,
+	12000000,
+	18000000,
+	24000000,
+	27000000
+};
 
 /** @brief Number of Data Bits Per Symbol (N_NBPS) corresponding to bitrates in BITRATES_80211P
  *
  * as defined in Table 17-3 in the IEEE 802.11-2007 standard
  */
-const double N_DBPS_80211P[] = { 24, 36, 48, 72, 96, 144, 192, 216 };
+const double N_DBPS_80211P[] = {
+	24,
+	36,
+	48,
+	72,
+	96,
+	144,
+	192,
+	216
+};
 
 /** @brief Symbol interval
  *
  * as defined in Table 17-4 in the IEEE 802.11-2007 standard
  */
 const double T_SYM_80211P = 8e-6;
+
 
 /** @brief Length of PHY HEADER
  *
@@ -68,8 +86,7 @@ const int PHY_HDR_PLCPSIGNAL_LENGTH = 24;
 /** @brief Lenght of the PhyHeader sent with normal bitrate
  *
  */
-const int PHY_HDR_PSDU_HEADER_LENGTH = PHY_HDR_TOTAL_LENGTH
-        - PHY_HDR_PLCPSIGNAL_LENGTH;
+const int PHY_HDR_PSDU_HEADER_LENGTH = PHY_HDR_TOTAL_LENGTH - PHY_HDR_PLCPSIGNAL_LENGTH;
 
 /** @brief Bitrate of the PLCP Signal
  *
@@ -121,23 +138,25 @@ const SimTime SWITCHING_INTERVAL_11P = SimTime().setRaw(50000000000UL);
  */
 const SimTime GUARD_INTERVAL_11P = SimTime().setRaw(4000000000UL);
 
+
 /** @brief Channels as reserved by the FCC
  *
  */
 namespace Channels {
 enum ChannelNumber {
-    CRIT_SOL = 172,
-    SCH1 = 174,
-    SCH2 = 176,
-    CCH = 178,
-    SCH3 = 180,
-    SCH4 = 182,
-    HPPS = 184
+	CRIT_SOL = 172,
+	SCH1 = 174,
+	SCH2 = 176,
+	CCH = 178,
+	SCH3 = 180,
+	SCH4 = 182,
+	HPPS = 184
 };
 }
 
 enum t_channel {
-    type_CCH = 0, type_SCH,
+	type_CCH=0,
+	type_SCH,
 };
 
 #endif

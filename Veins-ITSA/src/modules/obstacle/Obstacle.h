@@ -17,6 +17,7 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 
+
 #ifndef OBSTACLE_OBSTACLE_H
 #define OBSTACLE_OBSTACLE_H
 
@@ -29,29 +30,27 @@
  */
 namespace Veins {
 class Obstacle {
-public:
-    typedef std::vector<Coord> Coords;
+	public:
+		typedef std::vector<Coord> Coords;
 
-    Obstacle(std::string id, double attenuationPerWall,
-            double attenuationPerMeter);
+		Obstacle(std::string id, double attenuationPerWall, double attenuationPerMeter);
 
-    void setShape(Coords shape);
-    const Coords& getShape() const;
-    const Coord getBboxP1() const;
-    const Coord getBboxP2() const;
+		void setShape(Coords shape);
+		const Coords& getShape() const;
+		const Coord getBboxP1() const;
+		const Coord getBboxP2() const;
 
-    double calculateAttenuation(const Coord& senderPos,
-            const Coord& receiverPos) const;
+		double calculateAttenuation(const Coord& senderPos, const Coord& receiverPos) const;
 
-    AnnotationManager::Annotation* visualRepresentation;
+		AnnotationManager::Annotation* visualRepresentation;
 
-protected:
-    std::string id;
-    double attenuationPerWall; /**< in dB. Consumer Wi-Fi vs. an exterior wall will give approx. 50 dB */
-    double attenuationPerMeter; /**< in dB / m. Consumer Wi-Fi vs. an interior hollow wall will give approx. 5 dB */
-    Coords coords;
-    Coord bboxP1;
-    Coord bboxP2;
+	protected:
+		std::string id;
+		double attenuationPerWall; /**< in dB. Consumer Wi-Fi vs. an exterior wall will give approx. 50 dB */
+		double attenuationPerMeter; /**< in dB / m. Consumer Wi-Fi vs. an interior hollow wall will give approx. 5 dB */
+		Coords coords;
+		Coord bboxP1;
+		Coord bboxP2;
 };
 }
 

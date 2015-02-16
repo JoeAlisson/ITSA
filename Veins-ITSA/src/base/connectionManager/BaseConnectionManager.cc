@@ -45,21 +45,28 @@ void BaseConnectionManager::initialize(int stage)
 
 	if (stage == 0)
 	{
-		coreDebug = hasPar("coreDebug") ? par("coreDebug").boolValue() : false;
+		if(hasPar("coreDebug"))
+			coreDebug = par("coreDebug").boolValue();
+		else
+			coreDebug = false;
 
-		drawMIR = hasPar("drawMaxIntfDist") ? par("drawMaxIntfDist").boolValue() : false;
+		drawMIR = hasPar("drawMaxIntfDist")
+						? par("drawMaxIntfDist").boolValue() : false;
 
 		ccEV <<"initializing BaseConnectionManager\n";
 
-		BaseWorldUtility* world = FindModule<BaseWorldUtility*>::findGlobalModule();
+		BaseWorldUtility* world = FindModule<BaseWorldUtility*>
+										::findGlobalModule();
 
 		assert(world != 0);
 
 		playgroundSize = world->getPgs();
-
 		useTorus = world->useTorus();
 
-		sendDirect = hasPar("sendDirect") ? par("sendDirect").boolValue() : false;
+		if(hasPar("sendDirect"))
+			sendDirect = par("sendDirect").boolValue();
+		else
+			sendDirect = false;
 
 		maxInterferenceDistance = calcInterfDist();
 		maxDistSquared = maxInterferenceDistance * maxInterferenceDistance;

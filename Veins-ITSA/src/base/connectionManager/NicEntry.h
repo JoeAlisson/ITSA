@@ -33,6 +33,7 @@ class ChannelAccess;
 }
 using Veins::ChannelAccess;
 
+
 /**
  * @brief NicEntry is used by ConnectionManager to store the necessary
  * information for each nic
@@ -41,16 +42,17 @@ using Veins::ChannelAccess;
  * @author Daniel Willkomm
  * @sa ConnectionManager
  */
-class MIXIM_API NicEntry: public cObject {
+class MIXIM_API NicEntry : public cObject
+{
 protected:
-    class NicEntryComparator {
-    public:
-        bool operator()(const NicEntry* nic1, const NicEntry* nic2) const {
-            return nic1->nicId < nic2->nicId;
-        }
-    };
-public:
-    /** @brief Type for map from NicEntry pointer to a gate.*/
+	class NicEntryComparator {
+	  public:
+		bool operator() (const NicEntry* nic1, const NicEntry* nic2) const {
+			return nic1->nicId < nic2->nicId;
+		}
+	};
+  public:
+	/** @brief Type for map from NicEntry pointer to a gate.*/
     typedef std::map<const NicEntry*, cGate*, NicEntryComparator> GateList;
 
     /** @brief module id of the nic for which information is stored*/
@@ -68,7 +70,7 @@ public:
     /** @brief Points to this nics ChannelAccess module */
     ChannelAccess* chAccess;
 
-protected:
+  protected:
     /** @brief Debug output switch*/
     bool coreDebug;
 
@@ -81,21 +83,18 @@ protected:
      **/
     GateList outConns;
 
-public:
+  public:
     /**
      * @brief Constructor, initializes all members
      */
-    NicEntry(bool debug) :
-            nicId(0), nicPtr(0), hostId(0) {
+    NicEntry(bool debug) : nicId(0), nicPtr(0), hostId(0){
         coreDebug = debug;
-    }
-    ;
+    };
 
     /**
      * @brief Destructor -- needs to be there...
      */
-    virtual ~NicEntry() {
-    }
+    virtual ~NicEntry() {}
 
     /** @brief Connect two nics */
     virtual void connectTo(NicEntry*) = 0;
@@ -104,15 +103,14 @@ public:
     virtual void disconnectFrom(NicEntry*) = 0;
 
     /** @brief return the actual gateList*/
-    const GateList& getGateList() {
-        return outConns;
+    const GateList& getGateList(){
+    	return outConns;
     }
 
     /** @brief Checks if this nic is connected to the "other" nic*/
     bool isConnected(const NicEntry* other) {
         return (outConns.find(other) != outConns.end());
-    }
-    ;
+    };
 
     /**
      * Called by P2PPhyLayer. Needed to send a packet directly to a
@@ -122,10 +120,10 @@ public:
      *
      * @param to pointer to the NicEntry to which the packet is about to be sent
      */
-    const cGate* getOutGateTo(const NicEntry* to) {
-        return outConns[to];
-    }
-    ;
+    const cGate* getOutGateTo(const NicEntry* to)
+    {
+    	return outConns[to];
+    };
 
 };
 

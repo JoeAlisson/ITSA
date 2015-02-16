@@ -120,10 +120,6 @@ std::string TraCICommandInterface::getRouteId(std::string nodeId) {
     return genericGetString(CMD_GET_VEHICLE_VARIABLE, nodeId, VAR_ROUTE_ID, RESPONSE_GET_VEHICLE_VARIABLE);
 }
 
-std::string TraCICommandInterface::getTypeId(std::string nodeId) {
-    return genericGetString(CMD_GET_VEHICLE_VARIABLE, nodeId, VAR_TYPE, RESPONSE_GET_VEHICLE_VARIABLE);
-}
-
 std::list<std::string> TraCICommandInterface::getRouteEdgeIds(std::string routeId) {
     return genericGetStringList(CMD_GET_ROUTE_VARIABLE, routeId, VAR_EDGES, RESPONSE_GET_ROUTE_VARIABLE);
 }
@@ -344,31 +340,6 @@ bool TraCICommandInterface::changeVehicleRoute(std::string nodeId, const std::li
     return true;
 }
 
-TraCICoord TraCICommandInterface::positionConversionCoord(double longitude, double latitude, double altitude) {
-    TraCIBuffer request;
-    request << static_cast<uint8_t>(POSITION_CONVERSION) << std::string("sim0")
-            << static_cast<uint8_t>(TYPE_COMPOUND) << static_cast<int32_t>(2)
-            << static_cast<uint8_t>(POSITION_LON_LAT_ALT) << longitude << latitude << altitude
-            << static_cast<uint8_t>(TYPE_UBYTE) << static_cast<uint8_t>(POSITION_2D);
-    TraCIBuffer response = connection.query(CMD_GET_SIM_VARIABLE, request);
-
-    uint8_t cmdLength; response >> cmdLength;
-    if (cmdLength == 0) {
-        uint32_t cmdLengthX;
-        response >> cmdLengthX;
-    }
-    uint8_t responseId; response >> responseId;
-    ASSERT(responseId == RESPONSE_GET_SIM_VARIABLE);
-    uint8_t variable; response >> variable;
-    ASSERT(variable == POSITION_CONVERSION);
-    std::string id; response >> id;
-    uint8_t convPosType; response >> convPosType;
-    ASSERT(convPosType == POSITION_2D);
-    double x; response >> x;
-    double y; response >> y;
-    return TraCICoord(x, y);
-}
-
 std::pair<double, double> TraCICommandInterface::positionConversionLonLat(const TraCICoord& coord) {
     TraCIBuffer request;
     request << static_cast<uint8_t>(POSITION_CONVERSION) << std::string("sim0")
@@ -398,7 +369,9 @@ std::pair<double, double> TraCICommandInterface::positionConversionLonLat(const 
 std::string TraCICommandInterface::genericGetString(uint8_t commandId, std::string objectId, uint8_t variableId, uint8_t responseId) {
     uint8_t resultTypeId = TYPE_STRING;
     std::string res;
+
     TraCIBuffer buf = connection.query(commandId, TraCIBuffer() << variableId << objectId);
+
     uint8_t cmdLength; buf >> cmdLength;
     if (cmdLength == 0) {
         uint32_t cmdLengthX;
@@ -413,6 +386,7 @@ std::string TraCICommandInterface::genericGetString(uint8_t commandId, std::stri
     uint8_t resType_r; buf >> resType_r;
     ASSERT(resType_r == resultTypeId);
     buf >> res;
+
     ASSERT(buf.eof());
 
     return res;

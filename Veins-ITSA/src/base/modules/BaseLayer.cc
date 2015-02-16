@@ -23,16 +23,14 @@
  *              by:              $Author: koepke $
  **************************************************************************/
 
+
 #include "BaseLayer.h"
 
 #include <assert.h>
 
-const simsignalwrap_t BaseLayer::catPassedMsgSignal = simsignalwrap_t(
-        MIXIM_SIGNAL_PASSEDMSG_NAME);
-const simsignalwrap_t BaseLayer::catPacketSignal = simsignalwrap_t(
-        MIXIM_SIGNAL_PACKET_NAME);
-const simsignalwrap_t BaseLayer::catDroppedPacketSignal = simsignalwrap_t(
-        MIXIM_SIGNAL_DROPPEDPACKET_NAME);
+const simsignalwrap_t BaseLayer::catPassedMsgSignal     = simsignalwrap_t(MIXIM_SIGNAL_PASSEDMSG_NAME);
+const simsignalwrap_t BaseLayer::catPacketSignal        = simsignalwrap_t(MIXIM_SIGNAL_PACKET_NAME);
+const simsignalwrap_t BaseLayer::catDroppedPacketSignal = simsignalwrap_t(MIXIM_SIGNAL_DROPPEDPACKET_NAME);
 
 /**
  * First we have to initialize the module from which we derived ours,
@@ -40,9 +38,10 @@ const simsignalwrap_t BaseLayer::catDroppedPacketSignal = simsignalwrap_t(
  * This module takes care of the gate initialization.
  *
  **/
-void BaseLayer::initialize(int stage) {
+void BaseLayer::initialize(int stage)
+{
     BatteryAccess::initialize(stage);
-    if (stage == 0) {
+    if(stage==0){
         passedMsg = NULL;
         if (hasPar("stats") && par("stats").boolValue()) {
             passedMsg = new PassedMessage();
@@ -50,16 +49,17 @@ void BaseLayer::initialize(int stage) {
                 passedMsg->fromModule = getId();
             }
         }
-        upperLayerIn = findGate("upperLayerIn");
+        upperLayerIn  = findGate("upperLayerIn");
         upperLayerOut = findGate("upperLayerOut");
-        lowerLayerIn = findGate("lowerLayerIn");
+        lowerLayerIn  = findGate("lowerLayerIn");
         lowerLayerOut = findGate("lowerLayerOut");
-        upperControlIn = findGate("upperControlIn");
+        upperControlIn  = findGate("upperControlIn");
         upperControlOut = findGate("upperControlOut");
-        lowerControlIn = findGate("lowerControlIn");
+        lowerControlIn  = findGate("lowerControlIn");
         lowerControlOut = findGate("lowerControlOut");
     }
 }
+
 
 /**
  * The basic handle message function.
@@ -72,24 +72,24 @@ void BaseLayer::initialize(int stage) {
  *
  * @sa handleUpperMsg, handleLowerMsg, handleSelfMsg
  **/
-void BaseLayer::handleMessage(cMessage* msg) {
-    if (msg->isSelfMessage()) {
+void BaseLayer::handleMessage(cMessage* msg)
+{
+    if (msg->isSelfMessage()){
         handleSelfMsg(msg);
-    } else if (msg->getArrivalGateId() == upperLayerIn) {
-        recordPacket(PassedMessage::INCOMING, PassedMessage::UPPER_DATA, msg);
+    } else if(msg->getArrivalGateId()==upperLayerIn) {
+        recordPacket(PassedMessage::INCOMING,PassedMessage::UPPER_DATA,msg);
         handleUpperMsg(msg);
-    } else if (msg->getArrivalGateId() == upperControlIn) {
-        recordPacket(PassedMessage::INCOMING, PassedMessage::UPPER_CONTROL,
-                msg);
+    } else if(msg->getArrivalGateId()==upperControlIn) {
+        recordPacket(PassedMessage::INCOMING,PassedMessage::UPPER_CONTROL,msg);
         handleUpperControl(msg);
-    } else if (msg->getArrivalGateId() == lowerControlIn) {
-        recordPacket(PassedMessage::INCOMING, PassedMessage::LOWER_CONTROL,
-                msg);
+    } else if(msg->getArrivalGateId()==lowerControlIn){
+        recordPacket(PassedMessage::INCOMING,PassedMessage::LOWER_CONTROL,msg);
         handleLowerControl(msg);
-    } else if (msg->getArrivalGateId() == lowerLayerIn) {
-        recordPacket(PassedMessage::INCOMING, PassedMessage::LOWER_DATA, msg);
+    } else if(msg->getArrivalGateId()==lowerLayerIn) {
+        recordPacket(PassedMessage::INCOMING,PassedMessage::LOWER_DATA,msg);
         handleLowerMsg(msg);
-    } else if (msg->getArrivalGateId() == -1) {
+    }
+    else if(msg->getArrivalGateId()==-1) {
         /* Classes extending this class may not use all the gates, f.e.
          * BaseApplLayer has no upper gates. In this case all upper gate-
          * handles are initialized to -1. When getArrivalGateId() equals -1,
@@ -103,51 +103,49 @@ void BaseLayer::handleMessage(cMessage* msg) {
          * with extra gates, but handleMessage() isn't overridden to
          * check for the new gate(s).
          */
-        opp_error(
-                "Unknown gateID?? Check configuration or override handleMessage().");
+        opp_error("Unknown gateID?? Check configuration or override handleMessage().");
     }
 }
 
 void BaseLayer::sendDown(cMessage *msg) {
-    recordPacket(PassedMessage::OUTGOING, PassedMessage::LOWER_DATA, msg);
+    recordPacket(PassedMessage::OUTGOING,PassedMessage::LOWER_DATA,msg);
     send(msg, lowerLayerOut);
 }
 
 void BaseLayer::sendUp(cMessage *msg) {
-    recordPacket(PassedMessage::OUTGOING, PassedMessage::UPPER_DATA, msg);
+    recordPacket(PassedMessage::OUTGOING,PassedMessage::UPPER_DATA,msg);
     send(msg, upperLayerOut);
 }
 
 void BaseLayer::sendControlUp(cMessage *msg) {
-    recordPacket(PassedMessage::OUTGOING, PassedMessage::UPPER_CONTROL, msg);
+    recordPacket(PassedMessage::OUTGOING,PassedMessage::UPPER_CONTROL,msg);
     if (gate(upperControlOut)->isPathOK())
         send(msg, upperControlOut);
     else {
-        EV << "BaseLayer: upperControlOut is not connected; dropping message"
-                  << std::endl;
+        EV << "BaseLayer: upperControlOut is not connected; dropping message" << std::endl;
         delete msg;
     }
 }
 
 void BaseLayer::sendControlDown(cMessage *msg) {
-    recordPacket(PassedMessage::OUTGOING, PassedMessage::LOWER_CONTROL, msg);
+    recordPacket(PassedMessage::OUTGOING,PassedMessage::LOWER_CONTROL,msg);
     if (gate(lowerControlOut)->isPathOK())
         send(msg, lowerControlOut);
     else {
-        EV << "BaseLayer: lowerControlOut is not connected; dropping message"
-                  << std::endl;
+        EV << "BaseLayer: lowerControlOut is not connected; dropping message" << std::endl;
         delete msg;
     }
 }
 
 void BaseLayer::recordPacket(PassedMessage::direction_t dir,
-        PassedMessage::gates_t gate, const cMessage* msg) {
+                             PassedMessage::gates_t     gate,
+                             const cMessage*            msg) {
     if (passedMsg == NULL)
         return;
     passedMsg->direction = dir;
-    passedMsg->gateType = gate;
-    passedMsg->kind = msg->getKind();
-    passedMsg->name = msg->getName();
+    passedMsg->gateType  = gate;
+    passedMsg->kind      = msg->getKind();
+    passedMsg->name      = msg->getName();
     emit(catPassedMsgSignal, passedMsg);
 }
 
@@ -155,7 +153,8 @@ void BaseLayer::finish() {
 
 }
 
-BaseLayer::~BaseLayer() {
+BaseLayer::~BaseLayer()
+{
     if (passedMsg != NULL) {
         delete passedMsg;
     }

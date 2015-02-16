@@ -19,6 +19,7 @@
  *              subclass to create your own layer
  **************************************************************************/
 
+
 #ifndef BASE_LAYER_H
 #define BASE_LAYER_H
 
@@ -37,7 +38,8 @@ using Veins::BatteryAccess;
  * @ingroup baseModules
  * @author Andreas Koepke
  */
-class MIXIM_API BaseLayer: public BatteryAccess {
+class MIXIM_API BaseLayer : public BatteryAccess
+{
 public:
     /** @brief SignalID for packets. */
     const static simsignalwrap_t catPacketSignal;
@@ -64,12 +66,14 @@ protected:
     PassedMessage *passedMsg;
 
 public:
-    BaseLayer() :
-            BatteryAccess(), passedMsg(NULL) {
-    }
-    BaseLayer(unsigned stacksize) :
-            BatteryAccess(stacksize), passedMsg(NULL) {
-    }
+    BaseLayer()
+        : BatteryAccess()
+        , passedMsg(NULL)
+    {}
+    BaseLayer(unsigned stacksize)
+        : BatteryAccess(stacksize)
+        , passedMsg(NULL)
+    {}
     virtual ~BaseLayer();
     //Module_Class_Members(BaseLayer, BaseModule, 0 );
 
@@ -77,7 +81,7 @@ public:
     virtual void initialize(int);
 
     /** @brief Called every time a message arrives*/
-    virtual void handleMessage(cMessage*);
+    virtual void handleMessage( cMessage* );
 
     /** @brief Called when the simulation has finished.*/
     virtual void finish();
@@ -116,6 +120,7 @@ protected:
 
     /*@}*/
 
+
     /**
      * @name Convenience Functions
      * @brief Functions for convenience - NOT to be modified
@@ -153,7 +158,8 @@ protected:
     void sendControlDown(cMessage *msg);
 
     void recordPacket(PassedMessage::direction_t dir,
-            PassedMessage::gates_t gate, const cMessage *m);
+                      PassedMessage::gates_t gate,
+                      const cMessage *m);
 
 // private:
 //   	void recordPacket(bool in, MsgType type, const cMessage *);

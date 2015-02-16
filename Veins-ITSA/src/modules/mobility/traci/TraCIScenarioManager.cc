@@ -75,6 +75,7 @@ void TraCIScenarioManager::initialize(int stage) {
 		return;
 	}
 
+
 	debug = par("debug");
 	connectAt = par("connectAt");
 	firstStepAt = par("firstStepAt");

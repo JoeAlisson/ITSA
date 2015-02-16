@@ -45,7 +45,7 @@ if options.inet:
         for filename in fnmatch.filter(filenames, '*.h'):
             inet_header_dirs.add(os.path.relpath(os.path.dirname(os.path.join(root, filename)), 'src'))
     inet_includes = ['-I' + s for s in inet_header_dirs]
-    inet_link = ["-L" + os.path.join(os.path.relpath(options.inet, 'src'), 'src'), "-linet", "-lbluetooth"]
+    inet_link = ["-L" + os.path.join(os.path.relpath(options.inet, 'src'), 'src'), "-linet"]
     inet_defs = ["-DINET_IMPORT", "-DWITH_INET"]
 
     makemake_flags += inet_includes + inet_link + inet_defs
