@@ -17,7 +17,7 @@ import org.car2x.veins.base.connectionManager.ConnectionManager;
 import org.car2x.veins.base.modules.BaseWorldUtility;
 import org.car2x.veins.modules.obstacle.ObstacleControl;
 import org.car2x.veins.modules.world.annotations.AnnotationManager;
-import org.car2x.veins.modules.mobility.pedestrian.PedestrianScenarioManager;
+import org.car2x.veins.pedestrian.modules.mobility.PedestrianScenarioManager;
 
 
 network InfoBusScenario
