@@ -23,7 +23,7 @@ std::string TraCIInterface::getTypeId(std::string nodeId) {
    return genericString(CMD_GET_VEHICLE_VARIABLE, nodeId, VAR_TYPE, RESPONSE_GET_VEHICLE_VARIABLE);
 }
 
-TraCICoord TraCIInterface::positionConversionCoord(double longitude, double latitude, double altitude) {
+TraCICoord TraCIInterface::convertLonLatToTraCICoord(double longitude, double latitude, double altitude) {
     TraCIBuffer request;
     request << static_cast<uint8_t>(POSITION_CONVERSION) << std::string("sim0")
             << static_cast<uint8_t>(TYPE_COMPOUND) << static_cast<int32_t>(2)

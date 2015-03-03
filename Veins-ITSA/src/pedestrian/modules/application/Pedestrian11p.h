@@ -27,9 +27,6 @@
 using Veins::PedestrianMobility;
 using Veins::AnnotationManager;
 
-/**
- * Small IVC Demo using 11p
- */
 class Pedestrian11p : public BaseWaveApplLayer {
 	public:
 		virtual void initialize(int stage);
@@ -42,15 +39,8 @@ class Pedestrian11p : public BaseWaveApplLayer {
 		AnnotationManager* annotations;
 		simtime_t lastDroveAt;
 		bool sentMessage;
-		long int lastPacketReceived;
-		virtual void onBeacon(WaveShortMessage* wsm);
-		virtual void onData(WaveShortMessage* wsm);
-		void sendMessage(std::string blockedRoadId);
 		virtual void handlePositionUpdate(cObject* obj);
-		virtual void sendWSM(WaveShortMessage* wsm);
-		virtual void handleWSM(WaveShortMessage* wsm);
-		virtual void handleLowerMsg(cMessage* msg);
-		WaveShortMessage* transformPosition(WaveShortMessage* wsm);
+		WaveShortMessage* convertCoordToLonLat(WaveShortMessage* wsm);
 };
 
 

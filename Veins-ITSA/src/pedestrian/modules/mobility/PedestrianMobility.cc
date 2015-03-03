@@ -43,7 +43,6 @@ void PedestrianMobility::initialize(int stage) {
 
         //ASSERT(isPreInitialized);
         isPreInitialized = false;
-
         Coord nextPos = calculateAntennaPosition(roadPosition);
         nextPos.z = move.getCurrentPosition().z;
 

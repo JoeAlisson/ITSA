@@ -127,8 +127,7 @@ class ReadablePacket {
     friend class PacketReader;
 public:
     static const short OPCODE = -1;
-    virtual ~ReadablePacket() {
-    }
+    virtual ~ReadablePacket() {}
     virtual void read(ByteBuffer* buf)=0;
     virtual void process(Manager* manager)=0;
     void setConnection(Client* con) { connection = con;}
@@ -145,7 +144,7 @@ public:
 class PacketReader {
     PacketListener* listener;
     bool running;
-    void handlerWrapped();
+    void handlerConnections();
 protected:
     Server* server;
     Manager* manager;

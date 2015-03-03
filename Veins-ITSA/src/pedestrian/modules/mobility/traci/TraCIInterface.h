@@ -24,7 +24,7 @@ public:
     TraCIInterface(TraCIConnection* connection);
     virtual ~TraCIInterface();
     std::string getTypeId(std::string nodeId);
-    TraCICoord positionConversionCoord(double longitude, double latitude, double altitude);
+    TraCICoord convertLonLatToTraCICoord(double longitude, double latitude, double altitude);
 };
 
 #endif /* TRACIINTERFACE_H_ */

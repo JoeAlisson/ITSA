@@ -29,7 +29,6 @@
 #include <PedestrianScenarioManager.h>
 
 /**
- * Based on @see TraciMobility
  *
  * @author Alisson Oliveira
  *
@@ -56,8 +55,8 @@ class PedestrianMobility : public BaseMobility {
 			return move.getPositionAt(t) ;
 		}
 
-		virtual TraCICommandInterface* getCommandInterface() const {
-			return getManager()->getCommandInterface();
+		virtual TraCIInterface* getCommandInterface() const {
+			return manager->getTraCIInterface();
 		}
 
 		virtual PedestrianScenarioManager* getManager() const {
@@ -67,28 +66,20 @@ class PedestrianMobility : public BaseMobility {
 
 	protected:
 		bool debug;
-
-
 		bool isPreInitialized;
-
 		double antennaPositionOffset;
-
 		simtime_t lastUpdate;
 		Coord roadPosition;
-
 		mutable PedestrianScenarioManager* manager;
 		Client* con;
-
 		double last_speed;
-
-
 		virtual void fixIfHostGetsOutside();
-
 		Coord calculateAntennaPosition(const Coord& vehiclePos) const;
 };
 }
 
 namespace Veins {
+
 class PedestrianMobilityAccess
 {
 	public:

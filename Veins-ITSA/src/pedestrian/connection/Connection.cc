@@ -73,6 +73,7 @@ ByteBuffer* Client::read() {
         while (received < HEADER_SIZE) {
             int r = recv(socket, tmp, HEADER_SIZE - received, 0);
             if (r <= 0) {
+                // something goes wrong.
                 std::cout << "error receiving header " << std::endl;
                 return 0;
             }else {
@@ -111,7 +112,8 @@ void Client::write() {
 
     int f = send(socket, array, size, 0);
     if (f < 0) {
-        std::cout << "error on writing" << std::endl;
+        //something goes wrong on the connection.
+        //Don't worry about that, this issue will be handled on another place.
     }
     delete array;
 }
@@ -158,6 +160,7 @@ NetServer::NetServer(int port, int connections) {
     listen(mSocket, connections);
     waiting = false;
 }
+
 Client* NetServer::waitConnection() {
     waiting = true;
     struct sockaddr_in clientAddress;
@@ -211,13 +214,12 @@ void PacketReader::setPacketListener(PacketListener* listener) {
     this->listener = listener;
 }
 
-void PacketReader::handlerWrapped() {
+void PacketReader::handlerConnections() {
     Client* client = server->waitConnection();
     if(client == NULL) {
         server->acceptConnection();
         return;
     }
-    std::cout << "connection successful, client address: " << client->getAddress() << std::endl;
     manager->handleConnection(client);
     try {
         do {
@@ -235,11 +237,8 @@ void PacketReader::handlerWrapped() {
                 packet->read(buf);
                 listener->processPacket(packet, manager);
             }
-            std::cout << "deleting buf " << std::endl;
             delete buf;
-            std::cout << "deleting packet " << std::endl;
             delete packet;
-            std::cout << "checking client" << std::endl;
         } while (client->isConnected());
     } catch (...) {
         std::cout << "error in handler " << std::endl;
@@ -249,7 +248,7 @@ void PacketReader::handlerWrapped() {
 }
 
 void* PacketReader::handler(void* context) {
-    ((PacketReader*) context)->handlerWrapped();
+    ((PacketReader*) context)->handlerConnections();
     return context;
 }
 
