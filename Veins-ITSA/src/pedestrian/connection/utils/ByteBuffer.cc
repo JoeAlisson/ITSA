@@ -196,7 +196,7 @@ void ByteBuffer::getBytes(uint8_t* buf, uint32_t len) {
 }
 
 char ByteBuffer::getChar() {
-	return read<uint16_t>();
+	return read<char>();
 }
 
 char ByteBuffer::getChar(uint32_t index) {
@@ -275,7 +275,7 @@ void ByteBuffer::putBytes(uint8_t* b, uint32_t len, uint32_t index) {
 }
 
 void ByteBuffer::putChar(char value) {
-	append<uint16_t>(value);
+	append<char>(value);
 }
 
 void ByteBuffer::putChar(char value, uint32_t index) {

@@ -259,7 +259,7 @@ void WritablePacket::writeString(std::string msg, ByteBuffer* buf) {
     for (unsigned short i = 0; i < msg.size(); ++i) {
         buf->putChar(msg[i]);
     }
-    buf->putChar('\000');
+    buf->putChar(0);
 }
 
 std::string ReadablePacket::readString(ByteBuffer * buf) {
