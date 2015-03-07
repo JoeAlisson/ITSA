@@ -152,6 +152,7 @@ void Server::setPacketReader(PacketReader* reader) {
 }
 
 NetServer::NetServer(int port, int connections) {
+    std::cout << "Using net server " << std::endl;
     mSocket = socket(AF_INET, SOCK_STREAM, 0);
     local.sin_family = AF_INET;
     local.sin_addr.s_addr = INADDR_ANY;
@@ -198,10 +199,10 @@ Client* BluetoothServer::waitConnection() {
 }
 
 // PacketReader
-PacketReader::PacketReader(Server* con, Manager* manager) {
-    this->server = con;
+PacketReader::PacketReader(Server* server, Manager* manager, PacketListener* listener) {
+    this->server = server;
     this->manager = manager;
-    listener = NULL;
+    this->listener = listener;
 }
 
 PacketReader::~PacketReader() { }
@@ -215,6 +216,7 @@ void PacketReader::setPacketListener(PacketListener* listener) {
 }
 
 void PacketReader::handlerConnections() {
+    std::cout << "Waiting Connection " << std::endl;
     Client* client = server->waitConnection();
     if(client == NULL) {
         server->acceptConnection();

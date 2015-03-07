@@ -23,13 +23,15 @@
 
 #include <ConnectionHandler.h>
 
-ConnectionHandler::ConnectionHandler(const char* address, Manager* manager) :
-        PacketReader(new BluetoothServer(address), manager) {
+
+ConnectionHandler::ConnectionHandler(Server* server, Manager* manager, int maxConnections) :
+        PacketReader(server, manager) {
     server->setPacketReader(this);
     setPacketListener(this);
-    maxConnnections = 7;
+    this->maxConnections = maxConnections;
     activeConnections = 0;
 }
+
 
 ConnectionHandler::~ConnectionHandler() {
     delete server;
@@ -37,7 +39,7 @@ ConnectionHandler::~ConnectionHandler() {
 }
 
 void ConnectionHandler::listen() {
-    if (activeConnections >= maxConnnections) return;
+    if (activeConnections >= maxConnections) return;
     server->acceptConnection();
 }
 

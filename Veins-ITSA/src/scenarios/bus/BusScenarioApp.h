@@ -40,7 +40,7 @@ class BusScenarioApp : public BaseWaveApplLayer {
 		bool isParking;
 		bool sendWhileParking;
 		static const simsignalwrap_t parkingStateChangedSignal;
-		cMessage* sendRouteEvt;
+		cMessage* sendNotificationEvt;
 		std::string routeId;
 		std::string typeId;
 		int service;

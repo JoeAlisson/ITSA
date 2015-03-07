@@ -18,6 +18,7 @@ import org.car2x.veins.base.modules.BaseWorldUtility;
 import org.car2x.veins.modules.obstacle.ObstacleControl;
 import org.car2x.veins.modules.world.annotations.AnnotationManager;
 import org.car2x.veins.pedestrian.modules.PedestrianScenarioManager;
+import org.car2x.veins.nodes.RSU;
 
 
 network PedestrianScenario
@@ -48,6 +49,9 @@ network PedestrianScenario
         manager: PedestrianScenarioManager {
             parameters:
                 @display("p=512,128");
+        }
+        rsu[1]: RSU {
+            @display("p=20000,20000;b=10,10,oval");
         }
 
     connections allowunconnected:

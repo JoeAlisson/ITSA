@@ -46,6 +46,7 @@ INCLUDE_PATH = \
     -Ipedestrian/nodes \
     -Iscenarios \
     -Iscenarios/bus \
+    -Iscenarios/notification \
     -Iscripts
 
 # Additional object and library files to link with
@@ -126,6 +127,8 @@ OBJS = \
     $O/scenarios/bus/Routes.o \
     $O/scenarios/bus/PedestrianBusApp.o \
     $O/scenarios/bus/BusScenarioApp.o \
+    $O/scenarios/notification/RSUNotificationScenarioApp.o \
+    $O/scenarios/notification/PedestrianNotificationApp.o \
     $O/base/messages/BorderMsg_m.o \
     $O/base/messages/AirFrame_m.o \
     $O/base/messages/MacPkt_m.o \
@@ -252,6 +255,7 @@ clean:
 	$(Q)-rm -f pedestrian/nodes/*_m.cc pedestrian/nodes/*_m.h
 	$(Q)-rm -f scenarios/*_m.cc scenarios/*_m.h
 	$(Q)-rm -f scenarios/bus/*_m.cc scenarios/bus/*_m.h
+	$(Q)-rm -f scenarios/notification/*_m.cc scenarios/notification/*_m.h
 	$(Q)-rm -f scripts/*_m.cc scripts/*_m.h
 
 cleanall: clean
@@ -259,7 +263,7 @@ cleanall: clean
 
 depend:
 	$(qecho) Creating dependencies...
-	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc base/*.cc base/connectionManager/*.cc base/messages/*.cc base/modules/*.cc base/phyLayer/*.cc base/utils/*.cc inet/*.cc modules/*.cc modules/analogueModel/*.cc modules/application/*.cc modules/application/ieee80211p/*.cc modules/application/traci/*.cc modules/mac/*.cc modules/mac/ieee80211p/*.cc modules/messages/*.cc modules/mobility/*.cc modules/mobility/traci/*.cc modules/nic/*.cc modules/obstacle/*.cc modules/phy/*.cc modules/utility/*.cc modules/world/*.cc modules/world/annotations/*.cc nodes/*.cc pedestrian/*.cc pedestrian/connection/*.cc pedestrian/connection/packet/*.cc pedestrian/connection/utils/*.cc pedestrian/modules/*.cc pedestrian/modules/application/*.cc pedestrian/modules/mobility/*.cc pedestrian/modules/mobility/traci/*.cc pedestrian/nodes/*.cc scenarios/*.cc scenarios/bus/*.cc scripts/*.cc
+	$(Q)$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc base/*.cc base/connectionManager/*.cc base/messages/*.cc base/modules/*.cc base/phyLayer/*.cc base/utils/*.cc inet/*.cc modules/*.cc modules/analogueModel/*.cc modules/application/*.cc modules/application/ieee80211p/*.cc modules/application/traci/*.cc modules/mac/*.cc modules/mac/ieee80211p/*.cc modules/messages/*.cc modules/mobility/*.cc modules/mobility/traci/*.cc modules/nic/*.cc modules/obstacle/*.cc modules/phy/*.cc modules/utility/*.cc modules/world/*.cc modules/world/annotations/*.cc nodes/*.cc pedestrian/*.cc pedestrian/connection/*.cc pedestrian/connection/packet/*.cc pedestrian/connection/utils/*.cc pedestrian/modules/*.cc pedestrian/modules/application/*.cc pedestrian/modules/mobility/*.cc pedestrian/modules/mobility/traci/*.cc pedestrian/nodes/*.cc scenarios/*.cc scenarios/bus/*.cc scenarios/notification/*.cc scripts/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 $O/base/connectionManager/BaseConnectionManager.o: base/connectionManager/BaseConnectionManager.cc \
@@ -1270,11 +1274,11 @@ $O/scenarios/bus/BusScenarioApp.o: scenarios/bus/BusScenarioApp.cc \
 	modules/utility/Consts80211p.h \
 	modules/world/annotations/AnnotationManager.h \
 	pedestrian/modules/PedestrianScenarioManager.h \
+	pedestrian/modules/Services.h \
 	pedestrian/modules/mobility/ConnectionHandler.h \
 	pedestrian/modules/mobility/traci/TraCIInterface.h \
 	scenarios/bus/BusScenarioApp.h \
-	scenarios/bus/Routes.h \
-	scenarios/bus/Services.h
+	scenarios/bus/Routes.h
 $O/scenarios/bus/PedestrianBusApp.o: scenarios/bus/PedestrianBusApp.cc \
 	base/connectionManager/BaseConnectionManager.h \
 	base/connectionManager/ChannelAccess.h \
@@ -1318,4 +1322,85 @@ $O/scenarios/bus/PedestrianBusApp.o: scenarios/bus/PedestrianBusApp.cc \
 	scenarios/bus/PedestrianBusApp.h
 $O/scenarios/bus/Routes.o: scenarios/bus/Routes.cc \
 	scenarios/bus/Routes.h
+$O/scenarios/notification/PedestrianNotificationApp.o: scenarios/notification/PedestrianNotificationApp.cc \
+	base/connectionManager/BaseConnectionManager.h \
+	base/connectionManager/ChannelAccess.h \
+	base/connectionManager/NicEntry.h \
+	base/modules/BaseApplLayer.h \
+	base/modules/BaseBattery.h \
+	base/modules/BaseLayer.h \
+	base/modules/BaseMobility.h \
+	base/modules/BaseModule.h \
+	base/modules/BaseWorldUtility.h \
+	base/modules/BatteryAccess.h \
+	base/utils/FindModule.h \
+	base/utils/HostState.h \
+	base/utils/MiXiMDefs.h \
+	base/utils/Move.h \
+	base/utils/NetwToMacControlInfo.h \
+	base/utils/PassedMessage.h \
+	base/utils/SimpleAddress.h \
+	base/utils/miximkerneldefs.h \
+	inet/Coord.h \
+	inet/FWMath.h \
+	modules/application/ieee80211p/BaseWaveApplLayer.h \
+	modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
+	modules/messages/WaveShortMessage_m.h \
+	modules/mobility/traci/TraCIBuffer.h \
+	modules/mobility/traci/TraCIColor.h \
+	modules/mobility/traci/TraCICommandInterface.h \
+	modules/mobility/traci/TraCIConnection.h \
+	modules/mobility/traci/TraCICoord.h \
+	modules/mobility/traci/TraCIScenarioManager.h \
+	modules/mobility/traci/TraCIScenarioManagerLaunchd.h \
+	modules/obstacle/Obstacle.h \
+	modules/obstacle/ObstacleControl.h \
+	modules/utility/Consts80211p.h \
+	modules/world/annotations/AnnotationManager.h \
+	pedestrian/modules/PedestrianScenarioManager.h \
+	pedestrian/modules/application/Pedestrian11p.h \
+	pedestrian/modules/mobility/ConnectionHandler.h \
+	pedestrian/modules/mobility/PedestrianMobility.h \
+	pedestrian/modules/mobility/traci/TraCIInterface.h \
+	scenarios/notification/PedestrianNotificationApp.h
+$O/scenarios/notification/RSUNotificationScenarioApp.o: scenarios/notification/RSUNotificationScenarioApp.cc \
+	base/connectionManager/BaseConnectionManager.h \
+	base/connectionManager/ChannelAccess.h \
+	base/connectionManager/NicEntry.h \
+	base/modules/BaseApplLayer.h \
+	base/modules/BaseBattery.h \
+	base/modules/BaseLayer.h \
+	base/modules/BaseMobility.h \
+	base/modules/BaseModule.h \
+	base/modules/BaseWorldUtility.h \
+	base/modules/BatteryAccess.h \
+	base/utils/FindModule.h \
+	base/utils/HostState.h \
+	base/utils/MiXiMDefs.h \
+	base/utils/Move.h \
+	base/utils/NetwToMacControlInfo.h \
+	base/utils/PassedMessage.h \
+	base/utils/SimpleAddress.h \
+	base/utils/miximkerneldefs.h \
+	inet/Coord.h \
+	inet/FWMath.h \
+	modules/application/ieee80211p/BaseWaveApplLayer.h \
+	modules/mac/ieee80211p/WaveAppToMac1609_4Interface.h \
+	modules/messages/WaveShortMessage_m.h \
+	modules/mobility/traci/TraCIBuffer.h \
+	modules/mobility/traci/TraCIColor.h \
+	modules/mobility/traci/TraCICommandInterface.h \
+	modules/mobility/traci/TraCIConnection.h \
+	modules/mobility/traci/TraCICoord.h \
+	modules/mobility/traci/TraCIScenarioManager.h \
+	modules/mobility/traci/TraCIScenarioManagerLaunchd.h \
+	modules/obstacle/Obstacle.h \
+	modules/obstacle/ObstacleControl.h \
+	modules/utility/Consts80211p.h \
+	modules/world/annotations/AnnotationManager.h \
+	pedestrian/modules/PedestrianScenarioManager.h \
+	pedestrian/modules/Services.h \
+	pedestrian/modules/mobility/ConnectionHandler.h \
+	pedestrian/modules/mobility/traci/TraCIInterface.h \
+	scenarios/notification/RSUNotificationScenarioApp.h
 

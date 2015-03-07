@@ -24,7 +24,6 @@ using Veins::PedestrianMobilityAccess;
 using Veins::AnnotationManagerAccess;
 using Veins::TraCICoord;
 
-
 Define_Module(PedestrianBusApp);
 
 void PedestrianBusApp::initialize(int stage) {
@@ -43,9 +42,6 @@ void PedestrianBusApp::onBeacon(WaveShortMessage* wsm) {
     WaveShortMessage* cop = convertCoordToLonLat(wsm);
     Coord pos = cop->getSenderPos();
     connection->sendPacket(new W_VehiclePacket(cop->getSenderAddress(),cop->getPsc(),cop->getPsid(), pos.x, pos.y, pos.z));
-
-    if (!sentMessage)
-        sendWSM(cop);
 }
 
 void PedestrianBusApp::onData(WaveShortMessage* wsm) {
@@ -58,8 +54,10 @@ void PedestrianBusApp::onData(WaveShortMessage* wsm) {
     Coord pos = cop->getSenderPos();
     connection->sendPacket(new W_VehiclePacket(cop->getSenderAddress(),cop->getPsc(),cop->getPsid(), pos.x, pos.y, pos.z));
 
-    if (!sentMessage)
+    if (!sentMessage) {
+        sentMessage = true;
         sendWSM(cop);
+    }
 }
 
 void PedestrianBusApp::handleLowerMsg(cMessage* msg) {

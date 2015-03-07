@@ -29,9 +29,9 @@
 
 class ConnectionHandler : public PacketReader, public PacketListener {
     int activeConnections;
-    int maxConnnections;
+    int maxConnections;
 public:
-    ConnectionHandler(const char*, Manager*);
+    ConnectionHandler(Server*, Manager*, int=7);
     virtual ~ConnectionHandler();
     virtual ReadablePacket* createPacket(uint16_t, Client*);
     virtual void processPacket(ReadablePacket*, Manager*);

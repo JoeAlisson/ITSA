@@ -39,6 +39,10 @@ simple PedestrianScenarioManager extends TraCIScenarioManagerLaunchd {
         @class(Veins::PedestrianScenarioManager);
         string pedestrianModType = default("org.car2x.veins.pedestrian.nodes.Pedestrian");  // module type to be used in the simulation for each pedestrian
         string pedestrianModName = default("pedestrian");  // module name to be used in the simulation for each pedestrian
+        bool useBluetooth = default(true);
         string bluetoothAddress = default("14:2D:27:CD:A5:68");
+        string IPAddress = default("127.0.0.1");
+        int socketPort = default(3637);
+        int maxConnections = default(7);
     
 }

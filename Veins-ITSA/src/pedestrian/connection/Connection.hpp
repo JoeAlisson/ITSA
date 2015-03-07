@@ -150,7 +150,7 @@ protected:
     Manager* manager;
     void setConnection(Server*);
 public:
-    PacketReader(Server* = NULL, Manager* = NULL);
+    PacketReader(Server* = NULL, Manager* = NULL, PacketListener* = NULL);
     virtual ~PacketReader();
     static void* handler(void*);
     virtual ReadablePacket* createPacket(uint16_t, Client*) = 0;

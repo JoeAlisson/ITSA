@@ -73,6 +73,7 @@ void W_VehiclePacket::write(Client* con, ByteBuffer* buf) {
     buf->putDouble(latitude);
     buf->putDouble(altitude);
 }
+
 W_RoutePacket::W_RoutePacket(int sender, std::string serviceContext, int service, std::string route, double longitude, double latitude, double altitude) :
     W_VehiclePacket(sender, serviceContext, service, longitude, latitude, altitude){
     this->route = route;
@@ -81,6 +82,21 @@ W_RoutePacket::W_RoutePacket(int sender, std::string serviceContext, int service
 void W_RoutePacket::write(Client* con, ByteBuffer* buf) {
     W_VehiclePacket::write(con,buf);
     writeString(route,buf);
+}
+
+
+W_NotificationPacket::W_NotificationPacket(int sender, std::string serviceContext, int service, std::string data) {
+    this->sender = sender;
+    this->serviceContext = serviceContext;
+    this->service = service;
+    this->data = data;
+}
+
+void W_NotificationPacket::write(Client* con, ByteBuffer* buf) {
+    buf->putInt(sender);
+    buf->putInt(service);
+    writeString(serviceContext, buf);
+    writeString(data,buf);
 }
 
 // ============================ READABLE PACKETS ====================================

@@ -40,10 +40,10 @@ void BusScenarioApp::initialize(int stage) {
     } else if (stage == 1) {
         routeId = getTraciInterface()->getRouteId(mobility->getExternalId());
         typeId = getTraciInterface()->getTypeId(mobility->getExternalId());
-        sendRouteEvt = new cMessage("routeEvt");
+        sendNotificationEvt = new cMessage("routeEvt");
         if (typeId == "bus" && RoutesAccess().get(routeId) != "") {
             service = PUBLIC_TRANSPORT;
-            scheduleAt(simTime() + 10, sendRouteEvt);
+            scheduleAt(simTime() + 10, sendNotificationEvt);
         }
 
     }
@@ -67,15 +67,13 @@ void BusScenarioApp::onData(WaveShortMessage* wsm) {
 void BusScenarioApp::sendMessage(std::string blockedRoadId) {
     sentMessage = true;
     t_channel channel = dataOnSch ? type_SCH : type_CCH;
-    WaveShortMessage* wsm = prepareWSM("data", dataLengthBits, channel,
-            dataPriority, -1, 2);
+    WaveShortMessage* wsm = prepareWSM("data", dataLengthBits, channel, dataPriority, -1, 2);
     wsm->setWsmData(blockedRoadId.c_str());
     sendWSM(wsm);
 }
 
 void BusScenarioApp::receiveSignal(cComponent* source, simsignal_t signalID, cObject* obj) {
-    Enter_Method_Silent
-    ();
+    Enter_Method_Silent();
     if (signalID == mobilityStateChangedSignal) {
         handlePositionUpdate(obj);
     } else if (signalID == parkingStateChangedSignal) {
@@ -122,14 +120,14 @@ void BusScenarioApp::sendWSM(WaveShortMessage* wsm) {
 }
 
 void BusScenarioApp::handleSelfMsg(cMessage* msg) {
-    if (msg == sendRouteEvt) {
+    if (msg == sendNotificationEvt) {
         t_channel channel = dataOnSch ? type_SCH : type_CCH;
         WaveShortMessage* wsm = prepareWSM("route", dataLengthBits, channel, dataPriority, -1, 2);
         wsm->setPsid(service);
         wsm->setPsc("bus");
         wsm->setWsmData(RoutesAccess().get(routeId).c_str());
         sendWSM(wsm);
-        scheduleAt(simTime() + 10, sendRouteEvt);
+        scheduleAt(simTime() + 10, sendNotificationEvt);
     } else {
         BaseWaveApplLayer::handleSelfMsg(msg);
     }

@@ -73,6 +73,18 @@ public:
 };
 
 
+class W_NotificationPacket : public WritablePacket {
+    static const uint16_t OPCODE = 0xFF;
+protected:
+    int sender;
+    std::string serviceContext;
+    int service;
+    std::string data;
+public:
+    W_NotificationPacket(int sender, std::string serviceContext, int service, std::string data);
+    virtual void write(Client*, ByteBuffer*);
+    virtual short getOpcode() { return OPCODE; }
+};
 
 // =========================== READABLE PACKETS =============================
 

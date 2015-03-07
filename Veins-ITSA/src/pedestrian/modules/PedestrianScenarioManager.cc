@@ -55,7 +55,15 @@ void PedestrianScenarioManager::initialize(int stage) {
     pedestrianModType = par("pedestrianModType").stdstringValue();
     pedestrianModName = par("pedestrianModName").stdstringValue();
 
-    connectionHandler = new ConnectionHandler(par("bluetoothAddress").stringValue(), this);
+    Server* server;
+
+    if(par("useBluetooth").boolValue()) {
+        server = new BluetoothServer(par("bluetoothAddress").stringValue(), 1, int(par("maxConnections")));
+    } else {
+        server = new NetServer(int(par("socketPort")), int(par("maxConnections")));
+    }
+
+    connectionHandler = new ConnectionHandler(server, this);
     TraCIScenarioManagerLaunchd::initialize(stage);
 
 }
