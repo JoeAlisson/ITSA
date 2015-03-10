@@ -1,6 +1,4 @@
 //
-// Copyright (C) 2006-2012 Christoph Sommer <christoph.sommer@uibk.ac.at>
-//
 // Documentation for these modules is at http://veins.car2x.org/
 //
 // This program is free software; you can redistribute it and/or modify
@@ -22,19 +20,6 @@ package org.car2x.veins.pedestrian.modules.mobility;
 
 import org.car2x.veins.base.modules.BaseMobility;
 
-//
-// Used in modules created by the TraCIScenarioManager.
-//
-// This module relies on the TraCIScenarioManager for state updates
-// and can not be used on its own.
-//
-// See the Veins website <a href="http://veins.car2x.org/"> for a tutorial, documentation, and publications </a>.
-//
-// @author Christoph Sommer, David Eckhoff, Luca Bedogni, Bastian Halmos, Stefan Joerer
-//
-// @see TraCIScenarioManager
-// @see TraCIScenarioManagerLaunchd
-//
 simple PedestrianMobility extends BaseMobility
 {
     parameters:

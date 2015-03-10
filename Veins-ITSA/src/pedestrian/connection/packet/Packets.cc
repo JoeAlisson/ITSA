@@ -84,6 +84,18 @@ void W_RoutePacket::write(Client* con, ByteBuffer* buf) {
     writeString(route,buf);
 }
 
+W_TLStatePacket::W_TLStatePacket(int sender, std::string serviceContext, int service, char state, int nextSwitch, double longitude, double latitude, double altitude) :
+    W_VehiclePacket(sender, serviceContext, service, longitude, latitude, altitude){
+    this->state = state;
+    this->nextSwitch = nextSwitch;
+}
+
+void W_TLStatePacket::write(Client* con, ByteBuffer* buf) {
+    W_VehiclePacket::write(con,buf);
+    buf->putChar(state);
+    buf->putInt(nextSwitch);
+}
+
 
 W_NotificationPacket::W_NotificationPacket(int sender, std::string serviceContext, int service, std::string data) {
     this->sender = sender;

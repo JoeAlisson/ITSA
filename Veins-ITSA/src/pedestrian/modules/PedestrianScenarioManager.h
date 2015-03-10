@@ -16,7 +16,7 @@
 /*
  *  @author Alisson Oliveira
  *
- *  Updated on: Jan 03, 2015
+ *  Updated on: Mar 08, 2015
  *
  */
 #ifndef __VEINS_INFOBUSSCENARIOMANAGER_H_
@@ -32,7 +32,7 @@ namespace Veins {
 class PedestrianScenarioManager : public TraCIScenarioManagerLaunchd, public Manager
 {
   public:
-    virtual ~PedestrianScenarioManager();
+    virtual ~PedestrianScenarioManager() {}
     virtual void initialize(int stage);
     virtual void finish();
     virtual void newPedestrian(Client*, double, double, double);
@@ -51,12 +51,18 @@ class PedestrianScenarioManager : public TraCIScenarioManagerLaunchd, public Man
             this->altitude = altitude;
         }
     };
+
     std::map<Client*, cModule*> pedestrians;
     std::string pedestrianModType;
     std::string pedestrianModName;
-    uint32_t pedestrianNameCounter;
     size_t nextNodePedestrianIndex;
     std::map<Client*, PedestrianPosition*> pedestrianToUpdate;
+
+    std::map<std::string, cModule*> trafficLights;
+    std::string TLModType;
+    std::string TLModName;
+    size_t nextTLIndex;
+
     ConnectionHandler* connectionHandler;
     TraCIInterface* traci;
     virtual void addPedestrianModule(Client*, Coord);

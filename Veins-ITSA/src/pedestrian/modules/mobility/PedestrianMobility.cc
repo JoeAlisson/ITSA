@@ -109,7 +109,14 @@ void PedestrianMobility::changePosition() {
 }
 
 void PedestrianMobility::updateDisplayString() {
+    getParentModule()->getDisplayString().setTagArg("b", 2, "rect");
+    getParentModule()->getDisplayString().setTagArg("b", 3, "red");
+    getParentModule()->getDisplayString().setTagArg("b", 4, "red");
+    getParentModule()->getDisplayString().setTagArg("b", 5, "0");
 
+    getParentModule()->getDisplayString().setTagArg("t", 0, "\u2190");
+    getParentModule()->getDisplayString().setTagArg("b", 0, "4");
+    getParentModule()->getDisplayString().setTagArg("b", 1, "2");
 }
 
 void PedestrianMobility::fixIfHostGetsOutside() {

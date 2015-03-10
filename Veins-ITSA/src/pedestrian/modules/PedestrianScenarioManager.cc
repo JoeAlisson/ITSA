@@ -17,26 +17,23 @@
  *
  *  @author Alisson Oliveira
  *
- *  Updated on: Jan 03, 2015
+ *  Updated on: Mar 08, 2015
  */
 
 #include <PedestrianScenarioManager.h>
 #include <PedestrianMobility.h>
 #include <Pedestrian11p.h>
+#include <TraCIConstants.h>
 
 using Veins::PedestrianScenarioManager;
 
 Define_Module(PedestrianScenarioManager);
 
-PedestrianScenarioManager::~PedestrianScenarioManager() {
-
-}
-
 void PedestrianScenarioManager::handleSelfMsg(cMessage *msg) {
     TraCIScenarioManager::handleSelfMsg(msg);
     if (msg == connectAndStartTrigger) {
-        traci = new TraCIInterface(connection);
         connectionHandler->listen();
+        traci = new TraCIInterface(connection);
     }
     if (msg == executeOneTimestepTrigger) {
         executeOneTimestep();
@@ -49,11 +46,13 @@ void PedestrianScenarioManager::initialize(int stage) {
         return;
     }
 
-    pedestrianNameCounter = 0;
     nextNodePedestrianIndex = 0;
-
     pedestrianModType = par("pedestrianModType").stdstringValue();
     pedestrianModName = par("pedestrianModName").stdstringValue();
+
+    nextTLIndex = 0;
+    TLModName = par("trafficLightModName").stdstringValue();
+    TLModType = par("trafficLightModType").stdstringValue();
 
     Server* server;
 

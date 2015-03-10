@@ -72,6 +72,16 @@ public:
     virtual short getOpcode() { return OPCODE; }
 };
 
+class W_TLStatePacket : public W_VehiclePacket {
+    static const uint16_t OPCODE = 0x05;
+    char state;
+    int nextSwitch;
+public:
+    W_TLStatePacket(int sender, std::string serviceContext, int service, char state, int nextSwitch, double longitude, double latitude, double altitude);
+    virtual void write(Client*, ByteBuffer*);
+    virtual short getOpcode() { return OPCODE; }
+};
+
 
 class W_NotificationPacket : public WritablePacket {
     static const uint16_t OPCODE = 0xFF;
@@ -85,6 +95,7 @@ public:
     virtual void write(Client*, ByteBuffer*);
     virtual short getOpcode() { return OPCODE; }
 };
+
 
 // =========================== READABLE PACKETS =============================
 

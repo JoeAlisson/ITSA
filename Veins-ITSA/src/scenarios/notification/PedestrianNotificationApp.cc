@@ -60,9 +60,7 @@ void PedestrianNotificationApp::handleLowerMsg(cMessage* msg) {
         WaveShortMessage* wsm = dynamic_cast<WaveShortMessage*>(msg);
         ASSERT(wsm);
         connection->sendPacket(new W_NotificationPacket(wsm->getSenderAddress(), wsm->getPsc(), wsm->getPsid(), wsm->getWsmData()));
-        std::cout << "Handled notification" << std::endl;
         delete(msg);
-        std::cout << "deleted" << std::endl;
     } else {
         BaseWaveApplLayer::handleLowerMsg(msg);
     }

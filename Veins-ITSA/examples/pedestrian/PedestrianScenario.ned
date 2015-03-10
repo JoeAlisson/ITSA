@@ -19,6 +19,7 @@ import org.car2x.veins.modules.obstacle.ObstacleControl;
 import org.car2x.veins.modules.world.annotations.AnnotationManager;
 import org.car2x.veins.pedestrian.modules.PedestrianScenarioManager;
 import org.car2x.veins.nodes.RSU;
+import org.car2x.veins.pedestrian.nodes.TrafficLight;
 
 
 network PedestrianScenario
@@ -51,6 +52,9 @@ network PedestrianScenario
                 @display("p=512,128");
         }
         rsu[1]: RSU {
+            @display("p=20000,20000;b=10,10,oval");
+        }
+        tl[1]: TrafficLight {
             @display("p=20000,20000;b=10,10,oval");
         }
 
